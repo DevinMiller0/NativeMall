@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.pamo.nativemall.widget.TopBar
-        android:id="@+id/foot_prints_topBar"
+        android:id="@+id/about_us_topBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:titleText="关于我们"/>
