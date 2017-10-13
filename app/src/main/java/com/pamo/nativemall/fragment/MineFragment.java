@@ -14,7 +14,6 @@ import com.pamo.nativemall.activity.CollectionActivity;
 import com.pamo.nativemall.activity.FeedBackActivity;
 import com.pamo.nativemall.activity.FootPrintsActivity;
 import com.pamo.nativemall.activity.HelpCenterActivity;
-import com.pamo.nativemall.activity.MainActivity;
 import com.pamo.nativemall.activity.MemoActivity;
 import com.pamo.nativemall.activity.MyCarteActivity;
 import com.pamo.nativemall.adapter.GridAdapter;
@@ -26,8 +25,26 @@ import com.pamo.nativemall.widget.itemDecoration;
 
 public class MineFragment extends BaseFragment {
 
-    private RecyclerView gridView;
-    private GridAdapter adapter;
+    public RecyclerView gridView;
+    public GridAdapter adapter;
+    public int[] background = {R.drawable.bg_foot_prints
+            , R.drawable.bg_collection_store
+            , R.drawable.bg_business_card
+            , R.drawable.bg_my_card
+            , R.drawable.bg_memo
+            , R.drawable.bg_help_center
+            , R.drawable.bg_feed_back
+            , R.drawable.bg_about_us
+            , R.drawable.bg_more};
+    private int[] icon = {R.mipmap.foot
+            , R.mipmap.collection_store
+            , R.mipmap.card_holder
+            , R.mipmap.my_card
+            , R.mipmap.memo
+            , R.mipmap.help_center
+            , R.mipmap.feedback
+            , R.mipmap.about
+            , R.mipmap.more1};
     private final String TAG = "MineFragment";
 
     @Override
@@ -50,7 +67,7 @@ public class MineFragment extends BaseFragment {
         gridView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         Drawable drawable = ContextCompat.getDrawable(getActivity(), R.drawable.recyclerview_divider);
         gridView.addItemDecoration(new itemDecoration(getActivity(), 2, drawable));
-        adapter = new GridAdapter(getActivity());
+        adapter = new GridAdapter(getActivity(), background, icon);
         gridView.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new GridAdapter.OnItemClickListener() {
