@@ -25,6 +25,7 @@
         <activity android:name=".activity.HelpCenterActivity"/>
         <activity android:name=".activity.MemoActivity"/>
         <activity android:name=".activity.MyCarteActivity"/>
+        <activity android:name=".activity.LoginActivity"/>
 
     </application>
 

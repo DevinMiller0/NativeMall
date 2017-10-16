@@ -14,9 +14,11 @@ import com.pamo.nativemall.activity.CollectionActivity;
 import com.pamo.nativemall.activity.FeedBackActivity;
 import com.pamo.nativemall.activity.FootPrintsActivity;
 import com.pamo.nativemall.activity.HelpCenterActivity;
+import com.pamo.nativemall.activity.LoginActivity;
 import com.pamo.nativemall.activity.MemoActivity;
 import com.pamo.nativemall.activity.MyCarteActivity;
 import com.pamo.nativemall.adapter.GridAdapter;
+import com.pamo.nativemall.constant.Constants;
 import com.pamo.nativemall.widget.itemDecoration;
 
 /**
@@ -75,23 +77,40 @@ public class MineFragment extends BaseFragment {
             public void onItemClick(View view, int position) {
                 switch (position){
                     case 0:{
-                        Intent intent = new Intent(getActivity(), FootPrintsActivity.class);
-                        startActivities(intent);
+                        if (Constants.IS_LOGIN){
+                            Intent intent = new Intent(getActivity(), FootPrintsActivity.class);
+                            startActivities(intent);
+                        }else {
+                            startLoginActivity();
+                        }
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(getActivity(), CollectionActivity.class);
-                        startActivities(intent);
+                        if (Constants.IS_LOGIN){
+                            Intent intent = new Intent(getActivity(), CollectionActivity.class);
+                            startActivities(intent);
+                        }else {
+                            startLoginActivity();
+                        }
+
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(getActivity(), BusinessCardActivity.class);
-                        startActivities(intent);
+                        if (Constants.IS_LOGIN){
+                            Intent intent = new Intent(getActivity(), BusinessCardActivity.class);
+                            startActivities(intent);
+                        }else {
+                            startLoginActivity();
+                        }
                         break;
                     }
                     case 3:{
-                        Intent intent = new Intent(getActivity(), MyCarteActivity.class);
-                        startActivities(intent);
+                        if (Constants.IS_LOGIN){
+                            Intent intent = new Intent(getActivity(), MyCarteActivity.class);
+                            startActivities(intent);
+                        }else {
+                            startLoginActivity();
+                        }
                         break;
                     }
                     case 4:{
@@ -122,5 +141,9 @@ public class MineFragment extends BaseFragment {
     private void startActivities(Intent intent){
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.animation_x_on, R.anim.animation_alpha);
+    }
+    private void startLoginActivity(){
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
     }
 }
