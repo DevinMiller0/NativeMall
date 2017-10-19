@@ -71,7 +71,6 @@ public class CircleImageView extends android.support.v7.widget.AppCompatImageVie
             return bitmap;
             } else {
             return null;
-
             }
     }
 }

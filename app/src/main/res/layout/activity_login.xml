@@ -7,40 +7,5 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.pamo.nativemall.widget.CircleImageView
-        android:id="@+id/circle_avatar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@mipmap/kobe"/>
 
-    <EditText
-        android:id="@+id/et_user_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="用户名"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="20dp"/>
-
-    <EditText
-        android:id="@+id/et_pass_word"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="密码"/>
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_btn_login"
-        android:textColor="@color/colorWhite"
-        android:layout_marginTop="15dp"
-        android:text="登录"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="注册"
-        android:textColor="@color/colorPrimary"/>
 </LinearLayout>
