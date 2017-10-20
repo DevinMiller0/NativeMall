@@ -4,48 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.pamo.nativemall.activity.MainActivity">
-
+    android:background="#877878"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@drawable/bg_profile"
-        android:gravity="center"
+
         android:orientation="vertical">
 
-        <com.pamo.nativemall.widget.CircleImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@color/colorAccent"/>
+        <!--<TextView-->
+        <!--android:id="@+id/tv_name"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="凯文·杜兰特"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="name"/>
+        <!--<TextView-->
+        <!--android:id="@+id/description"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="还有资料未完成，请继续完成"/>-->
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.pamo.nativemall.widget.WaveView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:text="资料完善度25%，立即完善资料"/>
+            app:wave_color="#ffffff"
+            app:background_color="#dc8383"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"/>
+        android:layout_weight="2"
+        android:background="#ffffff">
 
     </LinearLayout>
-
 </LinearLayout>

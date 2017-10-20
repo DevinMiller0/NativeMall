@@ -93,7 +93,7 @@ public class WaveView extends View {
         resetPositionY();
         for (int i = 0; i < mTotalWidth; i++){
             //canvas.drawLine("起点的x轴坐标"，"起点的Y轴坐标", "终点的X轴坐标", "终点的Y轴坐标", "颜料Paint");
-            canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 60, i, mTotalHeight, mWavePaint);
+            //canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 60, i, mTotalHeight, mWavePaint);
             canvas.drawLine(i, mTotalHeight - mResetTwoYPositions[i] - 100, i, mTotalHeight, mTransPaint);
             canvas.drawLine(i, mTotalHeight - mResetThreePositions[i] - 100, i, mTotalHeight, mTransPaint);
         }
