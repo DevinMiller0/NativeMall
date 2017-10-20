@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.activity.LoginActivity;
-import com.pamo.nativemall.utils.StatusBarUtils;
 
 /**
  * Created by 德胜 on 2017/10/13.
@@ -23,7 +22,7 @@ public class MineFragment extends BaseFragment {
 
     @Override
     protected void setLayout() {
-        StatusBarUtils.transparentStatusBar(getActivity());
+        //StatusBarUtils.transparentStatusBar(getActivity());
         initView();
     }
 

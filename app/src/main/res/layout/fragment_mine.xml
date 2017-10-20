@@ -4,33 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#877878"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-
+        android:layout_weight="1.2"
+        android:background="@color/colorProfile_blue"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <!--<TextView-->
-        <!--android:id="@+id/tv_name"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="凯文·杜兰特"/>-->
+        <com.pamo.nativemall.widget.CircleImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="@dimen/public_30dp"
+            android:layout_marginBottom="@dimen/public_15dp"
+            android:src="@mipmap/timg"/>
 
-        <!--<TextView-->
-        <!--android:id="@+id/description"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="还有资料未完成，请继续完成"/>-->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="凯文·杜兰特"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="还有资料未完成，请继续完成"/>
 
         <com.pamo.nativemall.widget.WaveView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:wave_color="#ffffff"
-            app:background_color="#dc8383"/>
+            app:background_color="@color/colorProfile_blue"/>
 
     </LinearLayout>
 
@@ -38,7 +45,93 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="#ffffff">
+        android:paddingLeft="@dimen/public_10dp"
+        android:paddingRight="@dimen/public_10dp"
+        android:orientation="vertical"
+        android:background="#f2f2f2">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/foot_print"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp"
+                    android:text="我的足迹"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/my_collection"
+                    android:button="@null"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp"
+                    android:text="我的收藏"/>
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:drawableTop="@mipmap/business"
+                    android:button="@null"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="12sp"
+                    android:text="明信片"/>
+
+            </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/public_10dp"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:layout_marginBottom="@dimen/public_6dp"
+            android:drawableLeft="@mipmap/remarks"
+            android:gravity="center_vertical"
+            android:text="备忘录"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/public_10dp"
+            android:drawableLeft="@mipmap/help_center"
+            android:drawableRight="@mipmap/right_arrow"
+            android:gravity="center_vertical"
+            android:text="帮助中心"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/public_10dp"
+            android:drawableLeft="@mipmap/feedback"
+            android:drawableRight="@mipmap/right_arrow"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/public_10dp"
+            android:text="意见反馈"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/public_10dp"
+            android:drawableLeft="@mipmap/about_us"
+            android:drawableRight="@mipmap/right_arrow"
+            android:gravity="center_vertical"
+            android:text="关于我们"/>
 
     </LinearLayout>
+
 </LinearLayout>

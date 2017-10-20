@@ -22,7 +22,7 @@ public class WaveView extends View {
     private static final int WAVE_PAINT_COLOR_BULE = 0xffffffff;
     private static final int WAVE_PAINT_COLOR_TRANSPANT = 0x0fFFFFFF;
     // 正弦曲线震动的幅度
-    private static final float STRETCH_FACTOR_A = 35;
+    private static final float STRETCH_FACTOR_A = 25;
     private static final int OFFSET_Y = 0;
     // 第一条水波移动速度
     private static final int TRANSLATE_X_SPEED_ONE = 7;
@@ -93,9 +93,9 @@ public class WaveView extends View {
         resetPositionY();
         for (int i = 0; i < mTotalWidth; i++){
             //canvas.drawLine("起点的x轴坐标"，"起点的Y轴坐标", "终点的X轴坐标", "终点的Y轴坐标", "颜料Paint");
-            //canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 60, i, mTotalHeight, mWavePaint);
-            canvas.drawLine(i, mTotalHeight - mResetTwoYPositions[i] - 100, i, mTotalHeight, mTransPaint);
-            canvas.drawLine(i, mTotalHeight - mResetThreePositions[i] - 100, i, mTotalHeight, mTransPaint);
+            canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 40, i, mTotalHeight, mWavePaint);
+            canvas.drawLine(i, mTotalHeight - mResetTwoYPositions[i] - 80, i, mTotalHeight, mTransPaint);
+            canvas.drawLine(i, mTotalHeight - mResetThreePositions[i] - 95, i, mTotalHeight, mTransPaint);
         }
 
         //改变两条波纹的移动点

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NativeMall</string>
+    <integer name="padding">10</integer>
 </resources>
