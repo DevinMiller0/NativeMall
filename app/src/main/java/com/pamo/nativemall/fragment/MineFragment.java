@@ -2,16 +2,24 @@ package com.pamo.nativemall.fragment;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.pamo.nativemall.R;
+import com.pamo.nativemall.activity.AboutUsActivity;
+import com.pamo.nativemall.activity.BusinessCardActivity;
+import com.pamo.nativemall.activity.CollectionActivity;
+import com.pamo.nativemall.activity.FeedBackActivity;
+import com.pamo.nativemall.activity.FootPrintsActivity;
+import com.pamo.nativemall.activity.HelpCenterActivity;
 import com.pamo.nativemall.activity.LoginActivity;
+import com.pamo.nativemall.activity.MemoActivity;
 
 /**
  * Created by 德胜 on 2017/10/13.
  */
 
 public class MineFragment extends BaseFragment {
-
 
     private final String TAG = "MineFragment";
 
@@ -29,9 +37,61 @@ public class MineFragment extends BaseFragment {
     @Override
     protected void onViewClick(View view) {
 
+        switch (view.getId()){
+            case R.id.rb_foot_print:{
+                Intent intent = new Intent(getActivity(), FootPrintsActivity.class);
+                startActivities(intent);
+                break;
+            }
+            case R.id.rb_collection:{
+                Intent intent = new Intent(getActivity(), CollectionActivity.class);
+                startActivities(intent);
+                break;
+            }
+            case R.id.rb_business:{
+                Intent intent = new Intent(getActivity(), BusinessCardActivity.class);
+                startActivities(intent);
+                break;
+            }
+            case R.id.tv_memo:{
+                Intent intent = new Intent(getActivity(), MemoActivity.class);
+                startActivities(intent);
+                break;
+            }
+            case R.id.tv_help_center:{
+                Intent intent = new Intent(getActivity(), HelpCenterActivity.class);
+                startActivities(intent);
+                break;
+            }
+            case R.id.tv_feedback:{
+                Intent intent = new Intent(getActivity(), FeedBackActivity.class);
+                startActivities(intent);
+                break;
+            }
+            case R.id.tv_about_us:{
+                Intent intent = new Intent(getActivity(), AboutUsActivity.class);
+                startActivities(intent);
+                break;
+            }
+        }
     }
 
     private void initView() {
+        RadioButton footPrint = getActivity().findViewById(R.id.rb_foot_print);
+        RadioButton collection = getActivity().findViewById(R.id.rb_collection);
+        RadioButton mCard = getActivity().findViewById(R.id.rb_business);
+        TextView memo = getActivity().findViewById(R.id.tv_memo);
+        TextView helpCenter = getActivity().findViewById(R.id.tv_help_center);
+        TextView feedback = getActivity().findViewById(R.id.tv_feedback);
+        TextView aboutUs = getActivity().findViewById(R.id.tv_about_us);
+
+        footPrint.setOnClickListener(this);
+        collection.setOnClickListener(this);
+        mCard.setOnClickListener(this);
+        memo.setOnClickListener(this);
+        helpCenter.setOnClickListener(this);
+        feedback.setOnClickListener(this);
+        aboutUs.setOnClickListener(this);
     }
 
     private void startActivities(Intent intent){

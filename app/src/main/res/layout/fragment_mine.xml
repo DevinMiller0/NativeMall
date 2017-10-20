@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <com.pamo.nativemall.widget.CircleImageView
+            android:id="@+id/circle_avatar"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginTop="@dimen/public_30dp"
@@ -58,6 +59,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/rb_foot_print"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -68,6 +70,7 @@
                     android:textSize="12sp"
                     android:text="我的足迹"/>
                 <RadioButton
+                    android:id="@+id/rb_collection"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -78,6 +81,7 @@
                     android:textSize="12sp"
                     android:text="我的收藏"/>
                 <RadioButton
+                    android:id="@+id/rb_business"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -86,11 +90,12 @@
                     android:button="@null"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="12sp"
-                    android:text="明信片"/>
+                    android:text="名片夹"/>
 
             </RadioGroup>
 
         <TextView
+            android:id="@+id/tv_memo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -102,6 +107,7 @@
             android:text="备忘录"/>
 
         <TextView
+            android:id="@+id/tv_help_center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -112,6 +118,7 @@
             android:text="帮助中心"/>
 
         <TextView
+            android:id="@+id/tv_feedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -123,9 +130,10 @@
             android:text="意见反馈"/>
 
         <TextView
+            android:id="@+id/tv_about_us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
+            android:background="@drawable/click_effect"
             android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/about_us"
             android:drawableRight="@mipmap/right_arrow"
