@@ -113,7 +113,7 @@
             android:background="@color/colorWhite"
             android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/help_center"
-            android:drawableRight="@mipmap/right_arrow"
+            android:drawableRight="@mipmap/more_arrow"
             android:gravity="center_vertical"
             android:text="帮助中心"/>
 
@@ -124,7 +124,7 @@
             android:background="@color/colorWhite"
             android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/feedback"
-            android:drawableRight="@mipmap/right_arrow"
+            android:drawableRight="@mipmap/more_arrow"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/public_10dp"
             android:text="意见反馈"/>
@@ -136,7 +136,7 @@
             android:background="@drawable/click_effect"
             android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/about_us"
-            android:drawableRight="@mipmap/right_arrow"
+            android:drawableRight="@mipmap/more_arrow"
             android:gravity="center_vertical"
             android:text="关于我们"/>
 

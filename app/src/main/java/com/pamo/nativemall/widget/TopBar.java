@@ -16,11 +16,13 @@ import com.pamo.nativemall.R;
 
 public class TopBar extends RelativeLayout{
 
+    public RelativeLayout parent;
     public ImageView titleBack;
     public TextView titleText;
 
     public String title;
     public float titleSize;
+    public int background;
 
     public TopBar(Context context) {
         super(context);
@@ -37,6 +39,7 @@ public class TopBar extends RelativeLayout{
         View.inflate(context, R.layout.layout_topbar, this);
         titleText = findViewById(R.id.topbar_title);
         titleBack = findViewById(R.id.topbar_back);
+        parent = findViewById(R.id.parent_layout);
 
         titleText.setText(title);
         titleText.setTextSize(titleSize);

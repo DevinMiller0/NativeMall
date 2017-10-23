@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <com.pamo.nativemall.widget.TopBar
+        android:id="@+id/collection_topBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_60dp"
+        app:titleText="我的收藏"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/public_6dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/public_10dp"
+            android:textSize="@dimen/public_size_16"
+            android:text="全部分类"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:paddingLeft="@dimen/public_10dp"
+            android:background="@drawable/bg_search">
+
+            <EditText
+                android:id="@+id/et_search_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="@dimen/public_size_14"
+                android:hint="搜索已收藏的店铺"/>
+
+            <ImageView
+                android:layout_width="@dimen/public_25dp"
+                android:layout_height="@dimen/public_25dp"
+                android:layout_marginRight="@dimen/public_6dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/search"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/collect_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -17,18 +17,18 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
     private Drawable mDividerDrawable;
     private int mDividerHight = 1;
     private Paint mColorPaint;
-    public final int[] ATTRS = new int[]{android.R.attr.listDivider};
+    private final int[] ATTRS = new int[]{android.R.attr.listDivider};
 
-    public itemDecoration(Context context){
+    private itemDecoration(Context context){
 
         final TypedArray ta = context.obtainStyledAttributes(ATTRS);
         this.mDividerDrawable = ta.getDrawable(0);
         ta.recycle();
     }
 
-    public itemDecoration(Context context, int dividerHight, Drawable dividerDrawable){
+    public itemDecoration(Context context, int dividerHeight, Drawable dividerDrawable){
         this(context);
-        mDividerHight = dividerHight;
+        mDividerHight = dividerHeight;
         mDividerDrawable = dividerDrawable;
     }
 
@@ -40,7 +40,7 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
         drawVerticalDivider(c, parent);
     }
 
-    public void drawVerticalDivider(Canvas c, RecyclerView parent){
+    private void drawVerticalDivider(Canvas c, RecyclerView parent){
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++){
             final View child = parent.getChildAt(i);
@@ -76,7 +76,7 @@ public class itemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 
-    public void drawHorizontalDivider(Canvas c, RecyclerView parent) {
+    private void drawHorizontalDivider(Canvas c, RecyclerView parent) {
 
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {

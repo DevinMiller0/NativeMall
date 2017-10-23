@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="public_2dp">2dp</dimen>
+    <dimen name="public_3dp">3dp</dimen>
+    <dimen name="public_4dp">4dp</dimen>
+    <dimen name="public_5dp">5dp</dimen>
     <dimen name="public_6dp">6dp</dimen>
     <dimen name="public_8dp">8dp</dimen>
     <dimen name="public_10dp">10dp</dimen>
@@ -8,4 +12,21 @@
     <dimen name="public_25dp">25dp</dimen>
     <dimen name="public_30dp">30dp</dimen>
     <dimen name="public_35dp">35dp</dimen>
+    <dimen name="public_40dp">40dp</dimen>
+    <dimen name="public_45dp">45dp</dimen>
+    <dimen name="public_50dp">50dp</dimen>
+    <dimen name="public_55dp">55dp</dimen>
+    <dimen name="public_60dp">60dp</dimen>
+    <dimen name="public_65dp">65dp</dimen>
+    <dimen name="public_70dp">70dp</dimen>
+    <dimen name="public_75dp">75dp</dimen>
+
+    <dimen name="public_size_13">13sp</dimen>
+    <dimen name="public_size_14">14sp</dimen>
+    <dimen name="public_size_15">15sp</dimen>
+    <dimen name="public_size_16">16sp</dimen>
+    <dimen name="public_size_17">17sp</dimen>
+    <dimen name="public_size_18">18sp</dimen>
+    <dimen name="public_size_19">19sp</dimen>
+    <dimen name="public_size_20">20sp</dimen>
 </resources>
