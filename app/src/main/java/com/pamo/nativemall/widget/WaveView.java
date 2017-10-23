@@ -3,6 +3,7 @@ package com.pamo.nativemall.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.DrawFilter;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
@@ -60,7 +61,7 @@ public class WaveView extends View {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.wave);
         color = ta.getColor(R.styleable.wave_wave_color, 0);
         background_color = ta.getColor(R.styleable.wave_background_color, 0);
-        setBackgroundColor(background_color);
+        //setBackgroundColor(background_color);
         ta.recycle();
 
         //初始化绘制波纹的非透明画笔
@@ -69,8 +70,9 @@ public class WaveView extends View {
         mWavePaint.setAntiAlias(true);
         //设置画笔为填充
         mWavePaint.setStyle(Paint.Style.FILL);
-        //设置画笔颜色为蓝色
-        mWavePaint.setColor(color);
+        //设置画笔颜色
+        mWavePaint.setColor(Color.WHITE);
+        mWavePaint.setAlpha(500);
         mDrawFilter = new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG);
 
         //初始化绘制波纹的透明画笔

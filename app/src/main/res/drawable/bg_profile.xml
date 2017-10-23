@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <gradient
-        android:startColor="#FD8060"
-        android:endColor="#F85252"/>
+    <!--<gradient-->
+        <!--android:startColor="#FD8060"-->
+        <!--android:endColor="#F85252"/>-->
 
+    <solid android:color="@color/colorProfile_blue"/>
 
 </shape>
