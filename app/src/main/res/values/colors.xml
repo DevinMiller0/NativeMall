@@ -12,4 +12,6 @@
     <color name="colorProfile_blue">#2488e4</color>
     <color name="colorProfile_blue_light">#ffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorCreated">#2eafe2</color>
+    <color name="colorCreated_click">#50cdff</color>
 </resources>

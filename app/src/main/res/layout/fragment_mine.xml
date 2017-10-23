@@ -46,102 +46,107 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:paddingLeft="@dimen/public_10dp"
-        android:paddingRight="@dimen/public_10dp"
+        android:background="#f2f2f2"
         android:orientation="vertical"
-        android:background="#f2f2f2">
+        android:paddingLeft="@dimen/public_10dp"
+        android:paddingRight="@dimen/public_10dp">
 
-            <RadioGroup
-                android:layout_width="match_parent"
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/click_effect"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_foot_print"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/click_effect"
-                android:orientation="horizontal">
+                android:button="@null"
+                android:paddingTop="10dp"
+                android:drawableTop="@mipmap/foot_print"
+                android:gravity="center_horizontal"
+                android:text="我的足迹"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12sp" />
 
-                <RadioButton
-                    android:id="@+id/rb_foot_print"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:background="@drawable/click_effect"
-                    android:gravity="center_horizontal"
-                    android:drawableTop="@mipmap/foot_print"
-                    android:textColor="@color/colorDarkGray"
-                    android:textSize="12sp"
-                    android:text="我的足迹"/>
-                <RadioButton
-                    android:id="@+id/rb_collection"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:drawableTop="@mipmap/my_collection"
-                    android:background="@drawable/click_effect"
-                    android:button="@null"
-                    android:textColor="@color/colorDarkGray"
-                    android:textSize="12sp"
-                    android:text="我的收藏"/>
-                <RadioButton
-                    android:id="@+id/rb_business"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:drawableTop="@mipmap/business"
-                    android:background="@drawable/click_effect"
-                    android:button="@null"
-                    android:textColor="@color/colorDarkGray"
-                    android:textSize="12sp"
-                    android:text="名片夹"/>
+            <RadioButton
+                android:id="@+id/rb_collection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/click_effect"
+                android:button="@null"
+                android:paddingTop="10dp"
+                android:drawableTop="@mipmap/my_collection"
+                android:gravity="center_horizontal"
+                android:text="我的收藏"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12sp" />
 
-            </RadioGroup>
+            <RadioButton
+                android:id="@+id/rb_business"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/click_effect"
+                android:button="@null"
+                android:paddingTop="10dp"
+                android:drawableTop="@mipmap/business"
+                android:gravity="center_horizontal"
+                android:text="名片夹"
+                android:textColor="@color/colorDarkGray"
+                android:textSize="12sp" />
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/tv_memo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/click_effect"
-            android:padding="@dimen/public_10dp"
-            android:layout_marginTop="@dimen/public_6dp"
             android:layout_marginBottom="@dimen/public_6dp"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:background="@drawable/click_effect"
             android:drawableLeft="@mipmap/remarks"
             android:gravity="center_vertical"
-            android:text="备忘录"/>
+            android:padding="@dimen/public_10dp"
+            android:text="备忘录" />
 
         <TextView
             android:id="@+id/tv_help_center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/click_effect"
-            android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/help_center"
             android:drawableRight="@mipmap/more_arrow"
             android:gravity="center_vertical"
-            android:text="帮助中心"/>
+            android:padding="@dimen/public_10dp"
+            android:text="帮助中心" />
 
         <TextView
             android:id="@+id/tv_feedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/click_effect"
-            android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/feedback"
             android:drawableRight="@mipmap/more_arrow"
             android:gravity="center_vertical"
+            android:padding="@dimen/public_10dp"
             android:paddingLeft="@dimen/public_10dp"
-            android:text="意见反馈"/>
+            android:text="意见反馈" />
 
         <TextView
             android:id="@+id/tv_about_us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/click_effect"
-            android:padding="@dimen/public_10dp"
             android:drawableLeft="@mipmap/about_us"
             android:drawableRight="@mipmap/more_arrow"
             android:gravity="center_vertical"
-            android:text="关于我们"/>
+            android:padding="@dimen/public_10dp"
+            android:text="关于我们" />
 
     </LinearLayout>
 

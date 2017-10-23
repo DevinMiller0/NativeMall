@@ -27,6 +27,7 @@
         android:textColor="#e1e1e1"
         android:text="现在制作扩展人球吧"/>
     <TextView
+        android:id="@+id/tv_created"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
