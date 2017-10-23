@@ -7,13 +7,13 @@ import android.widget.TextView;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.activity.AboutUsActivity;
-import com.pamo.nativemall.activity.BusinessCardActivity;
 import com.pamo.nativemall.activity.CollectionActivity;
 import com.pamo.nativemall.activity.FeedBackActivity;
 import com.pamo.nativemall.activity.FootPrintsActivity;
 import com.pamo.nativemall.activity.HelpCenterActivity;
 import com.pamo.nativemall.activity.LoginActivity;
 import com.pamo.nativemall.activity.MemoActivity;
+import com.pamo.nativemall.activity.MyCarteActivity;
 
 /**
  * Created by 德胜 on 2017/10/13.
@@ -40,37 +40,37 @@ public class MineFragment extends BaseFragment {
         switch (view.getId()){
             case R.id.rb_foot_print:{
                 Intent intent = new Intent(getActivity(), FootPrintsActivity.class);
-                startActivities(intent);
+                startActivity(intent);
                 break;
             }
             case R.id.rb_collection:{
                 Intent intent = new Intent(getActivity(), CollectionActivity.class);
-                startActivities(intent);
+                startActivity(intent);
                 break;
             }
             case R.id.rb_business:{
-                Intent intent = new Intent(getActivity(), BusinessCardActivity.class);
-                startActivities(intent);
+                Intent intent = new Intent(getActivity(), MyCarteActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.tv_memo:{
                 Intent intent = new Intent(getActivity(), MemoActivity.class);
-                startActivities(intent);
+                startActivity(intent);
                 break;
             }
             case R.id.tv_help_center:{
                 Intent intent = new Intent(getActivity(), HelpCenterActivity.class);
-                startActivities(intent);
+                startActivity(intent);
                 break;
             }
             case R.id.tv_feedback:{
                 Intent intent = new Intent(getActivity(), FeedBackActivity.class);
-                startActivities(intent);
+                startActivity(intent);
                 break;
             }
             case R.id.tv_about_us:{
                 Intent intent = new Intent(getActivity(), AboutUsActivity.class);
-                startActivities(intent);
+                startActivity(intent);
                 break;
             }
         }

@@ -34,7 +34,7 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0, R.anim.animation_x_off);
+        //overridePendingTransition(0, R.anim.animation_x_off);
     }
 
     @Override
