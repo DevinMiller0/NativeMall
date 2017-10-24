@@ -22,6 +22,8 @@ public class CollectionActivity extends BaseActivity{
     public TopBar topBar;
     private EditText search;
 
+    private final String TAG = "Collection";
+
     @Override
     protected int getLayout() {
         return R.layout.activity_collect_store;

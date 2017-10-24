@@ -15,7 +15,7 @@ import com.pamo.nativemall.widget.TopBar;
 
 public class MemoActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TopBar topBar;
+    private final String TAG = "MemoActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        topBar = (TopBar) findViewById(R.id.memo_topBar);
+        TopBar topBar = (TopBar) findViewById(R.id.memo_topBar);
         topBar.titleBack.setOnClickListener(this);
     }
 

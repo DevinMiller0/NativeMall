@@ -17,6 +17,8 @@ public class BusinessCardActivity extends AppCompatActivity implements View.OnCl
 
     private TopBar topBar;
 
+    private final String TAG = "BusinessCardActivity";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.activity.CreatedCardActivity;

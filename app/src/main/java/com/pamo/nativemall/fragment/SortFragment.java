@@ -9,6 +9,9 @@ import com.pamo.nativemall.R;
  */
 
 public class SortFragment extends BaseFragment {
+
+    private final String TAG = "SortFragment";
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_sort;

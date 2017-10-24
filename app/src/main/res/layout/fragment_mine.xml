@@ -55,8 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/click_effect"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rb_foot_print"
@@ -66,7 +65,7 @@
                 android:background="@drawable/click_effect"
                 android:button="@null"
                 android:paddingTop="10dp"
-                android:drawableTop="@mipmap/foot_print"
+                android:drawableTop="@mipmap/icon_footprint"
                 android:gravity="center_horizontal"
                 android:text="我的足迹"
                 android:textColor="@color/colorDarkGray"
@@ -80,7 +79,7 @@
                 android:background="@drawable/click_effect"
                 android:button="@null"
                 android:paddingTop="10dp"
-                android:drawableTop="@mipmap/my_collection"
+                android:drawableTop="@mipmap/icon123"
                 android:gravity="center_horizontal"
                 android:text="我的收藏"
                 android:textColor="@color/colorDarkGray"

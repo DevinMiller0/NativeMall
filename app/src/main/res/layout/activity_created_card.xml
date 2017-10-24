@@ -1,6 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.pamo.nativemall.widget.TopBar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_50dp"
+        app:titleText="创建名片"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/public_25dp"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/public_35dp"
+                android:layout_height="@dimen/public_35dp"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:paddingTop="@dimen/public_9dp"
+                android:paddingBottom="@dimen/public_6dp"
+                android:src="@mipmap/created_name"/>
+            <EditText
+                android:id="@+id/et_created_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/public_size_13"
+                android:hint="真实姓名"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:layout_weight="1"
+                android:background="@null"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorWhite"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/public_25dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/public_35dp"
+                android:layout_height="@dimen/public_35dp"
+                android:paddingTop="@dimen/public_9dp"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:paddingBottom="@dimen/public_6dp"
+                android:src="@mipmap/created_company"/>
+            <EditText
+                android:id="@+id/et_created_company"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/public_size_13"
+                android:hint="公司名称"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:layout_weight="1"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/public_25dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/public_35dp"
+            android:layout_height="@dimen/public_35dp"
+            android:paddingTop="@dimen/public_9dp"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:paddingBottom="@dimen/public_6dp"
+            android:src="@mipmap/created_position"/>
+        <EditText
+            android:id="@+id/et_created_position"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/public_size_13"
+            android:hint="商位号"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:layout_weight="1"
+            android:background="@null"/>
+    </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/public_25dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/public_35dp"
+            android:layout_height="@dimen/public_35dp"
+            android:paddingTop="@dimen/public_9dp"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:paddingBottom="@dimen/public_6dp"
+            android:src="@mipmap/created_phone"/>
+        <EditText
+            android:id="@+id/et_created_phone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/public_size_13"
+            android:hint="电话"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:layout_weight="1"
+            android:background="@null"/>
+    </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/public_25dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/public_35dp"
+            android:layout_height="@dimen/public_35dp"
+            android:paddingTop="@dimen/public_9dp"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:paddingBottom="@dimen/public_6dp"
+            android:src="@mipmap/created_office"/>
+        <EditText
+            android:id="@+id/et_created_office"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/public_size_13"
+            android:hint="职位"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:layout_weight="1"
+            android:background="@null"/>
+    </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorWhite"
+        android:paddingLeft="@dimen/public_25dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/public_35dp"
+            android:layout_height="@dimen/public_35dp"
+            android:paddingTop="@dimen/public_9dp"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:paddingBottom="@dimen/public_6dp"
+            android:src="@mipmap/created_mobile"/>
+        <EditText
+            android:id="@+id/et_created_mobile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/public_size_13"
+            android:hint="手机"
+            android:layout_marginTop="@dimen/public_6dp"
+            android:layout_weight="1"
+            android:background="@null"/>
+    </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20px"
+            android:background="#f1f1f1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorWhite"
+            android:paddingLeft="@dimen/public_25dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/public_35dp"
+                android:layout_height="@dimen/public_35dp"
+                android:paddingTop="@dimen/public_9dp"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:paddingBottom="@dimen/public_6dp"
+                android:src="@mipmap/created_wechat"/>
+            <EditText
+                android:id="@+id/et_created_wechat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:textSize="@dimen/public_size_13"
+                android:hint="微信"
+                android:layout_weight="1"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorWhite"
+            android:paddingLeft="@dimen/public_25dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/public_35dp"
+                android:layout_height="@dimen/public_35dp"
+                android:paddingTop="@dimen/public_9dp"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:paddingBottom="@dimen/public_6dp"
+
+                android:src="@mipmap/created_email"/>
+            <EditText
+                android:id="@+id/et_created_email"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/public_size_13"
+                android:hint="邮箱"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:layout_weight="1"
+                android:background="@null"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="@dimen/public_25dp"
+            android:background="#f1f1f1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/colorWhite"
+            android:paddingLeft="@dimen/public_25dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/public_35dp"
+                android:layout_height="@dimen/public_35dp"
+                android:paddingTop="@dimen/public_9dp"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:paddingBottom="@dimen/public_6dp"
+                android:src="@mipmap/created_location"/>
+            <EditText
+                android:id="@+id/et_created_location"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="地址"
+                android:textSize="@dimen/public_size_13"
+                android:layout_marginTop="@dimen/public_6dp"
+                android:layout_weight="1"
+                android:background="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1f1f1">
+        <TextView
+            android:id="@+id/tv_btn_created"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/public_35dp"
+            android:layout_margin="@dimen/public_20dp"
+            android:background="@drawable/bg_creat_card"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:text="创建名片"/>
+    </LinearLayout>
+
+
 
 </LinearLayout>

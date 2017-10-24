@@ -5,6 +5,8 @@
     <dimen name="public_4dp">4dp</dimen>
     <dimen name="public_5dp">5dp</dimen>
     <dimen name="public_6dp">6dp</dimen>
+    <dimen name="public_7dp">7dp</dimen>
+    <dimen name="public_9dp">9dp</dimen>
     <dimen name="public_8dp">8dp</dimen>
     <dimen name="public_10dp">10dp</dimen>
     <dimen name="public_15dp">15dp</dimen>

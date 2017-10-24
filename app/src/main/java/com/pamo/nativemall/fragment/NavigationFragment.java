@@ -9,6 +9,9 @@ import com.pamo.nativemall.R;
  */
 
 public class NavigationFragment extends BaseFragment {
+
+    private final String TAG = "NavigationFragment";
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_navigation;

@@ -9,6 +9,9 @@ import com.pamo.nativemall.R;
  */
 
 public class BusinessCardFragment extends BaseFragment {
+
+    private final String TAG = "BusinessCardFragment";
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_business_card;

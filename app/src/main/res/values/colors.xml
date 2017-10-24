@@ -14,4 +14,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorCreated">#2eafe2</color>
     <color name="colorCreated_click">#50cdff</color>
+    <color name="colorTheme">#50cdff</color>
 </resources>

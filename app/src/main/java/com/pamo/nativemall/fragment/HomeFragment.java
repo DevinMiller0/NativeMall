@@ -14,6 +14,8 @@ public class HomeFragment extends BaseFragment {
 
     private Button share;
 
+    private final String TAG = "HomeFragment";
+
     @Override
     protected int getLayout() {
         return R.layout.fragment_home;

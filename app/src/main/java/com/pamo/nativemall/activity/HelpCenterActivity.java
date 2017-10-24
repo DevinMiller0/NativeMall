@@ -15,7 +15,7 @@ import com.pamo.nativemall.widget.TopBar;
 
 public class HelpCenterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private TopBar topBar;
+    private final String TAG = "HelpCenterActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class HelpCenterActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void initView() {
-        topBar = (TopBar) findViewById(R.id.help_center_topBar);
+        TopBar topBar = (TopBar) findViewById(R.id.help_center_topBar);
         topBar.titleBack.setOnClickListener(this);
     }
 

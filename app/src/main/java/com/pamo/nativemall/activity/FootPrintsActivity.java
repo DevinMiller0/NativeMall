@@ -15,7 +15,7 @@ import com.pamo.nativemall.widget.TopBar;
 
 public class FootPrintsActivity extends AppCompatActivity implements View.OnClickListener{
 
-    public TopBar topBar;
+    private final String TAG = "FootPrintsActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class FootPrintsActivity extends AppCompatActivity implements View.OnClic
      * 初始化控件
      */
     private void initView() {
-        topBar = (TopBar) findViewById(R.id.foot_prints_topBar);
+        TopBar topBar = (TopBar) findViewById(R.id.foot_prints_topBar);
         topBar.titleBack.setOnClickListener(this);
     }
 

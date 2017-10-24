@@ -5,15 +5,17 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
+import android.widget.Toast;
+
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.fragment.HomeFragment;
 import com.pamo.nativemall.fragment.MineFragment;
 import com.pamo.nativemall.fragment.NavigationFragment;
 import com.pamo.nativemall.fragment.SortFragment;
-import com.pamo.nativemall.utils.StatusBarUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton sort;
     private RadioButton navigation;
     private RadioButton mine;
+
+    private long firstTime = 0;
 
     private final String TAG = "MainActivity";
 
@@ -100,14 +104,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         radioButton.setCompoundDrawables(null, drawable, null, null);
         radioButton.setTextColor(getResources().getColor(color));
     }
-    private void setSortIcon(int icon, int color){
 
+    /**
+     * 双击退出
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        long secondTime = System.currentTimeMillis();
+        if(secondTime - firstTime > 2000){
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            firstTime = secondTime;
+        } else {
+            finish();
+        }
+        return true;
     }
-    private void setNavigationIcon(int icon, int color){
-
-    }
-    private void setMineIcon(int icon, int color){
-
-    }
-
 }

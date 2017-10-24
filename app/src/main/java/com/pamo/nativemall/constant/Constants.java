@@ -5,7 +5,6 @@ package com.pamo.nativemall.constant;
  */
 
 public class Constants {
-
     public static boolean IS_LOGIN = false;
-
+    public static boolean IS_FIRST_LAUNCHER = true;
 }

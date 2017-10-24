@@ -1,5 +1,6 @@
 package com.pamo.nativemall.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,7 +8,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.fragment.BusinessCardFragment;
@@ -29,6 +33,11 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
     private ViewPager viewPager;
     private TabView tab;
 
+    private TextView tvMyCard;
+    private TextView tvBusinessCard;
+    private TextView tvMyIndicator;
+    private TextView tvBusinessIndicator;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +51,12 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
         TopBar topBar = (TopBar) findViewById(R.id.my_carte_topBar);
         topBar.titleBack.setOnClickListener(this);
 
-        tab = (TabView) findViewById(R.id.tabs_view);
+        tvMyCard = (TextView) findViewById(R.id.tv_my_card);
+        tvBusinessCard = (TextView) findViewById(R.id.tv_business_card);
+        tvMyIndicator = (TextView) findViewById(R.id.tv_my_indicator);
+        tvBusinessIndicator = (TextView) findViewById(R.id.tv_business_indicator);
+        tvMyIndicator.setLayoutParams(new LinearLayout.LayoutParams(tvMyCard.getWidth(), 8));
+        tvMyIndicator.setGravity(Gravity.CENTER_HORIZONTAL);
 
         fragments = new ArrayList<>();
         fragments.add(new MyCardFragment());
@@ -51,18 +65,27 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
         viewPager = (ViewPager) findViewById(R.id.vp_card);
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager()));
 
-        tab.setTabs("我的名片", "商家名片");
-        tab.setOnTabsItemClickListener(new TabView.OnTabsItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                viewPager.setCurrentItem(position, true);
-            }
-        });
-
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                tab.setCurrentTab(position, true);
+            public void onPageScrolled
+                    (int position, float positionOffset, int positionOffsetPixels) {
+                if (position == 0){
+                    tvMyCard.setTextColor(Color.parseColor("#50cdff"));
+                    tvMyIndicator.setBackgroundColor(Color.parseColor("#50cdff"));
+                    tvBusinessCard.setTextColor(Color.parseColor("#000000"));
+                    tvBusinessIndicator.setBackgroundColor(Color.parseColor("#ffffff"));
+
+                    tvMyIndicator.setLayoutParams
+                            (new LinearLayout.LayoutParams(tvMyCard.getWidth(), 8));
+                    tvMyIndicator.setGravity(Gravity.CENTER_HORIZONTAL);
+                }else if (position == 1){
+                    tvMyCard.setTextColor(Color.parseColor("#000000"));
+                    tvMyIndicator.setBackgroundColor(Color.parseColor("#ffffff"));
+                    tvBusinessCard.setTextColor(Color.parseColor("#50cdff"));
+                    tvBusinessIndicator.setBackgroundColor(Color.parseColor("#50cdff"));
+                    tvBusinessIndicator.setLayoutParams
+                            (new LinearLayout.LayoutParams(tvMyCard.getWidth(),8));
+                }
             }
 
             @Override
