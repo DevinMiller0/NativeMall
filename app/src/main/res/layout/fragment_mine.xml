@@ -52,70 +52,78 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/colorWhite">
+            android:layout_height="0dp"
+            android:layout_weight="1.65"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/ll_collection"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@drawable/click_effect"
-                android:paddingTop="@dimen/public_6dp"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/public_6dp">
 
                 <ImageView
-                    android:layout_width="@dimen/public_30dp"
-                    android:layout_height="@dimen/public_30dp"
+                    android:layout_width="@dimen/public_40dp"
+                    android:layout_height="@dimen/public_40dp"
                     android:paddingBottom="@dimen/public_4dp"
-                    android:src="@mipmap/collector"/>
+                    android:paddingTop="@dimen/public_2dp"
+                    android:src="@mipmap/collector" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我的收藏"/>
+                    android:text="我的收藏"
+                    android:textSize="@dimen/public_size_17" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ll_card_holder"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/click_effect"
-                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/public_35dp"
-                    android:layout_height="@dimen/public_35dp"
-                    android:src="@mipmap/cardholder"/>
+                    android:layout_width="@dimen/public_40dp"
+                    android:layout_height="@dimen/public_45dp"
+                    android:src="@mipmap/cardholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="名片夹"/>
+                    android:text="名片夹"
+                    android:layout_marginBottom="@dimen/public_2dp"
+                    android:textSize="@dimen/public_size_17" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ll_memo"
                 android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@drawable/click_effect"
-                android:paddingTop="@dimen/public_4dp"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/public_4dp">
 
                 <ImageView
-                    android:layout_width="@dimen/public_30dp"
-                    android:layout_height="@dimen/public_30dp"
+                    android:layout_width="@dimen/public_40dp"
+                    android:layout_height="@dimen/public_40dp"
                     android:paddingBottom="@dimen/public_5dp"
-                    android:src="@mipmap/icon_memo"/>
+                    android:src="@mipmap/icon_memo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="备忘录"/>
+                    android:text="备忘录"
+                    android:textSize="@dimen/public_size_17" />
             </LinearLayout>
 
         </LinearLayout>
@@ -123,87 +131,122 @@
         <LinearLayout
             android:id="@+id/ll_foot_print"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:gravity="center_vertical"
-            android:padding="@dimen/public_6dp"
-            android:layout_marginTop="@dimen/public_4dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
             android:layout_marginBottom="@dimen/public_4dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/public_4dp"
+            android:background="@drawable/click_effect"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/public_6dp">
 
             <ImageView
                 android:layout_width="@dimen/public_25dp"
                 android:layout_height="@dimen/public_25dp"
                 android:layout_margin="@dimen/public_6dp"
-                android:src="@mipmap/icon_footprint"/>
+                android:src="@mipmap/icon_footprint" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="我的足迹"/>
+                android:layout_weight="1"
+                android:text="我的足迹" />
+
+            <ImageView
+                android:layout_width="@dimen/public_20dp"
+                android:layout_height="@dimen/public_15dp"
+                android:src="@mipmap/more_arrow" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_help_center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:padding="@dimen/public_6dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:background="@drawable/click_effect"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/public_6dp">
 
             <ImageView
                 android:layout_width="@dimen/public_25dp"
                 android:layout_height="@dimen/public_25dp"
                 android:layout_margin="@dimen/public_6dp"
-                android:src="@mipmap/icon_helpcenter"/>
+                android:src="@mipmap/icon_helpcenter" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="帮助中心"/>
+                android:layout_weight="1"
+                android:text="帮助中心" />
+            <ImageView
+                android:layout_width="@dimen/public_20dp"
+                android:layout_height="@dimen/public_15dp"
+                android:src="@mipmap/more_arrow" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_feed_back"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
-            android:padding="@dimen/public_6dp"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:background="@drawable/click_effect"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/public_6dp">
 
             <ImageView
                 android:layout_width="@dimen/public_25dp"
                 android:layout_height="@dimen/public_25dp"
                 android:layout_margin="@dimen/public_6dp"
-                android:src="@mipmap/icon_feedback"/>
+                android:src="@mipmap/icon_feedback" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="意见反馈"/>
+                android:layout_weight="1"
+                android:text="意见反馈" />
+            <ImageView
+                android:layout_width="@dimen/public_20dp"
+                android:layout_height="@dimen/public_15dp"
+                android:src="@mipmap/more_arrow" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_about_us"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorWhite"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:background="@drawable/click_effect"
             android:gravity="center_vertical"
-            android:padding="@dimen/public_6dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/public_6dp">
 
             <ImageView
                 android:layout_width="@dimen/public_25dp"
                 android:layout_height="@dimen/public_25dp"
                 android:layout_margin="@dimen/public_6dp"
-                android:src="@mipmap/icon_aboutus"/>
+                android:src="@mipmap/icon_aboutus" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="关于我们"/>
+                android:layout_weight="1"
+                android:text="关于我们" />
+            <ImageView
+                android:layout_width="@dimen/public_20dp"
+                android:layout_height="@dimen/public_15dp"
+                android:src="@mipmap/more_arrow" />
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"/>
 
     </LinearLayout>
 
