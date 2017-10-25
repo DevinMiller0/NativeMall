@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">NativeMall</string>
+    <string name="app_name">商城</string>
     <integer name="padding">10</integer>
 </resources>

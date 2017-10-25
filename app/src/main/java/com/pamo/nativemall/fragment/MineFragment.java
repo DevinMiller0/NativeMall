@@ -2,8 +2,7 @@ package com.pamo.nativemall.fragment;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.RadioButton;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.activity.AboutUsActivity;
@@ -38,37 +37,37 @@ public class MineFragment extends BaseFragment {
     protected void onViewClick(View view) {
 
         switch (view.getId()){
-            case R.id.rb_foot_print:{
-                Intent intent = new Intent(getActivity(), FootPrintsActivity.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.rb_collection:{
+            case R.id.ll_collection:{
                 Intent intent = new Intent(getActivity(), CollectionActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.rb_business:{
+            case R.id.ll_card_holder:{
                 Intent intent = new Intent(getActivity(), MyCarteActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.tv_memo:{
+            case R.id.ll_memo:{
                 Intent intent = new Intent(getActivity(), MemoActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.tv_help_center:{
+            case R.id.ll_foot_print:{
+                Intent intent = new Intent(getActivity(), FootPrintsActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.ll_help_center:{
                 Intent intent = new Intent(getActivity(), HelpCenterActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.tv_feedback:{
+            case R.id.ll_feed_back:{
                 Intent intent = new Intent(getActivity(), FeedBackActivity.class);
                 startActivity(intent);
                 break;
             }
-            case R.id.tv_about_us:{
+            case R.id.ll_about_us:{
                 Intent intent = new Intent(getActivity(), AboutUsActivity.class);
                 startActivity(intent);
                 break;
@@ -77,18 +76,18 @@ public class MineFragment extends BaseFragment {
     }
 
     private void initView() {
-        RadioButton footPrint = getActivity().findViewById(R.id.rb_foot_print);
-        RadioButton collection = getActivity().findViewById(R.id.rb_collection);
-        RadioButton mCard = getActivity().findViewById(R.id.rb_business);
-        TextView memo = getActivity().findViewById(R.id.tv_memo);
-        TextView helpCenter = getActivity().findViewById(R.id.tv_help_center);
-        TextView feedback = getActivity().findViewById(R.id.tv_feedback);
-        TextView aboutUs = getActivity().findViewById(R.id.tv_about_us);
+        LinearLayout collection = getActivity().findViewById(R.id.ll_collection);
+        LinearLayout cardHolder = getActivity().findViewById(R.id.ll_card_holder);
+        LinearLayout memo = getActivity().findViewById(R.id.ll_memo);
+        LinearLayout footPrint = getActivity().findViewById(R.id.ll_foot_print);
+        LinearLayout helpCenter = getActivity().findViewById(R.id.ll_help_center);
+        LinearLayout feedback = getActivity().findViewById(R.id.ll_feed_back);
+        LinearLayout aboutUs = getActivity().findViewById(R.id.ll_about_us);
 
-        footPrint.setOnClickListener(this);
         collection.setOnClickListener(this);
-        mCard.setOnClickListener(this);
+        cardHolder.setOnClickListener(this);
         memo.setOnClickListener(this);
+        footPrint.setOnClickListener(this);
         helpCenter.setOnClickListener(this);
         feedback.setOnClickListener(this);
         aboutUs.setOnClickListener(this);

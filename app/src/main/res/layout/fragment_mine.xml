@@ -37,8 +37,7 @@
         <com.pamo.nativemall.widget.WaveView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:wave_color="#ffffff"
-            app:background_color="@color/colorProfile_blue"/>
+            app:wave_color="#ffffff"/>
 
     </LinearLayout>
 
@@ -51,101 +50,160 @@
         android:paddingLeft="@dimen/public_10dp"
         android:paddingRight="@dimen/public_10dp">
 
-        <RadioGroup
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/click_effect"
+            android:orientation="horizontal"
+            android:background="@color/colorWhite">
+
+            <LinearLayout
+                android:id="@+id/ll_collection"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:paddingTop="@dimen/public_6dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/public_30dp"
+                    android:layout_height="@dimen/public_30dp"
+                    android:paddingBottom="@dimen/public_4dp"
+                    android:src="@mipmap/collector"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的收藏"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_card_holder"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/click_effect"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/public_35dp"
+                    android:layout_height="@dimen/public_35dp"
+                    android:src="@mipmap/cardholder"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="名片夹"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_memo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/click_effect"
+                android:paddingTop="@dimen/public_4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/public_30dp"
+                    android:layout_height="@dimen/public_30dp"
+                    android:paddingBottom="@dimen/public_5dp"
+                    android:src="@mipmap/icon_memo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备忘录"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_foot_print"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:gravity="center_vertical"
+            android:padding="@dimen/public_6dp"
+            android:layout_marginTop="@dimen/public_4dp"
+            android:layout_marginBottom="@dimen/public_4dp"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rb_foot_print"
-                android:layout_width="0dp"
+            <ImageView
+                android:layout_width="@dimen/public_25dp"
+                android:layout_height="@dimen/public_25dp"
+                android:layout_margin="@dimen/public_6dp"
+                android:src="@mipmap/icon_footprint"/>
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/click_effect"
-                android:button="@null"
-                android:paddingTop="10dp"
-                android:drawableTop="@mipmap/icon_footprint"
-                android:gravity="center_horizontal"
-                android:text="我的足迹"
-                android:textColor="@color/colorDarkGray"
-                android:textSize="12sp" />
+                android:text="我的足迹"/>
 
-            <RadioButton
-                android:id="@+id/rb_collection"
-                android:layout_width="0dp"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_help_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/public_6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/public_25dp"
+                android:layout_height="@dimen/public_25dp"
+                android:layout_margin="@dimen/public_6dp"
+                android:src="@mipmap/icon_helpcenter"/>
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/click_effect"
-                android:button="@null"
-                android:paddingTop="10dp"
-                android:drawableTop="@mipmap/icon123"
-                android:gravity="center_horizontal"
-                android:text="我的收藏"
-                android:textColor="@color/colorDarkGray"
-                android:textSize="12sp" />
+                android:text="帮助中心"/>
 
-            <RadioButton
-                android:id="@+id/rb_business"
-                android:layout_width="0dp"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_feed_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="@dimen/public_6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/public_25dp"
+                android:layout_height="@dimen/public_25dp"
+                android:layout_margin="@dimen/public_6dp"
+                android:src="@mipmap/icon_feedback"/>
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/click_effect"
-                android:button="@null"
-                android:paddingTop="10dp"
-                android:drawableTop="@mipmap/business"
-                android:gravity="center_horizontal"
-                android:text="名片夹"
-                android:textColor="@color/colorDarkGray"
-                android:textSize="12sp" />
+                android:text="意见反馈"/>
+        </LinearLayout>
 
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/tv_memo"
+        <LinearLayout
+            android:id="@+id/ll_about_us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/public_6dp"
-            android:layout_marginTop="@dimen/public_6dp"
-            android:background="@drawable/click_effect"
-            android:drawableLeft="@mipmap/remarks"
+            android:background="@color/colorWhite"
             android:gravity="center_vertical"
-            android:padding="@dimen/public_10dp"
-            android:text="备忘录" />
+            android:padding="@dimen/public_6dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_help_center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/click_effect"
-            android:drawableLeft="@mipmap/help_center"
-            android:drawableRight="@mipmap/more_arrow"
-            android:gravity="center_vertical"
-            android:padding="@dimen/public_10dp"
-            android:text="帮助中心" />
+            <ImageView
+                android:layout_width="@dimen/public_25dp"
+                android:layout_height="@dimen/public_25dp"
+                android:layout_margin="@dimen/public_6dp"
+                android:src="@mipmap/icon_aboutus"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关于我们"/>
 
-        <TextView
-            android:id="@+id/tv_feedback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/click_effect"
-            android:drawableLeft="@mipmap/feedback"
-            android:drawableRight="@mipmap/more_arrow"
-            android:gravity="center_vertical"
-            android:padding="@dimen/public_10dp"
-            android:paddingLeft="@dimen/public_10dp"
-            android:text="意见反馈" />
-
-        <TextView
-            android:id="@+id/tv_about_us"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/click_effect"
-            android:drawableLeft="@mipmap/about_us"
-            android:drawableRight="@mipmap/more_arrow"
-            android:gravity="center_vertical"
-            android:padding="@dimen/public_10dp"
-            android:text="关于我们" />
+        </LinearLayout>
 
     </LinearLayout>
 
