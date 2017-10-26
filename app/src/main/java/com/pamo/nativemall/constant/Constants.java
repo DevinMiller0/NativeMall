@@ -7,4 +7,7 @@ package com.pamo.nativemall.constant;
 public class Constants {
     public static boolean IS_LOGIN = false;
     public static boolean IS_FIRST_LAUNCHER = true;
+
+    public static final String BUSINESS_CARD_INFO = "BUSINESS_CARD_INFO_BASE64";
+    //public static final String
 }

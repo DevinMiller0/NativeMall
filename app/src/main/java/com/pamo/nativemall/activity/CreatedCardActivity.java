@@ -1,5 +1,7 @@
 package com.pamo.nativemall.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -85,6 +87,33 @@ public class CreatedCardActivity extends BaseActivity {
         String mEmail = email.getText().toString();
         String mLocation = location.getText().toString();
 
-        Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show();
+//        PersonalInfo info = new PersonalInfo();
+//        info.setName(mName);
+//        info.setCompany(mCompany);
+//        info.setPosNum(mPosition);
+//        info.setPhone(mPhone);
+//        info.setOffice(mOffice);
+//        info.setMobile(mMobile);
+//        info.setWeChat(mWeChat);
+//        info.setEmail(mEmail);
+//        info.setLocation(mLocation);
+//
+//        SharedPreferenceUtils sharedUtils = new SharedPreferenceUtils(this);
+//        sharedUtils.save(info);
+        SharedPreferences shared = getSharedPreferences("BUSINESS_CARD", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putString("name", mName);
+        editor.putString("company", mCompany);
+        editor.putString("position", mPosition);
+        editor.putString("phone", mPhone);
+        editor.putString("office", mOffice);
+        editor.putString("mobile", mMobile);
+        editor.putString("weChat", mWeChat);
+        editor.putString("email", mEmail);
+        editor.putString("location", mLocation);
+
+        editor.commit();
+
+        Toast.makeText(this, shared.getString("name",""), Toast.LENGTH_SHORT).show();
     }
 }

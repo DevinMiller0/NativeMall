@@ -23,6 +23,9 @@
     <dimen name="public_70dp">70dp</dimen>
     <dimen name="public_75dp">75dp</dimen>
 
+    <dimen name="public_size_10">10sp</dimen>
+    <dimen name="public_size_11">11sp</dimen>
+    <dimen name="public_size_12">12sp</dimen>
     <dimen name="public_size_13">13sp</dimen>
     <dimen name="public_size_14">14sp</dimen>
     <dimen name="public_size_15">15sp</dimen>
