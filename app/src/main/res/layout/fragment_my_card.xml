@@ -7,13 +7,54 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/ll_no_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#f2f2f2"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/public_15dp"
+            android:src="@mipmap/empty_card"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#e1e1e1"
+            android:text="亲，您还没有创建自己的电子名片"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/public_15dp"
+            android:textColor="#e1e1e1"
+            android:text="现在制作扩展人球吧"/>
+        <TextView
+            android:id="@+id/tv_created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/public_10dp"
+            android:layout_marginBottom="@dimen/public_30dp"
+            android:background="@drawable/bg_creat_card"
+            android:textColor="@color/colorWhite"
+            android:text="我要创建自己的名片"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_business_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f2f2f2"
+        android:layout_marginTop="@dimen/public_40dp"
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/ll_business_card"
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:background="@mipmap/business_card_background"
@@ -36,7 +77,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="2"
+                android:layout_weight="1.8"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical">
 
@@ -99,47 +140,25 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/ll_no_card"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f2f2f2"
-        android:gravity="center"
-        android:orientation="vertical">
+            <ImageView
+                android:id="@+id/img_modify_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/modify_card"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/public_15dp"
-            android:src="@mipmap/empty_card"/>
+            <ImageView
+                android:id="@+id/img_delivery_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/delivery_card"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#e1e1e1"
-            android:text="亲，您还没有创建自己的电子名片"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="@dimen/public_15dp"
-            android:textColor="#e1e1e1"
-            android:text="现在制作扩展人球吧"/>
-        <TextView
-            android:id="@+id/tv_created"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/public_10dp"
-            android:layout_marginBottom="@dimen/public_30dp"
-            android:background="@drawable/bg_creat_card"
-            android:textColor="@color/colorWhite"
-            android:text="我要创建自己的名片"/>
+        </LinearLayout>
 
     </LinearLayout>
-
-
 </RelativeLayout>

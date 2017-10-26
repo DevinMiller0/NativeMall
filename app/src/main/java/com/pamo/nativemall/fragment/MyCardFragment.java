@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ import com.pamo.nativemall.activity.CreatedCardActivity;
 
 public class MyCardFragment extends BaseFragment {
 
-    private TextView creatBtn;
+    private TextView createBtn;
 
     @Override
     protected int getLayout() {
@@ -31,19 +32,20 @@ public class MyCardFragment extends BaseFragment {
     }
 
     private void initView() {
-        creatBtn = getActivity().findViewById(R.id.tv_created);
-        creatBtn.setOnTouchListener(new View.OnTouchListener() {
+        createBtn = getActivity().findViewById(R.id.tv_created);
+        createBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()){
                     case MotionEvent.ACTION_UP:{
-                        creatBtn.setBackgroundResource(R.drawable.bg_creat_card);
+                        createBtn.setBackgroundResource(R.drawable.bg_creat_card);
                         Intent intent = new Intent(getContext(), CreatedCardActivity.class);
+                        intent.putExtra("type", "create");
                         startActivity(intent);
                         break;
                     }
                     case MotionEvent.ACTION_DOWN:{
-                        creatBtn.setBackgroundResource(R.drawable.bg_created_click);
+                        createBtn.setBackgroundResource(R.drawable.bg_created_click);
                         break;
                     }
                 }
@@ -56,14 +58,17 @@ public class MyCardFragment extends BaseFragment {
         TextView cardName = getActivity().findViewById(R.id.tv_card_name);
         TextView cardCompany = getActivity().findViewById(R.id.tv_card_company);
         TextView cardOffice = getActivity().findViewById(R.id.tv_card_manager);
-        TextView cardPhone = getActivity().findViewById(R.id.tv_card_mobile);
+        TextView cardMobile = getActivity().findViewById(R.id.tv_card_mobile);
         TextView cardAddress = getActivity().findViewById(R.id.tv_card_location);
         TextView cardEmail = getActivity().findViewById(R.id.tv_card_email);
 
-//        SharedPreferenceUtils preferenceUtils = new SharedPreferenceUtils(getActivity());
-//        PersonalInfo info = preferenceUtils.read();
+        ImageView btnModifyCard = getActivity().findViewById(R.id.img_modify_card);
+        ImageView btnDeliveryCard = getActivity().findViewById(R.id.img_delivery_card);
+        btnModifyCard.setOnClickListener(this);
+        btnDeliveryCard.setOnClickListener(this);
+
         SharedPreferences info = getActivity().getSharedPreferences("BUSINESS_CARD", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = info.edit();
+        //SharedPreferences.Editor editor = info.edit();
 
         String name = info.getString("name", "");
         if (name != ""){
@@ -73,21 +78,28 @@ public class MyCardFragment extends BaseFragment {
             cardName.setText(info.getString("name", ""));
             cardCompany.setText(info.getString("company", ""));
             cardOffice.setText(info.getString("office", ""));
-            cardPhone.setText(info.getString("phone", ""));
+            cardMobile.setText(info.getString("mobile", ""));
             cardAddress.setText(info.getString("location", ""));
             cardEmail.setText(info.getString("email", ""));
-
-            Log.e("TAG", "initView: "+info.getString("name", "")+info.getString("company", "")+info.getString("office", "") );
-
         }else {
             noCard.setVisibility(View.VISIBLE);
             businessCard.setVisibility(View.INVISIBLE);
         }
-
     }
 
     @Override
     protected void onViewClick(View view) {
 
+        switch (view.getId()){
+            case R.id.img_modify_card:{
+                Intent intent = new Intent(getActivity(), CreatedCardActivity.class);
+                intent.putExtra("type", "modify");
+                startActivity(intent);
+                break;
+            }
+            case R.id.img_delivery_card:{
+                break;
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.pamo.nativemall.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.MotionEvent;
 import android.view.View;
@@ -10,12 +11,15 @@ import android.widget.Toast;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.utils.StatusBarUtils;
+import com.pamo.nativemall.widget.TopBar;
 
 /**
  * Created by 德胜 on 2017/10/23.
  */
 
 public class CreatedCardActivity extends BaseActivity {
+
+    private TopBar topBar;
 
     private EditText name;
     private EditText company;
@@ -41,6 +45,7 @@ public class CreatedCardActivity extends BaseActivity {
 
     private void initView() {
         StatusBarUtils.transparentStatusBar(this);
+        topBar = (TopBar) findViewById(R.id.topBar_create_card);
 
         name = (EditText) findViewById(R.id.et_created_name);
         company = (EditText) findViewById(R.id.et_created_company);
@@ -54,6 +59,12 @@ public class CreatedCardActivity extends BaseActivity {
 
         btnCreated = (TextView) findViewById(R.id.tv_btn_created);
         btnCreated.setOnTouchListener(this);
+
+        Intent intent = getIntent();
+        String type = intent.getStringExtra("type");
+        if (type.equals("modify")){
+            modifyInfo();
+        }
     }
 
     @Override
@@ -87,19 +98,14 @@ public class CreatedCardActivity extends BaseActivity {
         String mEmail = email.getText().toString();
         String mLocation = location.getText().toString();
 
-//        PersonalInfo info = new PersonalInfo();
-//        info.setName(mName);
-//        info.setCompany(mCompany);
-//        info.setPosNum(mPosition);
-//        info.setPhone(mPhone);
-//        info.setOffice(mOffice);
-//        info.setMobile(mMobile);
-//        info.setWeChat(mWeChat);
-//        info.setEmail(mEmail);
-//        info.setLocation(mLocation);
-//
-//        SharedPreferenceUtils sharedUtils = new SharedPreferenceUtils(this);
-//        sharedUtils.save(info);
+        if (mName.equals("") || (mName == null)){
+            Toast.makeText(this, "请填写姓名", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (mMobile.equals("") || (mMobile == null)){
+            Toast.makeText(this, "请填写手机号", Toast.LENGTH_SHORT).show();
+            return;
+        }
         SharedPreferences shared = getSharedPreferences("BUSINESS_CARD", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = shared.edit();
         editor.putString("name", mName);
@@ -114,6 +120,28 @@ public class CreatedCardActivity extends BaseActivity {
 
         editor.commit();
 
-        Toast.makeText(this, shared.getString("name",""), Toast.LENGTH_SHORT).show();
+        if (!shared.getString("name", "").equals("") || !shared.getString("mobile", "").equals("")){
+            Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "创建失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void modifyInfo(){
+        topBar.titleText.setText("修改名片");
+        btnCreated.setText("完成");
+
+        SharedPreferences shared = getSharedPreferences("BUSINESS_CARD", Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor = shared.edit();
+
+        name.setText(shared.getString("name", ""));
+        company.setText(shared.getString("company", ""));
+        position.setText(shared.getString("position", ""));
+        phone.setText(shared.getString("phone", ""));
+        office.setText(shared.getString("office", ""));
+        mobile.setText(shared.getString("mobile", ""));
+        weChat.setText(shared.getString("weChat", ""));
+        email.setText(shared.getString("email", ""));
+        location.setText(shared.getString("location", ""));
     }
 }

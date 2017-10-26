@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <com.pamo.nativemall.widget.TopBar
+        android:id="@+id/topBar_create_card"
         android:layout_width="match_parent"
         android:layout_height="@dimen/public_50dp"
         app:titleText="创建名片"/>
@@ -290,7 +291,7 @@
         <TextView
             android:id="@+id/tv_btn_created"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/public_35dp"
+            android:layout_height="@dimen/public_45dp"
             android:layout_margin="@dimen/public_20dp"
             android:background="@drawable/bg_creat_card"
             android:gravity="center"
