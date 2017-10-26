@@ -66,9 +66,10 @@ public class MyCardFragment extends BaseFragment {
         SharedPreferences.Editor editor = info.edit();
 
         String name = info.getString("name", "");
-        if (editor != null){
+        if (name != ""){
             noCard.setVisibility(View.INVISIBLE);
             businessCard.setVisibility(View.VISIBLE);
+
             cardName.setText(info.getString("name", ""));
             cardCompany.setText(info.getString("company", ""));
             cardOffice.setText(info.getString("office", ""));
