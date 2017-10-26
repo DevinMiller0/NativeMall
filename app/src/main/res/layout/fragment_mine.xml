@@ -52,8 +52,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.65"
+            android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:orientation="horizontal">
 
@@ -71,7 +70,7 @@
                     android:layout_width="@dimen/public_40dp"
                     android:layout_height="@dimen/public_40dp"
                     android:paddingBottom="@dimen/public_4dp"
-                    android:paddingTop="@dimen/public_2dp"
+                    android:paddingTop="@dimen/public_4dp"
                     android:src="@mipmap/collector" />
 
                 <TextView
@@ -99,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="名片夹"
-                    android:layout_marginBottom="@dimen/public_2dp"
+                    android:layout_marginBottom="@dimen/public_4dp"
                     android:textSize="@dimen/public_size_17" />
             </LinearLayout>
 
