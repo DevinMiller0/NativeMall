@@ -9,7 +9,7 @@
     <com.pamo.nativemall.widget.TopBar
         android:id="@+id/topBar_create_card"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/public_50dp"
+        android:layout_height="@dimen/public_65dp"
         app:titleText="创建名片"/>
 
     <LinearLayout

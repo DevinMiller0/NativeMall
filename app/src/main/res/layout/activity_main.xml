@@ -11,7 +11,7 @@
         android:id="@+id/fragment_content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
     <View
         android:layout_width="match_parent"
@@ -25,27 +25,17 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rb_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:button="@null"
-            android:gravity="center"
-            android:drawableTop="@mipmap/home"
-            android:textColor="@color/colorRadioButton"
-            android:text="首页"/>
-        <RadioButton
             android:id="@+id/rb_sort"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
             android:button="@null"
+            android:drawableTop="@mipmap/btn_classify_normal"
             android:gravity="center"
-            android:drawableTop="@mipmap/sort"
-            android:textColor="@color/colorRadioButton"
-            android:text="分类"/>
+            android:text="商品类别"
+            android:textColor="@color/colorRadio" />
+
         <RadioButton
             android:id="@+id/rb_navigation"
             android:layout_width="0dp"
@@ -54,8 +44,8 @@
             android:background="@null"
             android:button="@null"
             android:gravity="center"
-            android:drawableTop="@mipmap/navigation"
-            android:textColor="@color/colorRadioButton"
+            android:drawableTop="@mipmap/btn_nav_normal1"
+            android:textColor="@color/colorRadio"
             android:text="导航"/>
         <RadioButton
             android:id="@+id/rb_mine"
@@ -65,8 +55,8 @@
             android:background="@null"
             android:button="@null"
             android:gravity="center"
-            android:drawableTop="@mipmap/mine"
-            android:textColor="@color/colorRadioButton"
+            android:drawableTop="@mipmap/btn_person_normal"
+            android:textColor="@color/colorRadio"
             android:text="个人中心"/>
 
     </RadioGroup>
