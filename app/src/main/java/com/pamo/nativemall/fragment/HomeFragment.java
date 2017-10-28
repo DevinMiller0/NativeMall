@@ -31,8 +31,7 @@ public class HomeFragment extends BaseFragment {
     protected void setLayout() {
 
         getActivity().findViewById(R.id.btn_start_loading).setOnClickListener(this);
-
-        }
+    }
 
     @Override
     protected void onViewClick(View view) {
@@ -40,7 +39,6 @@ public class HomeFragment extends BaseFragment {
             case R.id.btn_start_loading:{
                 //LoadingDialog.createLoading(getContext(), "loading...").show();
                 loading();
-
                 break;
             }
         }

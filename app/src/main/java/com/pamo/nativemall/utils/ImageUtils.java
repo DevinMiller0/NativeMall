@@ -70,9 +70,9 @@ public class ImageUtils {
             int size = images.size();
             for (int i = 0; i < size; i++){
                 String path = images.get(i).getPath();
-                String name =
             }
         }
+        return null;
     }
 
     public interface DataCallBack {

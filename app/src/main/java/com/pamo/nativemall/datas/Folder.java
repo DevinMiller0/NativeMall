@@ -1,7 +1,5 @@
 package com.pamo.nativemall.datas;
 
-import org.apache.commons.codec.binary.StringUtils;
-
 import java.util.ArrayList;
 
 /**
@@ -47,7 +45,6 @@ public class Folder {
         }
     }
 
-    private static String getFolderName(String path){
-        if (StringUtils.)
+    private static void getFolderName(String path){
     }
 }
