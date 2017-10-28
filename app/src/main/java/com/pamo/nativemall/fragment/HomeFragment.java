@@ -1,5 +1,6 @@
 package com.pamo.nativemall.fragment;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.pamo.nativemall.R;
+import com.pamo.nativemall.activity.ImageSelectorActivity;
 
 /**
  * Created by 德胜 on 2017/10/13.
@@ -37,8 +39,8 @@ public class HomeFragment extends BaseFragment {
     protected void onViewClick(View view) {
         switch (view.getId()){
             case R.id.btn_start_loading:{
-                //LoadingDialog.createLoading(getContext(), "loading...").show();
-                loading();
+                //loading();
+                startActivity(new Intent(getActivity(), ImageSelectorActivity.class));
                 break;
             }
         }
@@ -69,6 +71,5 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
-
     }
 }

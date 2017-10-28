@@ -9,8 +9,10 @@ import android.provider.MediaStore;
 import com.pamo.nativemall.datas.Folder;
 import com.pamo.nativemall.datas.Image;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by wangdesheng on 2017/10/27 0027.
@@ -21,7 +23,8 @@ public class ImageUtils {
     /**
      * loading image from SDCard.
      */
-    public static void loadImageForSDCard(final Context context, final DataCallBack callBack){
+    public static void loadImageForSDCard(final Context context, final CallBack callBack){
+
         // Because of scanning image would take long time, do it at child thread.
         new Thread(new Runnable() {
             @Override
@@ -70,12 +73,39 @@ public class ImageUtils {
             int size = images.size();
             for (int i = 0; i < size; i++){
                 String path = images.get(i).getPath();
+                String name = getFolderName(path);
             }
         }
-        return null;
+        return folders;
     }
 
-    public interface DataCallBack {
+    //根据图片路径，获取图片文件夹名称
+    private static String getFolderName(String path) {
+        if (path != null){
+            String[] strings = path.split(File.separator);
+            if (strings.length >=2){
+                return strings[strings.length - 2];
+            }
+        }
+        return "";
+    }
+
+    private static Folder getFolder(String name, List<Folder> folders){
+        if (folders != null && !folders.isEmpty()){
+            int size = folders.size();
+            for (int i = 0; i < size; i++){
+                Folder folder = folders.get(i);
+                if (name.equals(folder.getName())){
+                    return folder;
+                }
+            }
+        }
+        Folder newFolder = new Folder(name);
+        folders.add(newFolder);
+        return newFolder;
+    }
+
+    public interface CallBack {
         void onSuccess(ArrayList<Folder> folders);
     }
 }

@@ -8,6 +8,10 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.pamo.nativemall.R;
+import com.pamo.nativemall.datas.Folder;
+import com.pamo.nativemall.utils.ImageUtils;
+
+import java.util.ArrayList;
 
 /**
  * Created by wangdesheng on 2017/10/27 0027.
@@ -68,7 +72,11 @@ public class ImageSelectorActivity extends BaseActivity {
      * loading image method.
      */
     private void loadImage() {
+        ImageUtils.loadImageForSDCard(this, new ImageUtils.CallBack() {
+            @Override
+            public void onSuccess(ArrayList<Folder> folders) {
 
+            }
+        });
     }
-
 }

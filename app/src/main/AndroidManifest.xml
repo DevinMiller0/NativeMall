@@ -30,6 +30,7 @@
         <activity android:name=".activity.MyCarteActivity"/>
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".activity.CreatedCardActivity"/>
+        <activity android:name=".activity.ImageSelectorActivity"/>
 
     </application>
 
