@@ -2,6 +2,7 @@ package com.pamo.nativemall.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,9 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(FolderAdapter.ViewHolder holder, int position) {
-        Glide.with(context).load(folderList.get(position).getImages().get(0).getPath()).into(holder.avatar);
+        //Glide.with(context).load(folderList.get(position).getImages().get(0).getPath()).into(holder.avatar);
+//        String path = folderList.get(position).getImages().get(1).getPath();
+        //Log.e("TAG", "onBindViewHolder: " + path );
         holder.name.setText(folderList.get(position).getName());
     }
 

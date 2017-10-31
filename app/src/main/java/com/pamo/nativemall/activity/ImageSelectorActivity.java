@@ -2,6 +2,7 @@ package com.pamo.nativemall.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.ActivityCompat;
@@ -35,7 +36,7 @@ public class ImageSelectorActivity extends BaseActivity {
     private View bottomSheet;
     private BottomSheetBehavior behavior;
     private FrameLayout content;
-    ArrayList<Folder> folders;
+    private ArrayList<Folder> folder;
     private static String TAG = "ImageSelectorActivity";
 
     @Override
@@ -68,12 +69,18 @@ public class ImageSelectorActivity extends BaseActivity {
                 break;
             }
             case R.id.tv_all_images:{
-                //startActivity(new Intent(this, LoginActivity.class));
                 if (behavior.getState() == BottomSheetBehavior.STATE_HIDDEN){
                     behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     FragmentManager fm = getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
-                    ft.replace(R.id.fl_bottom_folder, new BottomSheetFragment(folders));
+                    BottomSheetFragment fragment = new BottomSheetFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelableArrayList("key",folder);
+                    fragment.setArguments(bundle);
+                    //bundle.putCharSequenceArrayList("key", folder);
+                    Log.e(TAG, "获取到的folder: " + folder.size() );
+                    ft.replace(R.id.fl_bottom_folder, fragment);
+                    ft.commit();
                 }
                 break;
             }
@@ -126,6 +133,7 @@ public class ImageSelectorActivity extends BaseActivity {
         ImageUtils.loadImageForSDCard(this, new ImageUtils.CallBack() {
             @Override
             public void onSuccess(ArrayList<Folder> folders, final ArrayList<Image> images) {
+                folder = folders;
                 Log.e(TAG, "扫描到的图片数量: " + images.size() );
                 for (int i = 0; i<folders.size(); i++){
                     Log.e(TAG, "扫描到的图片文件夹: " + folders.get(i).getName() );

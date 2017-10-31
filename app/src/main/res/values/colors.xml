@@ -17,4 +17,5 @@
     <color name="colorTheme">#50cdff</color>
     <color name="colorImageSelector">#3c3f41</color>
     <color name="colorCameraBg">#bebebe</color>
+    <color name="colorBottomSheet">#e1e1e1</color>
 </resources>
