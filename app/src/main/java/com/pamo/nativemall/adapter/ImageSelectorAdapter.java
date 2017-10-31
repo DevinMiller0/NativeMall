@@ -55,7 +55,8 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
         holder.selectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onItemClickListener.itemClick(holder, position);
+                String path = images.get(position).getPath();
+                onItemClickListener.itemClick(holder, position, path);
             }
         });
     }
@@ -82,6 +83,6 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
     }
 
     public interface OnItemClickListener{
-        void itemClick(ViewHolder holder, int position);
+        void itemClick(ViewHolder holder, int position, String path);
     }
 }

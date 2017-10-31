@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import com.pamo.nativemall.datas.Folder;
 import com.pamo.nativemall.datas.Image;
@@ -72,7 +73,7 @@ public class ImageUtils {
     private static ArrayList<Folder> splitFolder(ArrayList<Image> images){
         ArrayList<Folder> folders = new ArrayList<>();
         folders.add(new Folder("全部图片", images));
-        if (images != null && images.isEmpty()){
+        if (images != null && !images.isEmpty()){
             int size = images.size();
             for (int i = 0; i < size; i++){
                 String path = images.get(i).getPath();

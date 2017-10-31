@@ -1,74 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/public_45dp"
-        android:gravity="center_vertical"
-        android:background="@color/colorImageSelector">
-
-        <ImageView
-            android:id="@+id/img_back"
-            android:layout_width="@dimen/public_20dp"
-            android:layout_height="@dimen/public_20dp"
-            android:layout_marginLeft="@dimen/public_15dp"
-            android:src="@mipmap/icon_return"/>
-
-        <TextView
-            android:id="@+id/tv_complete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/public_15dp"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/public_size_15"
-            android:text="完成"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rl_img_selector"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/public_45dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorDarkGray"
+            android:background="@color/colorImageSelector"
             android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/tv_all_images"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="@dimen/public_20dp"
+                android:layout_height="@dimen/public_20dp"
                 android:layout_marginLeft="@dimen/public_15dp"
-                android:drawableRight="@mipmap/angle"
-                android:textSize="@dimen/public_size_15"
-                android:text="全部图片"
-                android:textColor="@color/colorWhite" />
+                android:src="@mipmap/icon_return" />
 
             <TextView
-                android:id="@+id/tv_preview"
+                android:id="@+id/tv_complete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/public_15dp"
-                android:textSize="@dimen/public_size_15"
+                android:text="完成"
                 android:textColor="@color/colorWhite"
-                android:text="预览"/>
+                android:textSize="@dimen/public_size_15" />
 
         </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-</LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rl_img_selector"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/public_45dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorDarkGray"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_all_images"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/public_15dp"
+                    android:drawableRight="@mipmap/angle"
+                    android:textSize="@dimen/public_size_15"
+                    android:text="全部图片"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tv_preview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/public_15dp"
+                    android:textSize="@dimen/public_size_15"
+                    android:textColor="@color/colorWhite"
+                    android:text="预览"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="300dp"
+        app:elevation="4dp"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+       <FrameLayout
+           android:id="@+id/fl_bottom_folder"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@color/colorAccent"/>
+
+   </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
