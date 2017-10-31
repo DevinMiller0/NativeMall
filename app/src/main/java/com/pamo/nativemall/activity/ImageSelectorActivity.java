@@ -75,7 +75,6 @@ public class ImageSelectorActivity extends BaseActivity {
                     FragmentTransaction ft = fm.beginTransaction();
                     ft.replace(R.id.fl_bottom_folder, new BottomSheetFragment(folders));
                 }
-                Toast.makeText(this, "All images", Toast.LENGTH_SHORT).show();
                 break;
             }
             case R.id.tv_preview:{

@@ -23,7 +23,7 @@ public class BottomSheetFragment extends BaseFragment {
 
     @Override
     protected int getLayout() {
-        return R.layout.layout_bottom_sheet;
+        return R.layout.fragment_bottom_sheet;
     }
 
     @Override
