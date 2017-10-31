@@ -20,6 +20,7 @@ import java.util.List;
 
 public class ImageUtils {
 
+    private static String TAG = "ImageUtils";
     /**
      * loading image from SDCard.
      */
@@ -39,26 +40,28 @@ public class ImageUtils {
                 }, null, null, MediaStore.Images.Media.DATE_ADDED);
 
                 ArrayList<Image> images = new ArrayList<>();
+
                 //Read image of scanned.
                 if (cursor != null) {
                     while (cursor.moveToNext()){
-                        //obtain path of image.
+                        //obtain path of image.获取图片路径
                         String path = cursor.getString
                                 (cursor.getColumnIndex(MediaStore.Images.Media.DATA));
-                        //obtain name of image.
+                        //obtain name of image.获取图片名字
                         String name = cursor.getString
                                 (cursor.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME));
-                        //obtain time of image.
+                        //obtain time of image.获取图片时间
                         long time = cursor.getLong
                                 (cursor.getColumnIndex(MediaStore.Images.Media.DATE_ADDED));
-                        images.add(new Image(path, time, name));
+                        images.add(new Image(path, time, name, false));
                     }
                 }
+                images.add(new Image(true));
                 if (cursor != null) {
                     cursor.close();
                 }
                 Collections.reverse(images);
-                callBack.onSuccess(splitFolder(images));
+                callBack.onSuccess(splitFolder(images), images);
             }
         }).start();
     }
@@ -74,6 +77,10 @@ public class ImageUtils {
             for (int i = 0; i < size; i++){
                 String path = images.get(i).getPath();
                 String name = getFolderName(path);
+                if (!name.equals("")){
+                    Folder folder = getFolder(name, folders);
+                    folder.addImage(images.get(i));
+                }
             }
         }
         return folders;
@@ -83,7 +90,7 @@ public class ImageUtils {
     private static String getFolderName(String path) {
         if (path != null){
             String[] strings = path.split(File.separator);
-            if (strings.length >=2){
+            if (strings.length >= 2){
                 return strings[strings.length - 2];
             }
         }
@@ -106,6 +113,6 @@ public class ImageUtils {
     }
 
     public interface CallBack {
-        void onSuccess(ArrayList<Folder> folders);
+        void onSuccess(ArrayList<Folder> folders, ArrayList<Image> images);
     }
 }

@@ -8,6 +8,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.pamo.nativemall.R;
 import com.pamo.nativemall.activity.ImageSelectorActivity;
@@ -16,7 +17,7 @@ import com.pamo.nativemall.activity.ImageSelectorActivity;
  * Created by 德胜 on 2017/10/13.
  */
 
-public class HomeFragment extends BaseFragment {
+public class ClassifyFragment extends BaseFragment {
 
     private Button share;
     LinearLayout lload;
@@ -26,13 +27,13 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_classify;
     }
 
     @Override
     protected void setLayout() {
-
         getActivity().findViewById(R.id.btn_start_loading).setOnClickListener(this);
+
     }
 
     @Override
@@ -43,6 +44,7 @@ public class HomeFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), ImageSelectorActivity.class));
                 break;
             }
+
         }
     }
 

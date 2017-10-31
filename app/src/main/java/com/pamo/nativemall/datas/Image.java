@@ -9,11 +9,17 @@ public class Image {
     private String path;
     private long time;
     private String name;
+    private boolean yes;
 
-    public Image(String path, long time, String name){
+    public Image(String path, long time, String name, boolean yes){
         this.path = path;
         this.time = time;
         this.name = name;
+        this.yes = yes;
+    }
+
+    public Image(boolean yes){
+        this.yes = yes;
     }
 
     public String getPath() {
@@ -38,5 +44,13 @@ public class Image {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isYes() {
+        return yes;
+    }
+
+    public void setYes(boolean yes) {
+        this.yes = yes;
     }
 }

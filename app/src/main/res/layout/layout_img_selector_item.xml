@@ -4,14 +4,18 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="@dimen/public_110dp"
+        android:id="@+id/rl_img_selector_item"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="@dimen/public_110dp">
 
         <ImageView
+            android:id="@+id/img_selected"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <RadioButton
+        <CheckBox
+            android:id="@+id/cb_choose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"/>

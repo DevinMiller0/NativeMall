@@ -8,11 +8,13 @@
     <color name="colorRadioButton">#bebebe</color>
     <color name="colorRadio">#1fa9ce</color>
     <color name="colorLoginBtn">#ef3535</color>
-    <color name="colorDarkGray">#646464</color>
+    <color name="colorDarkGray">#95000000</color>
     <color name="colorProfile_blue">#2488e4</color>
     <color name="colorProfile_blue_light">#ffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorCreated">#2eafe2</color>
     <color name="colorCreated_click">#50cdff</color>
     <color name="colorTheme">#50cdff</color>
+    <color name="colorImageSelector">#3c3f41</color>
+    <color name="colorCameraBg">#bebebe</color>
 </resources>

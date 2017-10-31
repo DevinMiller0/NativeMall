@@ -12,10 +12,9 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.pamo.nativemall.R;
-import com.pamo.nativemall.fragment.HomeFragment;
+import com.pamo.nativemall.fragment.ClassifyFragment;
 import com.pamo.nativemall.fragment.MineFragment;
 import com.pamo.nativemall.fragment.NavigationFragment;
-import com.pamo.nativemall.fragment.SortFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setIcon(sort, R.mipmap.btn_classify_choosen);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_content, new HomeFragment());
+        ft.replace(R.id.fragment_content, new ClassifyFragment());
         ft.commit();
     }
 
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.rb_sort:{
-                ft.replace(R.id.fragment_content, new SortFragment());
+                ft.replace(R.id.fragment_content, new ClassifyFragment());
                 setIcon(sort, R.mipmap.btn_classify_choosen);
                 setIcon(navigation, R.mipmap.btn_nav_normal1);
                 setIcon(mine, R.mipmap.btn_person_normal);
