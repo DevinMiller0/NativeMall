@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pamo.nativemall">
+    package="com.awake.dreaming">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -12,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name="com.awake.dreaming.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,17 +21,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.AboutUsActivity"/>
-        <activity android:name=".activity.BusinessCardActivity"/>
-        <activity android:name=".activity.CollectionActivity"/>
-        <activity android:name=".activity.FeedBackActivity"/>
-        <activity android:name=".activity.FootPrintsActivity"/>
-        <activity android:name=".activity.HelpCenterActivity"/>
-        <activity android:name=".activity.MemoActivity"/>
-        <activity android:name=".activity.MyCarteActivity"/>
-        <activity android:name=".activity.LoginActivity"/>
-        <activity android:name=".activity.CreatedCardActivity"/>
-        <activity android:name=".activity.ImageSelectorActivity"/>
+        <activity android:name="com.awake.dreaming.activity.AboutUsActivity"/>
+        <activity android:name="com.awake.dreaming.activity.BusinessCardActivity"/>
+        <activity android:name="com.awake.dreaming.activity.CollectionActivity"/>
+        <activity android:name="com.awake.dreaming.activity.FeedBackActivity"/>
+        <activity android:name="com.awake.dreaming.activity.FootPrintsActivity"/>
+        <activity android:name="com.awake.dreaming.activity.HelpCenterActivity"/>
+        <activity android:name="com.awake.dreaming.activity.MemoActivity"/>
+        <activity android:name="com.awake.dreaming.activity.MyCarteActivity"/>
+        <activity android:name="com.awake.dreaming.activity.LoginActivity"/>
+        <activity android:name="com.awake.dreaming.activity.CreatedCardActivity"/>
+        <activity android:name="com.awake.dreaming.activity.ImageSelectorActivity"/>
 
     </application>
 

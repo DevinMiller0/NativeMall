@@ -14,7 +14,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.pamo.nativemall.widget.CircleImageView
+        <com.awake.dreaming.widget.CircleImageView
             android:id="@+id/circle_avatar"
             android:layout_width="65dp"
             android:layout_height="65dp"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="还有资料未完成，请继续完成"/>
 
-        <com.pamo.nativemall.widget.WaveView
+        <com.awake.dreaming.widget.WaveView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:wave_color="#ffffff"/>
