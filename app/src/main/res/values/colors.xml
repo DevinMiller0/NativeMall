@@ -20,4 +20,5 @@
     <color name="colorBottomSheet">#e1e1e1</color>
     <color name="colorAboutUs">#35bae0</color>
     <color name="colorFeedback">#35bae0</color>
+    <color name="colorFeedback_tj">#2ab4dc</color>
 </resources>

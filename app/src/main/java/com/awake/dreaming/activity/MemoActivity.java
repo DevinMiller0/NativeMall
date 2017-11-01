@@ -1,9 +1,12 @@
 package com.awake.dreaming.activity;
 
 import android.os.Bundle;
+import android.support.annotation.BoolRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.utils.StatusBarUtils;
@@ -15,6 +18,7 @@ import com.awake.dreaming.widget.TopBar;
 
 public class MemoActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private TextView clickAdd;
     private final String TAG = "MemoActivity";
 
     @Override
@@ -29,6 +33,23 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         TopBar topBar = (TopBar) findViewById(R.id.memo_topBar);
         topBar.titleBack.setOnClickListener(this);
+        clickAdd = (TextView) findViewById(R.id.tv_click_add);
+        clickAdd.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()){
+                    case MotionEvent.ACTION_UP:{
+                        clickAdd.setBackgroundResource(R.drawable.bg_btn_memo);
+                        break;
+                    }
+                    case MotionEvent.ACTION_DOWN:{
+                        clickAdd.setBackgroundResource(R.drawable.bg_btn_memo_clicked);
+                        break;
+                    }
+                }
+                return true;
+            }
+        });
     }
 
     @Override

@@ -71,6 +71,15 @@
         android:layout_marginRight="@dimen/public_10dp"
         android:background="@drawable/bg_feedback">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:paddingLeft="@dimen/public_25dp"
+            android:paddingTop="@dimen/public_20dp"
+            android:gravity="top"
+            android:hint="其他问题..."/>
+
     </LinearLayout>
 
     <TextView
@@ -78,7 +87,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="@dimen/public_15dp"
-        android:background="@drawable/bg_created_click"
+        android:background="@drawable/bg_feed_back"
         android:textColor="@color/colorWhite"
         android:gravity="center"
         android:textSize="@dimen/public_size_20"

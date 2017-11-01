@@ -4,11 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.awake.dreaming.R;
@@ -25,11 +29,13 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
 
     private ArrayList<Image> images;
     private Context context;
+    private Display display;
     private OnItemClickListener onItemClickListener;
 
-    public ImageSelectorAdapter(Context context, ArrayList<Image> images) {
+    public ImageSelectorAdapter(Context context, ArrayList<Image> images, Display display) {
         this.context = context;
         this.images = images;
+        this.display = display;
     }
 
     @Override
@@ -68,6 +74,7 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        private RelativeLayout relativeLayout;
         private ImageView selectImg;
         private CheckBox choose;
 
@@ -75,6 +82,7 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
             super(itemView);
             selectImg = itemView.findViewById(R.id.img_selected);
             choose = itemView.findViewById(R.id.cb_choose);
+            itemView.setLayoutParams(new LinearLayout.LayoutParams(display.getWidth()/3, display.getWidth()/3));
         }
     }
 

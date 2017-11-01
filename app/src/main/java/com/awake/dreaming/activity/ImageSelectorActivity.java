@@ -14,8 +14,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -39,6 +41,7 @@ public class ImageSelectorActivity extends BaseActivity {
     private BottomSheetBehavior behavior;
     private FrameLayout content;
     private ArrayList<Folder> folder;
+    private Display display;
     private static final int READ_PIC_CODE = 0;
     private static final int OPEN_CAMERA_CODE = 1;
     private static final int TAKE_PIC_RESULT_CODE = 2;
@@ -61,6 +64,8 @@ public class ImageSelectorActivity extends BaseActivity {
         findViewById(R.id.tv_complete).setOnClickListener(this);
         findViewById(R.id.tv_all_images).setOnClickListener(this);
         findViewById(R.id.tv_preview).setOnClickListener(this);
+        WindowManager windowManager = (WindowManager) getSystemService(this.WINDOW_SERVICE);
+        display = windowManager.getDefaultDisplay();
         checkPermission();
     }
 
@@ -121,17 +126,6 @@ public class ImageSelectorActivity extends BaseActivity {
     public void onRequestPermissionsResult
     (int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == 0){
-//             if (grantResults.length > 0
-//                     && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-//                 //allow permission, loading image.
-//                 loadImage();
-//             }else {
-//                 //refuse permission and pop prompt dialog that there no permission.
-//                 Toast.makeText(ImageSelectorActivity.this,
-//                         "No Permission", Toast.LENGTH_SHORT).show();
-//             }
-//        }
         switch (requestCode) {
             case READ_PIC_CODE:{
                 if (grantResults.length > 0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
@@ -168,7 +162,7 @@ public class ImageSelectorActivity extends BaseActivity {
                     public void run() {
                         recyclerImg.setLayoutManager
                                 (new GridLayoutManager(ImageSelectorActivity.this, 3));
-                        adapter = new ImageSelectorAdapter(ImageSelectorActivity.this, images);
+                        adapter = new ImageSelectorAdapter(ImageSelectorActivity.this, images, display);
                         recyclerImg.setAdapter(adapter);
                         itemClick();
                     }
