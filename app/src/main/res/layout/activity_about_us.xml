@@ -8,7 +8,133 @@
     <com.awake.dreaming.widget.TopBar
         android:id="@+id/about_us_topBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:titleText="关于我们"/>
+        android:layout_height="60dp"
+        app:titleText="关于我们:"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/head_img"/>
+
+
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/public_15dp"
+            android:paddingLeft="@dimen/public_10dp"
+            android:paddingRight="@dimen/public_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/public_size_17"
+                android:gravity="center"
+                android:text="服务热线:"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:textColor="@color/colorAboutUs"
+                android:textSize="@dimen/public_size_17"
+                android:gravity="center_vertical"
+                android:text="4008-4008-4008"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingLeft="@dimen/public_10dp"
+            android:paddingRight="@dimen/public_10dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/public_size_17"
+                android:gravity="center"
+                android:text="公司官网:"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:textColor="@color/colorAboutUs"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/public_size_17"
+                android:text="www.pamodata.com"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/public_10dp"
+            android:paddingRight="@dimen/public_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="@dimen/public_size_17"
+                android:text="合作邮箱:"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="yp@pamocloud.com"
+                android:textColor="@color/colorAboutUs"
+                android:textSize="@dimen/public_size_17" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:paddingLeft="@dimen/public_10dp"
+            android:paddingRight="@dimen/public_10dp"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/public_15dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/public_size_17"
+                android:gravity="center_horizontal"
+                android:text="公司简介:"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:textColor="@color/colorAboutUs"
+                android:textSize="@dimen/public_size_17"
+                android:text="浙江帕摩数据科技有限公司，成立于2015年九月，注册资本5000万元。16年四月获得3000万天使轮投资。它是一家基于大数据解决方案的高新技术创新型企业。"/>
+
+        </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
 </LinearLayout>

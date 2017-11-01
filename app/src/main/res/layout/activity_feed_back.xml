@@ -2,12 +2,90 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.awake.dreaming.widget.TopBar
         android:id="@+id/feed_back_topBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:titleText="我的足迹"/>
+        android:layout_height="60dp"
+        app:titleText="意见反馈"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="你的反馈是我们前进的动力"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="@color/colorFeedback"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:text="不能获取定位"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:layout_weight="1"
+        android:text="定位超过3米"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:text="定位延时超过3秒"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:text="地图拖拽响应超过3秒"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:text="路线规划不合理"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:text="名片拍照识别不正确超过2项"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/public_20dp"
+        android:text="楼层切换响应超过3秒"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_marginTop="@dimen/public_10dp"
+        android:layout_marginLeft="@dimen/public_10dp"
+        android:layout_marginRight="@dimen/public_10dp"
+        android:background="@drawable/bg_feedback">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/public_15dp"
+        android:background="@drawable/bg_created_click"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:textSize="@dimen/public_size_20"
+        android:text="提交"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>

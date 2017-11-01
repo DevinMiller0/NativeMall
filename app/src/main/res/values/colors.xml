@@ -18,4 +18,6 @@
     <color name="colorImageSelector">#3c3f41</color>
     <color name="colorCameraBg">#bebebe</color>
     <color name="colorBottomSheet">#e1e1e1</color>
+    <color name="colorAboutUs">#35bae0</color>
+    <color name="colorFeedback">#35bae0</color>
 </resources>

@@ -36,7 +36,6 @@ public class ImageSelectorActivity extends BaseActivity {
 
     private RecyclerView recyclerImg;
     private ImageSelectorAdapter adapter;
-    private View bottomSheet;
     private BottomSheetBehavior behavior;
     private FrameLayout content;
     private ArrayList<Folder> folder;
@@ -54,7 +53,7 @@ public class ImageSelectorActivity extends BaseActivity {
     protected void setLayout() {
         recyclerImg = (RecyclerView) findViewById(R.id.rl_img_selector);
 
-        bottomSheet = findViewById(R.id.rl_bottomSheet);
+        View bottomSheet = findViewById(R.id.rl_bottomSheet);
         behavior = BottomSheetBehavior.from(bottomSheet);
         behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
@@ -181,16 +180,13 @@ public class ImageSelectorActivity extends BaseActivity {
     /**
      * Item click event in grid list.
      */
-    private void itemClick() {
-        adapter.setOnItemClickListener(new ImageSelectorAdapter.OnItemClickListener() {
+    private void itemClick() {adapter.setOnItemClickListener(new ImageSelectorAdapter.OnItemClickListener() {
             @Override
-            public void itemClick
-                    (ImageSelectorAdapter.ViewHolder holder, int position, String path) {
+            public void itemClick(ImageSelectorAdapter.ViewHolder holder, int position, String path) {
                 if (position == 0){
                     openCamera();
                 }else {
-                    Toast.makeText(ImageSelectorActivity.this,
-                            "Preview picture" + "  " + position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ImageSelectorActivity.this, "Preview picture" + "  " + position, Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "点击到的图片的路径: " + path );
                 }
             }
@@ -227,4 +223,5 @@ public class ImageSelectorActivity extends BaseActivity {
         }
         return false;
     }
+
 }

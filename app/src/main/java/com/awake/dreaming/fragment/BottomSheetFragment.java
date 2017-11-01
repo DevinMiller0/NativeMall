@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.adapter.FolderAdapter;
 import com.awake.dreaming.datas.Folder;
+import com.awake.dreaming.datas.Image;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Created by wangdesheng on 2017/10/31 0031.
  */
 
-public class BottomSheetFragment extends BaseFragment {
+public class BottomSheetFragment extends BaseFragment{
 
     private ArrayList<Folder> list;
     private static final String TAG = "BottomSheetFragment";
@@ -32,7 +32,7 @@ public class BottomSheetFragment extends BaseFragment {
         bottomSheet.setLayoutManager(new LinearLayoutManager(getActivity()));
         //接收从ImageSelectorActivity传过来的list。
         Bundle bundle = getArguments();
-        ArrayList<Folder> list =  bundle.getParcelableArrayList("key");
+        final ArrayList<Folder> list =  bundle.getParcelableArrayList("key");
         //设置adapter
         FolderAdapter adapter = new FolderAdapter(getActivity(), list);
         bottomSheet.setAdapter(adapter);
@@ -40,7 +40,8 @@ public class BottomSheetFragment extends BaseFragment {
         adapter.setOnItemClickListener(new FolderAdapter.OnItemClickListener() {
             @Override
             public void itemClick(int position) {
-                Toast.makeText(getActivity(), ""+position, Toast.LENGTH_SHORT).show();
+                assert list != null;
+                ArrayList<Image> mList = list.get(position).getImages();
             }
         });
     }
