@@ -1,6 +1,7 @@
 package com.awake.dreaming.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ import com.awake.dreaming.datas.Folder;
 import com.awake.dreaming.datas.Image;
 import com.awake.dreaming.fragment.BottomSheetFragment;
 import com.awake.dreaming.utils.ImageUtils;
+import com.awake.dreaming.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 
@@ -54,6 +56,8 @@ public class ImageSelectorActivity extends BaseActivity {
 
     @Override
     protected void setLayout() {
+
+        StatusBarUtils.transparentStatusBar(this);
         overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         recyclerImg = (RecyclerView) findViewById(R.id.rl_img_selector);
 
@@ -65,7 +69,7 @@ public class ImageSelectorActivity extends BaseActivity {
         findViewById(R.id.tv_complete).setOnClickListener(this);
         findViewById(R.id.tv_all_images).setOnClickListener(this);
         findViewById(R.id.tv_preview).setOnClickListener(this);
-        WindowManager windowManager = (WindowManager) getSystemService(this.WINDOW_SERVICE);
+        WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
         checkPermission();
     }
@@ -175,7 +179,8 @@ public class ImageSelectorActivity extends BaseActivity {
     /**
      * Item click event in grid list.
      */
-    private void itemClick() {adapter.setOnItemClickListener(new ImageSelectorAdapter.OnItemClickListener() {
+    private void itemClick() {
+        adapter.setOnItemClickListener(new ImageSelectorAdapter.OnItemClickListener() {
             @Override
             public void itemClick(ImageSelectorAdapter.ViewHolder holder, int position, String path) {
                 if (position == 0){

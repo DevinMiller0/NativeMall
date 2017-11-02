@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <com.awake.dreaming.widget.TopBar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_50dp"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.2"
@@ -14,32 +19,46 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <com.awake.dreaming.widget.CircleImageView
-            android:id="@+id/circle_avatar"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="@dimen/public_30dp"
-            android:layout_marginBottom="@dimen/public_15dp"
-            android:src="@mipmap/timg"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="凯文·杜兰特"/>
+            <com.awake.dreaming.widget.CircleImageView
+                android:id="@+id/circle_avatar"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@mipmap/timg"/>
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="还有资料未完成，请继续完成"/>
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_margin="@dimen/public_3dp"
+                android:textColor="@color/colorWhite"
+                android:text="凯文·杜兰特"/>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/public_3dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorWhite"
+                android:text="还有资料未完成，请继续完成"/>
+
+        </LinearLayout>
+
+
 
         <com.awake.dreaming.widget.WaveView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:wave_color="#ffffff"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

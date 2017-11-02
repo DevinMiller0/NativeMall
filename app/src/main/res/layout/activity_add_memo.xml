@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.awake.dreaming.widget.TopBar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_50dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLightGray"/>
+
+    <LinearLayout
+        android:id="@+id/ll_association"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_40dp"
+        android:layout_margin="@dimen/public_8dp"
+        android:background="@drawable/bg_memo_store">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="关联店铺"
+            android:paddingLeft="@dimen/public_15dp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/public_10dp"
+        android:layout_marginRight="@dimen/public_10dp">
+
+        <EditText
+            android:id="@+id/et_memo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/public_15dp"
+            android:textSize="@dimen/public_size_25"
+            android:hint="标题"/>
+
+        <EditText
+            android:id="@+id/et_memo_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:background="@null"
+            android:layout_below="@+id/et_memo_title"
+            android:paddingLeft="@dimen/public_15dp"
+            android:textSize="@dimen/public_size_20"
+            android:hint="内容"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:padding="@dimen/public_15dp">
+
+            <ImageView
+                android:id="@+id/img_memo_camera"
+                android:layout_width="@dimen/public_70dp"
+                android:layout_height="@dimen/public_70dp"
+                android:layout_marginBottom="@dimen/public_20dp"
+                android:src="@mipmap/memo_camera" />
+
+            <ImageView
+                android:id="@+id/img_memo_voice"
+                android:layout_width="@dimen/public_70dp"
+                android:layout_height="@dimen/public_70dp"
+                android:src="@mipmap/memo_voice" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

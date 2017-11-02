@@ -12,18 +12,19 @@ import com.awake.dreaming.activity.FootPrintsActivity;
 import com.awake.dreaming.activity.HelpCenterActivity;
 import com.awake.dreaming.activity.MemoActivity;
 import com.awake.dreaming.activity.MyCarteActivity;
+import com.awake.dreaming.widget.TopBar;
 
 /**
  * Created by 德胜 on 2017/10/13.
  */
 
-public class MineFragment extends BaseFragment {
+public class PersonCenterFragment extends BaseFragment {
 
-    private final String TAG = "MineFragment";
+    private final String TAG = "PersonCenterFragment";
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_mine;
+        return R.layout.fragment_person_center;
     }
 
     @Override
@@ -74,6 +75,7 @@ public class MineFragment extends BaseFragment {
     }
 
     private void initView() {
+        initTopBar();
         LinearLayout collection = getActivity().findViewById(R.id.ll_collection);
         LinearLayout cardHolder = getActivity().findViewById(R.id.ll_card_holder);
         LinearLayout memo = getActivity().findViewById(R.id.ll_memo);
@@ -89,5 +91,10 @@ public class MineFragment extends BaseFragment {
         helpCenter.setOnClickListener(this);
         feedback.setOnClickListener(this);
         aboutUs.setOnClickListener(this);
+    }
+
+    private void initTopBar() {
+        TopBar topBar = getActivity().findViewById(R.id.top_bar);
+        topBar.setTitle(getString(R.string.personal_center));
     }
 }

@@ -1,5 +1,6 @@
 package com.awake.dreaming.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
                 switch (motionEvent.getAction()){
                     case MotionEvent.ACTION_UP:{
                         clickAdd.setBackgroundResource(R.drawable.bg_btn_memo);
+                        startActivity(new Intent(MemoActivity.this, AddMemoActivity.class));
                         break;
                     }
                     case MotionEvent.ACTION_DOWN:{

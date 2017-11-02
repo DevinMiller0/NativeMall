@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.fragment.ClassifyFragment;
-import com.awake.dreaming.fragment.MineFragment;
+import com.awake.dreaming.fragment.PersonCenterFragment;
 import com.awake.dreaming.fragment.NavigationFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case R.id.rb_mine:{
-                ft.replace(R.id.fragment_content, new MineFragment());
+                ft.replace(R.id.fragment_content, new PersonCenterFragment());
                 setIcon(sort, R.mipmap.btn_classify_normal);
                 setIcon(navigation, R.mipmap.btn_nav_normal1);
                 setIcon(mine, R.mipmap.btn_person_choosen);

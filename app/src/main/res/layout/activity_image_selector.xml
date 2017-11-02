@@ -12,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/public_45dp"
+            android:layout_height="@dimen/public_65dp"
             android:background="@color/colorImageSelector"
             android:gravity="center_vertical">
 
@@ -21,6 +21,7 @@
                 android:layout_width="@dimen/public_20dp"
                 android:layout_height="@dimen/public_20dp"
                 android:layout_marginLeft="@dimen/public_15dp"
+                android:layout_marginTop="@dimen/public_20dp"
                 android:src="@mipmap/icon_return" />
 
             <TextView
@@ -29,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/public_15dp"
+                android:layout_marginTop="@dimen/public_20dp"
                 android:text="完成"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/public_size_15" />
