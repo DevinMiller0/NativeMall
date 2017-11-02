@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoActionBar">
-        <activity android:name="com.awake.dreaming.activity.MainActivity">
+        <activity android:name="com.awake.dreaming.activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,17 +23,39 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.awake.dreaming.activity.AboutUsActivity"/>
-        <activity android:name="com.awake.dreaming.activity.BusinessCardActivity"/>
-        <activity android:name="com.awake.dreaming.activity.CollectionActivity"/>
-        <activity android:name="com.awake.dreaming.activity.FeedBackActivity"/>
-        <activity android:name="com.awake.dreaming.activity.FootPrintsActivity"/>
-        <activity android:name="com.awake.dreaming.activity.HelpCenterActivity"/>
-        <activity android:name="com.awake.dreaming.activity.MemoActivity"/>
-        <activity android:name="com.awake.dreaming.activity.MyCarteActivity"/>
-        <activity android:name="com.awake.dreaming.activity.LoginActivity"/>
-        <activity android:name="com.awake.dreaming.activity.CreatedCardActivity"/>
-        <activity android:name="com.awake.dreaming.activity.ImageSelectorActivity"/>
+        <activity android:name="com.awake.dreaming.activity.AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.BusinessCardActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.CollectionActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.FeedBackActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.FootPrintsActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.HelpCenterActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.MemoActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.MyCarteActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.CreatedCardActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        <activity android:name="com.awake.dreaming.activity.ImageSelectorActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
 
     </application>
 

@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.utils.StatusBarUtils;
-import com.awake.dreaming.widget.TopBar;
+import com.awake.dreaming.widget.TopBar1;
 
 /**
  * Created by wangdesheng on 2017/10/10 0010.
@@ -15,7 +15,7 @@ import com.awake.dreaming.widget.TopBar;
 
 public class BusinessCardActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private TopBar topBar;
+    private TopBar1 topBar1;
 
     private final String TAG = "BusinessCardActivity";
 
@@ -23,20 +23,20 @@ public class BusinessCardActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_card);
-
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }
 
     private void initView() {
-        topBar = (TopBar) findViewById(R.id.business_card_topBar);
-        topBar.titleBack.setOnClickListener(this);
+        topBar1 = (TopBar1) findViewById(R.id.business_card_topBar);
+        topBar1.titleBack.setOnClickListener(this);
     }
 
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0, R.anim.animation_x_off);
+        //overridePendingTransition(0, R.anim.animation_x_off);
     }
 
     @Override

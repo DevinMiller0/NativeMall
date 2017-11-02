@@ -18,7 +18,7 @@ import com.awake.dreaming.fragment.BusinessCardFragment;
 import com.awake.dreaming.fragment.MyCardFragment;
 import com.awake.dreaming.utils.StatusBarUtils;
 import com.awake.dreaming.widget.TabView;
-import com.awake.dreaming.widget.TopBar;
+import com.awake.dreaming.widget.TopBar1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,14 +42,14 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_carte);
-
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }
 
     private void initView() {
-        TopBar topBar = (TopBar) findViewById(R.id.my_carte_topBar);
-        topBar.titleBack.setOnClickListener(this);
+        TopBar1 topBar1 = (TopBar1) findViewById(R.id.my_carte_topBar);
+        topBar1.titleBack.setOnClickListener(this);
 
         tvMyCard = (TextView) findViewById(R.id.tv_my_card);
         tvBusinessCard = (TextView) findViewById(R.id.tv_business_card);
@@ -103,7 +103,7 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0, R.anim.animation_x_off);
+        //overridePendingTransition(0, R.anim.animation_x_off);
     }
 
     @Override

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.utils.StatusBarUtils;
-import com.awake.dreaming.widget.TopBar;
+import com.awake.dreaming.widget.TopBar1;
 
 /**
  * Created by 德胜 on 2017/10/23.
@@ -19,7 +19,7 @@ import com.awake.dreaming.widget.TopBar;
 
 public class CreatedCardActivity extends BaseActivity {
 
-    private TopBar topBar;
+    private TopBar1 topBar1;
 
     private EditText name;
     private EditText company;
@@ -44,8 +44,9 @@ public class CreatedCardActivity extends BaseActivity {
     }
 
     private void initView() {
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
-        topBar = (TopBar) findViewById(R.id.topBar_create_card);
+        topBar1 = (TopBar1) findViewById(R.id.topBar_create_card);
 
         name = (EditText) findViewById(R.id.et_created_name);
         company = (EditText) findViewById(R.id.et_created_company);
@@ -128,7 +129,7 @@ public class CreatedCardActivity extends BaseActivity {
     }
 
     private void modifyInfo(){
-        topBar.titleText.setText("修改名片");
+        topBar1.titleText.setText("修改名片");
         btnCreated.setText("完成");
 
         SharedPreferences shared = getSharedPreferences("BUSINESS_CARD", Context.MODE_PRIVATE);

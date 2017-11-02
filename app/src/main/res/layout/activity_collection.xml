@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.awake.dreaming.widget.TopBar
+    <com.awake.dreaming.widget.TopBar1
         android:id="@+id/collection_topBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

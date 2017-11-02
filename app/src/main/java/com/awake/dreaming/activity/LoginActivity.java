@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
 
         bottomSheet = findViewById(R.id.be);

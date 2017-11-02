@@ -56,19 +56,21 @@
                 <TextView
                     android:id="@+id/tv_all_images"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/public_15dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/public_15dp"
                     android:drawableRight="@mipmap/angle"
                     android:textSize="@dimen/public_size_15"
+                    android:gravity="center_vertical"
                     android:text="全部图片"
                     android:textColor="@color/colorWhite" />
 
                 <TextView
                     android:id="@+id/tv_preview"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/public_15dp"
+                    android:paddingRight="@dimen/public_15dp"
                     android:textSize="@dimen/public_size_15"
                     android:textColor="@color/colorWhite"
                     android:text="预览"/>

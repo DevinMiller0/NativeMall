@@ -1,7 +1,6 @@
 package com.awake.dreaming.activity;
 
 import android.os.Bundle;
-import android.support.annotation.BoolRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.utils.StatusBarUtils;
-import com.awake.dreaming.widget.TopBar;
+import com.awake.dreaming.widget.TopBar1;
 
 /**
  * Created by wangdesheng on 2017/10/10 0010.
@@ -25,14 +24,14 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memo);
-
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }
 
     private void initView() {
-        TopBar topBar = (TopBar) findViewById(R.id.memo_topBar);
-        topBar.titleBack.setOnClickListener(this);
+        TopBar1 topBar1 = (TopBar1) findViewById(R.id.memo_topBar);
+        topBar1.titleBack.setOnClickListener(this);
         clickAdd = (TextView) findViewById(R.id.tv_click_add);
         clickAdd.setOnTouchListener(new View.OnTouchListener() {
             @Override

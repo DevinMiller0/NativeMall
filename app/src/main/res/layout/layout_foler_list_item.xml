@@ -13,11 +13,27 @@
         android:layout_height="65dp"
         android:layout_margin="@dimen/public_10dp"
         android:background="@color/colorAccent"/>
-    <TextView
-        android:id="@+id/tv_folder_name"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:textSize="@dimen/public_size_20"
-        android:text="news_article"/>
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_folder_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/public_size_20"
+            android:text="news_article"/>
+        <TextView
+            android:id="@+id/tv_folder_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/public_size_15"
+            android:text="xxx张"/>
+
+    </LinearLayout>
+
 </LinearLayout>

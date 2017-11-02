@@ -54,6 +54,7 @@ public class ImageSelectorActivity extends BaseActivity {
 
     @Override
     protected void setLayout() {
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         recyclerImg = (RecyclerView) findViewById(R.id.rl_img_selector);
 
         View bottomSheet = findViewById(R.id.rl_bottomSheet);

@@ -53,6 +53,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         //set head image and folder name.
         Glide.with(context).load(path).into(headImg);
         holder.name.setText(folderList.get(position).getName());
+        holder.count.setText(folderList.get(position).getImages().size()+"张");
         holder.itemParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,11 +73,13 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         private LinearLayout itemParent;
         private ImageView avatar;
         private TextView name;
+        private TextView count;
 
         ViewHolder(View itemView) {
             super(itemView);
             avatar = itemView.findViewById(R.id.img_folder_avatar);
             name = itemView.findViewById(R.id.tv_folder_name);
+            count = itemView.findViewById(R.id.tv_folder_count);
             itemParent = itemView.findViewById(R.id.folder_item_parent);
         }
     }

@@ -8,15 +8,13 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
-import com.bumptech.glide.Glide;
 import com.awake.dreaming.R;
 import com.awake.dreaming.datas.Image;
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -49,7 +47,7 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
     public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         if (images.get(position).isYes()){
-            holder.selectImg.setImageResource(R.mipmap.carmera);
+            holder.selectImg.setImageResource(R.mipmap.click_take_photo);
             holder.selectImg.setBackgroundResource(R.color.colorCameraBg);
             holder.choose.setVisibility(View.INVISIBLE);
         }else {
@@ -74,7 +72,6 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private RelativeLayout relativeLayout;
         private ImageView selectImg;
         private CheckBox choose;
 

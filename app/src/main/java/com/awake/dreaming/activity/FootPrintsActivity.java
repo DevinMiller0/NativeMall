@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.utils.StatusBarUtils;
-import com.awake.dreaming.widget.TopBar;
+import com.awake.dreaming.widget.TopBar1;
 
 /**
  * Created by wangdesheng on 2017/10/10 0010.
@@ -21,7 +21,7 @@ public class FootPrintsActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foot_prints);
-
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }
@@ -30,8 +30,8 @@ public class FootPrintsActivity extends AppCompatActivity implements View.OnClic
      * 初始化控件
      */
     private void initView() {
-        TopBar topBar = (TopBar) findViewById(R.id.foot_prints_topBar);
-        topBar.titleBack.setOnClickListener(this);
+        TopBar1 topBar1 = (TopBar1) findViewById(R.id.foot_prints_topBar);
+        topBar1.titleBack.setOnClickListener(this);
     }
 
     /**
@@ -40,7 +40,7 @@ public class FootPrintsActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0, R.anim.animation_x_off);
+        //overridePendingTransition(0, R.anim.animation_x_off);
     }
 
     /**

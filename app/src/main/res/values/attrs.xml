@@ -15,7 +15,7 @@
     </declare-styleable>
     
     
-    <declare-styleable name="TopBar">
+    <declare-styleable name="TopBar1">
         <attr name="titleText" format="string"/>
         <attr name="titleSize" format="float"/>
     </declare-styleable>
@@ -24,6 +24,13 @@
 
         <attr name="wave_color" format="color|reference"/>
         <attr name="background_color" format="color|reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="topBar">
+
+        <attr name="title_text" format="string"/>
+        <attr name="title_size" format="float"/>
 
     </declare-styleable>
 </resources>

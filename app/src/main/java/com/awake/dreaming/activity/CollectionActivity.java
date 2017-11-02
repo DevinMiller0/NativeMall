@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.awake.dreaming.R;
 import com.awake.dreaming.adapter.CollectAdapter;
 import com.awake.dreaming.utils.StatusBarUtils;
-import com.awake.dreaming.widget.TopBar;
+import com.awake.dreaming.widget.TopBar1;
 
 /**
  * Created by wangdesheng on 2017/10/10 0010.
@@ -19,7 +19,7 @@ import com.awake.dreaming.widget.TopBar;
 
 public class CollectionActivity extends BaseActivity{
 
-    public TopBar topBar;
+    public TopBar1 topBar1;
     private EditText search;
 
     private final String TAG = "Collection";
@@ -32,6 +32,7 @@ public class CollectionActivity extends BaseActivity{
     @Override
     protected void setLayout() {
         StatusBarUtils.transparentStatusBar(this);
+        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         initView();
     }
 
@@ -46,8 +47,8 @@ public class CollectionActivity extends BaseActivity{
     }
 
     private void initView() {
-        topBar = (TopBar) findViewById(R.id.collection_topBar);
-        topBar.titleBack.setOnClickListener(this);
+        topBar1 = (TopBar1) findViewById(R.id.collection_topBar);
+        topBar1.titleBack.setOnClickListener(this);
 
         RecyclerView collectList = (RecyclerView) findViewById(R.id.collect_list);
         collectList.setLayoutManager(new LinearLayoutManager(this));
@@ -71,7 +72,7 @@ public class CollectionActivity extends BaseActivity{
     @Override
     public void finish() {
         super.finish();
-        overridePendingTransition(0, R.anim.animation_x_off);
+        //overridePendingTransition(0, R.anim.animation_x_off);
     }
 
 }
