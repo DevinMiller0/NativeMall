@@ -2,10 +2,11 @@ package com.awake.dreaming.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.utils.StatusBarUtils;
@@ -16,8 +17,8 @@ import com.awake.dreaming.utils.StatusBarUtils;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private View bottomSheet;
-    private Button button;
+    private TranslateAnimation animation;
+    private ImageView translate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,17 +27,20 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
 
-        bottomSheet = findViewById(R.id.be);
-        final BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
-        behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        button = (Button) findViewById(R.id.btn_bottom);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (behavior.getState() == BottomSheetBehavior.STATE_HIDDEN){
-                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                }
-            }
-        });
+        translate = (ImageView) findViewById(R.id.translation);
+        animation = new TranslateAnimation(0, 100, 100, 0);
+        animation.setDuration(2000);
+        animation.setRepeatCount(1000);
+        animation.setRepeatMode(Animation.REVERSE);
+        translate.setAnimation(animation);
+        animation.start();
+
+        RotateAnimation rotateAnimation = new RotateAnimation(0f, 360f,Animation.RELATIVE_TO_SELF,
+                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+        //rotateAnimation.setRepeatMode(Animation.REVERSE);
+        rotateAnimation.setRepeatCount(1000);
+        rotateAnimation.setDuration(1000*20);
+        translate.setAnimation(rotateAnimation);
+        rotateAnimation.start();
     }
 }
