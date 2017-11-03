@@ -9,6 +9,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import com.awake.dreaming.R;
+import com.awake.dreaming.datas.Image;
 import com.awake.dreaming.utils.StatusBarUtils;
 
 /**
@@ -18,7 +19,9 @@ import com.awake.dreaming.utils.StatusBarUtils;
 public class LoginActivity extends AppCompatActivity {
 
     private TranslateAnimation animation;
-    private ImageView translate;
+    private ImageView balloonBottom;
+    private ImageView cloudTop;
+    private ImageView cloudBottom;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,20 +30,35 @@ public class LoginActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
 
-        translate = (ImageView) findViewById(R.id.translation);
-        animation = new TranslateAnimation(0, 100, 100, 0);
-        animation.setDuration(2000);
+        balloonBottom = (ImageView) findViewById(R.id.img_balloon_bottom);
+        cloudTop = (ImageView) findViewById(R.id.img_cloud_bottom);
+        cloudBottom = (ImageView) findViewById(R.id.img_cloud);
+
+        animation = new TranslateAnimation(0, 50, 50, 0);
+        animation.setDuration(2400);
         animation.setRepeatCount(1000);
         animation.setRepeatMode(Animation.REVERSE);
-        translate.setAnimation(animation);
+        balloonBottom.setAnimation(animation);
         animation.start();
+        top();
+        bottom();
+    }
 
-        RotateAnimation rotateAnimation = new RotateAnimation(0f, 360f,Animation.RELATIVE_TO_SELF,
-                0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-        //rotateAnimation.setRepeatMode(Animation.REVERSE);
-        rotateAnimation.setRepeatCount(1000);
-        rotateAnimation.setDuration(1000*20);
-        translate.setAnimation(rotateAnimation);
-        rotateAnimation.start();
+    private void top() {
+        animation = new TranslateAnimation(0, 40, 40, 0);
+        animation.setDuration(2200);
+        animation.setRepeatCount(1000);
+        animation.setRepeatMode(Animation.REVERSE);
+        cloudTop.setAnimation(animation);
+        animation.start();
+    }
+
+    private void bottom() {
+        animation = new TranslateAnimation(0, 40, 40, 0);
+        animation.setDuration(2500);
+        animation.setRepeatCount(1000);
+        animation.setRepeatMode(Animation.REVERSE);
+        cloudBottom.setAnimation(animation);
+        animation.start();
     }
 }
