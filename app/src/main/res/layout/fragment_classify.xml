@@ -3,9 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e6e4e4"
-    android:padding="20dp"
-    android:gravity="center"
     android:orientation="vertical">
+
+    <com.awake.dreaming.widget.TopBar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_50dp"/>
+
     <LinearLayout
         android:id="@+id/ll_loading"
         android:layout_width="@dimen/public_85dp"

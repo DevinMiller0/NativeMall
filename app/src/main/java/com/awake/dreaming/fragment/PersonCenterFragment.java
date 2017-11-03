@@ -96,5 +96,18 @@ public class PersonCenterFragment extends BaseFragment {
     private void initTopBar() {
         TopBar topBar = getActivity().findViewById(R.id.top_bar);
         topBar.setTitle(getString(R.string.personal_center));
+        topBar.imgBack.setVisibility(View.INVISIBLE);
+        topBar.setOnBackClickListener(new TopBar.OnBackClickListener() {
+            @Override
+            public void backClick(View view) {
+
+            }
+        });
+        topBar.setOnMoreClickListener(new TopBar.OnMoreClickListener() {
+            @Override
+            public void moreClick(View view) {
+
+            }
+        });
     }
 }

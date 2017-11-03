@@ -18,9 +18,9 @@ import com.awake.dreaming.R;
 
 public class TopBar extends LinearLayout {
 
-    private ImageView imgBack;
+    public ImageView imgBack;
     private TextView tvTitle;
-    private ImageView imgMore;
+    public ImageView imgMore;
 
     private OnBackClickListener backClickListener;
     private OnMoreClickListener moreClickListener;

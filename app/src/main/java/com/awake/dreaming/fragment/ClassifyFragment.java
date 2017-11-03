@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.activity.ImageSelectorActivity;
+import com.awake.dreaming.widget.TopBar;
 
 /**
  * Created by 德胜 on 2017/10/13.
@@ -31,8 +32,26 @@ public class ClassifyFragment extends BaseFragment {
 
     @Override
     protected void setLayout() {
+        initTopBar();
         getActivity().findViewById(R.id.btn_start_loading).setOnClickListener(this);
+    }
 
+    private void initTopBar() {
+        TopBar topBar = getActivity().findViewById(R.id.top_bar);
+        topBar.setTitle(getString(R.string.category_distribution));
+        topBar.imgBack.setVisibility(View.INVISIBLE);
+        topBar.setOnMoreClickListener(new TopBar.OnMoreClickListener() {
+            @Override
+            public void moreClick(View view) {
+
+            }
+        });
+        topBar.setOnBackClickListener(new TopBar.OnBackClickListener() {
+            @Override
+            public void backClick(View view) {
+
+            }
+        });
     }
 
     @Override
