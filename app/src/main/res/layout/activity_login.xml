@@ -1,41 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@mipmap/bg_login"
-    android:padding="25dp"
     android:gravity="center"
-    android:orientation="vertical">
+    android:background="@mipmap/bg_login">
 
     <RelativeLayout
+        android:id="@+id/rl_parent"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/public_150dp">
 
-        <ImageView
-            android:id="@+id/img_balloon_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/picture_balloon_bottom"
-            android:layout_centerInParent="true"/>
-        <ImageView
-            android:id="@+id/img_cloud_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/picture_cloud_big"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="70dp"
-            android:layout_marginLeft="160dp"/>
+        <LinearLayout
+            android:id="@+id/linearLayout_parent"
+            android:layout_width="280dp"
+            android:layout_height="270dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_login_shadow"
+            android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.wrapp.floatlabelededittext.FloatLabeledEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/public_13dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textCursorDrawable="@null"
+                        android:background="@null"
+                        android:paddingTop="@dimen/public_8dp"
+                        android:paddingBottom="@dimen/public_8dp"
+                        android:textSize="@dimen/public_size_13"
+                        android:hint="@string/input_mobile_number"/>
+
+                </com.wrapp.floatlabelededittext.FloatLabeledEditText>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="13dp"
+                    android:background="#2ab4dc"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/public_50dp"
+                    android:padding="@dimen/public_6dp"
+                    android:layout_marginBottom="@dimen/public_10dp"
+                    android:layout_marginTop="@dimen/public_20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:textCursorDrawable="@null"
+                            android:paddingBottom="@dimen/public_9dp"
+                            android:paddingTop="@dimen/public_8dp"
+                            android:paddingLeft="@dimen/public_6dp"
+                            android:textSize="@dimen/public_size_13"
+                            android:hint="@string/input_verify_code"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="#2ab4dc"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_obtain_code_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        android:padding="@dimen/public_7dp"
+                        android:layout_marginRight="@dimen/public_6dp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/public_size_16"
+                        android:text="@string/obtain_verify_code"
+                        android:background="@drawable/bg_verify_code"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_login_btn"
+                    android:layout_width="140dp"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_btn_login"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    android:textColor="@color/colorLoginBlue"
+                    android:textSize="@dimen/public_size_16" />
+
+                <ImageView
+                    android:id="@+id/img_login_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/public_15dp"
+                    android:src="@mipmap/icon_loading"
+                    android:visibility="invisible"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_login_loading" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_top_float"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/img_top_balloon"
+                android:layout_width="@dimen/public_50dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/picture_balloon_top"/>
+
+            <ImageView
+                android:id="@+id/img_top_small_cloud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/picture_cloud_small"/>
+
+            <ImageView
+                android:id="@+id/img_top_big_cloud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/picture_cloud_big"/>
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_float"
+        android:layout_width="120dp"
+        android:layout_height="120dp">
         <ImageView
-            android:id="@+id/img_cloud"
+            android:id="@+id/img_bottom_balloon"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/picture_balloon_bottom" />
+        <ImageView
+            android:id="@+id/img_bottom_small_cloud"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/picture_cloud_big"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="70dp"
-            android:layout_marginRight="160dp"/>
+            android:src="@mipmap/picture_cloud_big"/>
+        <ImageView
+            android:id="@+id/img_bottom_big_cloud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/picture_cloud_big" />
+    </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

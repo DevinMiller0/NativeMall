@@ -47,9 +47,6 @@
         <activity android:name="com.awake.dreaming.activity.MyCarteActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>
-        <activity android:name="com.awake.dreaming.activity.LoginActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|orientation"/>
         <activity android:name="com.awake.dreaming.activity.CreatedCardActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>

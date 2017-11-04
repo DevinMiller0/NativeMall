@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">商城</string>
     <string name="memo_top_bar_title">添加备忘录</string>
+    <string name="input_mobile_number">请输入手机号</string>
+    <string name="input_verify_code">请输入验证码</string>
+    <string name="login">登录</string>
+    <string name="obtain_verify_code">获取验证码</string>
+    <string name="send_again">可以重新发送验证码</string>
 </resources>
