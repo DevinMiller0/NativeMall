@@ -2,12 +2,14 @@ package com.awake.dreaming.activity;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -28,6 +30,8 @@ public class LoginActivity extends BaseActivity {
     private Animation animation;
     private Display display;
 
+    private EditText phoneNum;
+    private EditText verifyCode;
     private TextView obtainCode;
     private TextView login;
 
@@ -55,6 +59,8 @@ public class LoginActivity extends BaseActivity {
      * 初始化登录按钮
      */
     private void initLogin() {
+        phoneNum = (EditText) findViewById(R.id.et_mobile_number);
+        verifyCode = (EditText) findViewById(R.id.et_verify_code);
         obtainCode = (TextView) findViewById(R.id.tv_obtain_code_btn);
         login = (TextView) findViewById(R.id.tv_login_btn);
 
@@ -177,7 +183,30 @@ public class LoginActivity extends BaseActivity {
     protected void onViewClick(View view) {
         switch (view.getId()){
             case R.id.tv_obtain_code_btn:{
+                String number = phoneNum.getText().toString();
 
+                if (number.equals("")){
+                    Toast.makeText(LoginActivity.this,
+                            getString(R.string.input_mobile_number), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (number.length() < 11){
+                    Toast.makeText(LoginActivity.this,
+                            getString(R.string.eleven_number), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                int x = number.charAt(1);
+                Log.e(TAG, "onViewClick: " + x );
+                if ((int)number.charAt(1) == 2){
+
+                    Toast.makeText(LoginActivity.this,
+                            getString(R.string.correct_phone_number), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+//                        || number.charAt(1) == 1
+//                        || number.charAt(1) == 2
+//                        || number.charAt(1) == 6
+//                        || number.charAt(1) == 9
                 obtainCode.setBackground(getDrawable(R.drawable.bg_verify_code_sending));
                 if (timer == null){
                     timer = new Timer();
@@ -214,7 +243,7 @@ public class LoginActivity extends BaseActivity {
                                 getString(R.string.send_again), Toast.LENGTH_SHORT).show();
                         obtainCode.setText(getString(R.string.obtain_verify_code));
                         obtainCode.setBackground(getDrawable(R.drawable.bg_verify_code));
-                        second = 30;
+                        second = 3;
                         if (timer != null) {
                             timer.cancel();
                             timer = null;

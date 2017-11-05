@@ -35,14 +35,17 @@
                     android:paddingLeft="@dimen/public_13dp">
 
                     <EditText
+                        android:id="@+id/et_mobile_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textCursorDrawable="@null"
                         android:background="@null"
+                        android:maxLength="11"
                         android:paddingTop="@dimen/public_8dp"
                         android:paddingBottom="@dimen/public_8dp"
                         android:textSize="@dimen/public_size_13"
-                        android:hint="@string/input_mobile_number"/>
+                        android:hint="@string/input_mobile_number"
+                        android:inputType="phone" />
 
                 </com.wrapp.floatlabelededittext.FloatLabeledEditText>
 
@@ -67,6 +70,7 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <EditText
+                            android:id="@+id/et_verify_code"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
@@ -110,7 +114,7 @@
                     android:layout_width="140dp"
                     android:layout_height="35dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/bg_btn_login"
+                    android:background="@drawable/bg_login_btn"
                     android:gravity="center"
                     android:text="@string/login"
                     android:textColor="@color/colorLoginBlue"
