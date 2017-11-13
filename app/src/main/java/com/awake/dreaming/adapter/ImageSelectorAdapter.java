@@ -32,6 +32,7 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
     private Context context;
     private Display display;
     private OnItemClickListener onItemClickListener;
+    private OnCheckBoxListener onCheckBoxListener;
 
     public ImageSelectorAdapter(Context context, ArrayList<Image> images, Display display) {
         this.context = context;
@@ -50,13 +51,14 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
     public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
         final boolean isYes = images.get(position).isYes();
+        final String path = images.get(position).getPath();
 
         if (isYes){
             holder.selectImg.setImageResource(R.mipmap.click_take_photo);
             holder.selectImg.setBackgroundResource(R.color.colorCameraBg);
             holder.choose.setVisibility(View.INVISIBLE);
         }else {
-            Uri uri = Uri.fromFile(new File(images.get(position).getPath()));
+            Uri uri = Uri.fromFile(new File(path));
             holder.selectImg.setScaleType(ImageView.ScaleType.CENTER);
             Glide.with(context).load(uri).into(holder.selectImg);
         }
@@ -64,9 +66,7 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
         holder.choose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    toast("选中了"+position);
-                }
+                onCheckBoxListener.checked(b, position, path);
             }
         });
 
@@ -103,8 +103,16 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
         this.onItemClickListener = onItemClickListener;
     }
 
+    public void setOnCheckBoxListener(OnCheckBoxListener checkBoxListener) {
+        this.onCheckBoxListener = checkBoxListener;
+    }
+
     public interface OnItemClickListener{
         void itemClick(ViewHolder holder, int position, String path, boolean isYes);
+    }
+
+    public interface OnCheckBoxListener{
+        void checked(boolean b, int position, String path);
     }
 
     private void toast(String msg) {

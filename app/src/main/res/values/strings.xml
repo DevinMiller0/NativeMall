@@ -8,4 +8,7 @@
     <string name="send_again">可以重新发送验证码</string>
     <string name="eleven_number">请输入11位数字的手机号吗</string>
     <string name="correct_phone_number">请输入正确的手机号码</string>
+    <string name="all_images">全部图片</string>
+    <string name="preview">预览</string>
+    <string name="complete">完成</string>
 </resources>

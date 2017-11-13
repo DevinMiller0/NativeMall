@@ -50,6 +50,7 @@ public class ImageSelectorActivity extends BaseActivity {
     private static String TAG = "ImageSelectorActivity";
 
     private TextView folderName;
+    private TextView preview;
 
     @Override
     protected int getLayout() {
@@ -70,9 +71,10 @@ public class ImageSelectorActivity extends BaseActivity {
         findViewById(R.id.img_back).setOnClickListener(this);
         findViewById(R.id.tv_complete).setOnClickListener(this);
         folderName = (TextView) findViewById(R.id.tv_all_images);
-        findViewById(R.id.tv_preview).setOnClickListener(this);
+        preview = (TextView) findViewById(R.id.tv_preview);
 
         folderName.setOnClickListener(this);
+        preview.setOnClickListener(this);
 
         WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
@@ -172,13 +174,20 @@ public class ImageSelectorActivity extends BaseActivity {
                         recyclerImg.setLayoutManager
                                 (new GridLayoutManager(ImageSelectorActivity.this, 3));
                         setImages(images, "全部图片");
+
                         itemClick();
+                        checkedBox();
                     }
                 });
             }
         });
     }
 
+    /**
+     * setting adapter
+     * @param images
+     * @param name
+     */
     public void setImages(ArrayList<Image> images, String name) {
         adapter = new ImageSelectorAdapter(ImageSelectorActivity.this, images, display);
         recyclerImg.setAdapter(adapter);
@@ -190,6 +199,7 @@ public class ImageSelectorActivity extends BaseActivity {
             behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         }
         itemClick();
+        checkedBox();
     }
 
     /**
@@ -203,9 +213,25 @@ public class ImageSelectorActivity extends BaseActivity {
                 if (isYes){
                     openCamera();
                 }else {
-                    toast("Preview picture" + "  " + position);
                     Log.e(TAG, "点击到的图片的路径: " + path );
+                    Intent intent = new Intent(ImageSelectorActivity.this, PreviewActivity.class);
+                    intent.putExtra("path", path);
+                    startActivity(intent);
                 }
+            }
+        });
+    }
+
+    /**
+     * CheckBox widget is checked.
+     */
+    int count = 0;
+    private void checkedBox() {
+        adapter.setOnCheckBoxListener(new ImageSelectorAdapter.OnCheckBoxListener() {
+            @Override
+            public void checked(boolean b, int position, String path) {
+                count = count + 1;
+                preview.setText("预览(" + count +")");
             }
         });
     }
