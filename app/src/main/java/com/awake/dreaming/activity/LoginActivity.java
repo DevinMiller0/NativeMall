@@ -2,7 +2,6 @@ package com.awake.dreaming.activity;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -27,7 +26,6 @@ import java.util.TimerTask;
 
 public class LoginActivity extends BaseActivity {
 
-    private Animation animation;
     private Display display;
 
     private EditText phoneNum;
@@ -39,7 +37,6 @@ public class LoginActivity extends BaseActivity {
     private final int MSG_WHAT = 0;
     protected int second = 10;
     private final String TAG = "LoginActivity";
-
 
 
     @Override
@@ -59,6 +56,7 @@ public class LoginActivity extends BaseActivity {
      * 初始化登录按钮
      */
     private void initLogin() {
+
         phoneNum = (EditText) findViewById(R.id.et_mobile_number);
         verifyCode = (EditText) findViewById(R.id.et_verify_code);
         obtainCode = (TextView) findViewById(R.id.tv_obtain_code_btn);
@@ -72,6 +70,7 @@ public class LoginActivity extends BaseActivity {
      * 初始化底部浮动气球
      */
     private void initBottomFloat() {
+
         RelativeLayout bottomFloat = (RelativeLayout) findViewById(R.id.rl_bottom_float);
         ImageView balloonBottom = (ImageView) findViewById(R.id.img_bottom_balloon);
         ImageView cloudBottomSm = (ImageView) findViewById(R.id.img_bottom_small_cloud);
@@ -83,16 +82,19 @@ public class LoginActivity extends BaseActivity {
         int height = display.getHeight();
         bottomFloat.setLayoutParams(new RelativeLayout.LayoutParams(width / 3 , width / 3));
 
-        RelativeLayout.LayoutParams paramsFloat = (RelativeLayout.LayoutParams) bottomFloat.getLayoutParams();
+        RelativeLayout.LayoutParams paramsFloat =
+                (RelativeLayout.LayoutParams) bottomFloat.getLayoutParams();
         paramsFloat.topMargin = (int) (height / 2.5);
 
         //左上角云彩的位置
-        RelativeLayout.LayoutParams paramsSm = (RelativeLayout.LayoutParams) cloudBottomSm.getLayoutParams();
+        RelativeLayout.LayoutParams paramsSm =
+                (RelativeLayout.LayoutParams) cloudBottomSm.getLayoutParams();
         paramsSm.leftMargin = (width / 11);
         paramsSm.topMargin = (width / 7);
 
         //右下角云彩的位置
-        RelativeLayout.LayoutParams paramsBig = (RelativeLayout.LayoutParams) cloudBottomBig.getLayoutParams();
+        RelativeLayout.LayoutParams paramsBig =
+                (RelativeLayout.LayoutParams) cloudBottomBig.getLayoutParams();
         paramsBig.leftMargin = (width / 6);
         paramsBig.topMargin = (int) (width / 4.5);
 
@@ -106,6 +108,7 @@ public class LoginActivity extends BaseActivity {
      * 初始化顶部浮动气球
      */
     private void initTopFloat() {
+
         RelativeLayout topFloat = (RelativeLayout) findViewById(R.id.rl_top_float);
         ImageView balloonTop = (ImageView) findViewById(R.id.img_top_balloon);
         ImageView cloudTopSm = (ImageView) findViewById(R.id.img_top_small_cloud);
@@ -118,7 +121,8 @@ public class LoginActivity extends BaseActivity {
         topFloat.setLayoutParams(new RelativeLayout.LayoutParams(width / 3 , width / 3));
 
         //右上角气球的位置
-        RelativeLayout.LayoutParams topFloatParams = (RelativeLayout.LayoutParams) topFloat.getLayoutParams();
+        RelativeLayout.LayoutParams topFloatParams =
+                (RelativeLayout.LayoutParams) topFloat.getLayoutParams();
         topFloatParams.leftMargin = (int) (width * 1.95 / 3);
         topFloatParams.topMargin = height / 12;
 
@@ -127,12 +131,14 @@ public class LoginActivity extends BaseActivity {
         topFloat.measure(w, h);
 
         //左上角云彩的位置
-        RelativeLayout.LayoutParams paramsSm = (RelativeLayout.LayoutParams) cloudTopSm.getLayoutParams();
+        RelativeLayout.LayoutParams paramsSm =
+                (RelativeLayout.LayoutParams) cloudTopSm.getLayoutParams();
         paramsSm.leftMargin = (width / 12);
         paramsSm.topMargin = (width / 9);
 
         //右下角云彩的位置
-        RelativeLayout.LayoutParams paramsBig = (RelativeLayout.LayoutParams) cloudTopBig.getLayoutParams();
+        RelativeLayout.LayoutParams paramsBig =
+                (RelativeLayout.LayoutParams) cloudTopBig.getLayoutParams();
         paramsBig.rightMargin = (width / 9);
         paramsBig.bottomMargin = (width / 12);
 
@@ -155,19 +161,22 @@ public class LoginActivity extends BaseActivity {
         int width = display.getWidth();
         int height = display.getHeight();
         LinearLayout parentLayout = (LinearLayout) findViewById(R.id.linearLayout_parent);
-        parentLayout.setLayoutParams(new RelativeLayout.LayoutParams(width * 3 / 4, height * 2 / 5));
+        parentLayout.setLayoutParams
+                (new RelativeLayout.LayoutParams(width * 3 / 4, height * 2 / 5));
 
-        RelativeLayout.LayoutParams parentParams = (RelativeLayout.LayoutParams) parentLayout.getLayoutParams();
+        RelativeLayout.LayoutParams parentParams =
+                (RelativeLayout.LayoutParams) parentLayout.getLayoutParams();
         parentParams.leftMargin = width / 8;
         parentParams.topMargin = height / 5;
         parentParams.bottomMargin = height / 7;
     }
 
     /**
-     * 气球浮动动画
+     * 浮动动画
      */
     private void floatAnimation(ImageView imageview, int distance, int duration) {
-        animation = new TranslateAnimation(0, distance, distance, 0);
+
+        Animation animation = new TranslateAnimation(0, distance, distance, 0);
         animation.setDuration(duration);
         animation.setRepeatCount(1000);
         animation.setRepeatMode(Animation.REVERSE);
@@ -181,8 +190,10 @@ public class LoginActivity extends BaseActivity {
      */
     @Override
     protected void onViewClick(View view) {
+
         switch (view.getId()){
             case R.id.tv_obtain_code_btn:{
+
                 String number = phoneNum.getText().toString();
 
                 if (number.equals("")){
@@ -190,24 +201,23 @@ public class LoginActivity extends BaseActivity {
                             getString(R.string.input_mobile_number), Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 if (number.length() < 11){
                     Toast.makeText(LoginActivity.this,
                             getString(R.string.eleven_number), Toast.LENGTH_SHORT).show();
                     return;
                 }
-                int x = number.charAt(1);
-                Log.e(TAG, "onViewClick: " + x );
-                if ((int)number.charAt(1) == 2){
 
-                    Toast.makeText(LoginActivity.this,
-                            getString(R.string.correct_phone_number), Toast.LENGTH_SHORT).show();
+                int x = number.charAt(1);
+
+                //Log.e(TAG, "onViewClick: " + x );
+                if (x == 48 || x == 49 || x == 50 || x == 54 || x == 57){
+                    toast(getString(R.string.correct_phone_number));
                     return;
                 }
-//                        || number.charAt(1) == 1
-//                        || number.charAt(1) == 2
-//                        || number.charAt(1) == 6
-//                        || number.charAt(1) == 9
+
                 obtainCode.setBackground(getDrawable(R.drawable.bg_verify_code_sending));
+
                 if (timer == null){
                     timer = new Timer();
                     timer.schedule(new TimerTask() {
@@ -219,7 +229,16 @@ public class LoginActivity extends BaseActivity {
                 }
                 break;
             }
+
             case R.id.tv_login_btn:{
+
+                String verify = verifyCode.getText().toString();
+
+                if (verify.isEmpty()){
+                    toast(getString(R.string.input_verify_code));
+                }else if (verify.length() < 6){
+                    toast(getString(R.string.six_verify_code));
+                }
                 break;
             }
         }
@@ -233,14 +252,14 @@ public class LoginActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             obtainCode.setText(second + "s");
+
             switch (msg.what){
 
                 case MSG_WHAT:{
                     if (second > 0){
                         second--;
                     }else {
-                        Toast.makeText(LoginActivity.this,
-                                getString(R.string.send_again), Toast.LENGTH_SHORT).show();
+                        toast(getString(R.string.send_again));
                         obtainCode.setText(getString(R.string.obtain_verify_code));
                         obtainCode.setBackground(getDrawable(R.drawable.bg_verify_code));
                         second = 3;
@@ -253,4 +272,12 @@ public class LoginActivity extends BaseActivity {
             }
         }
     };
+
+    /**
+     * 吐司提示
+     * @param toastMsg
+     */
+    private void toast(String toastMsg) {
+        Toast.makeText(LoginActivity.this, toastMsg, Toast.LENGTH_SHORT).show();
+    }
 }

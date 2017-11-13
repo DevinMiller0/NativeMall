@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.awake.dreaming.R;
-import com.awake.dreaming.activity.LoginActivity;
+import com.awake.dreaming.activity.ImageSelectorActivity;
 import com.awake.dreaming.widget.TopBar;
 
 /**
@@ -59,8 +59,8 @@ public class ClassifyFragment extends BaseFragment {
         switch (view.getId()){
             case R.id.btn_start_loading:{
                 //loading();
-                //startActivity(new Intent(getActivity(), ImageSelectorActivity.class));
-                startActivity(new Intent(getActivity(), LoginActivity.class));
+                startActivity(new Intent(getActivity(), ImageSelectorActivity.class));
+                //startActivity(new Intent(getActivity(), LoginActivity.class));
                 break;
             }
 

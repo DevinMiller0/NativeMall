@@ -1,7 +1,6 @@
 package com.awake.dreaming.activity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -20,6 +19,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.awake.dreaming.R;
@@ -49,6 +49,8 @@ public class ImageSelectorActivity extends BaseActivity {
     private static final int TAKE_PIC_RESULT_CODE = 2;
     private static String TAG = "ImageSelectorActivity";
 
+    private TextView folderName;
+
     @Override
     protected int getLayout() {
         return R.layout.activity_image_selector;
@@ -67,8 +69,11 @@ public class ImageSelectorActivity extends BaseActivity {
 
         findViewById(R.id.img_back).setOnClickListener(this);
         findViewById(R.id.tv_complete).setOnClickListener(this);
-        findViewById(R.id.tv_all_images).setOnClickListener(this);
+        folderName = (TextView) findViewById(R.id.tv_all_images);
         findViewById(R.id.tv_preview).setOnClickListener(this);
+
+        folderName.setOnClickListener(this);
+
         WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
         checkPermission();
@@ -78,7 +83,7 @@ public class ImageSelectorActivity extends BaseActivity {
     protected void onViewClick(View view) {
         switch (view.getId()){
             case R.id.tv_complete:{
-                Toast.makeText(this, "Complete", Toast.LENGTH_SHORT).show();
+                toast("Complete");
                 break;
             }
             case R.id.img_back:{
@@ -103,7 +108,7 @@ public class ImageSelectorActivity extends BaseActivity {
                 break;
             }
             case R.id.tv_preview:{
-                Toast.makeText(this, "Preview", Toast.LENGTH_SHORT).show();
+                toast("Preview");
             }
         }
     }
@@ -144,7 +149,6 @@ public class ImageSelectorActivity extends BaseActivity {
             }
             case OPEN_CAMERA_CODE:{
                 if (grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(intent, 0);
                 }
@@ -167,13 +171,25 @@ public class ImageSelectorActivity extends BaseActivity {
                     public void run() {
                         recyclerImg.setLayoutManager
                                 (new GridLayoutManager(ImageSelectorActivity.this, 3));
-                        adapter = new ImageSelectorAdapter(ImageSelectorActivity.this, images, display);
-                        recyclerImg.setAdapter(adapter);
+                        setImages(images, "全部图片");
                         itemClick();
                     }
                 });
             }
         });
+    }
+
+    public void setImages(ArrayList<Image> images, String name) {
+        adapter = new ImageSelectorAdapter(ImageSelectorActivity.this, images, display);
+        recyclerImg.setAdapter(adapter);
+
+        folderName.setText(name);
+
+        if (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED ||
+                behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
+            behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        }
+        itemClick();
     }
 
     /**
@@ -182,11 +198,12 @@ public class ImageSelectorActivity extends BaseActivity {
     private void itemClick() {
         adapter.setOnItemClickListener(new ImageSelectorAdapter.OnItemClickListener() {
             @Override
-            public void itemClick(ImageSelectorAdapter.ViewHolder holder, int position, String path) {
-                if (position == 0){
+            public void itemClick(ImageSelectorAdapter.ViewHolder holder,
+                                  int position, String path, boolean isYes) {
+                if (isYes){
                     openCamera();
                 }else {
-                    Toast.makeText(ImageSelectorActivity.this, "Preview picture" + "  " + position, Toast.LENGTH_SHORT).show();
+                    toast("Preview picture" + "  " + position);
                     Log.e(TAG, "点击到的图片的路径: " + path );
                 }
             }
@@ -213,7 +230,6 @@ public class ImageSelectorActivity extends BaseActivity {
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED
                 || behavior.getState() == BottomSheetBehavior.STATE_EXPANDED)){
@@ -224,4 +240,7 @@ public class ImageSelectorActivity extends BaseActivity {
         return false;
     }
 
+    private void toast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 }

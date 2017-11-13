@@ -4,13 +4,16 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.datas.Image;
@@ -46,7 +49,9 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
     @Override
     public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
-        if (images.get(position).isYes()){
+        final boolean isYes = images.get(position).isYes();
+
+        if (isYes){
             holder.selectImg.setImageResource(R.mipmap.click_take_photo);
             holder.selectImg.setBackgroundResource(R.color.colorCameraBg);
             holder.choose.setVisibility(View.INVISIBLE);
@@ -56,11 +61,21 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
             Glide.with(context).load(uri).into(holder.selectImg);
         }
 
+        holder.choose.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    toast("选中了"+position);
+                }
+            }
+        });
+
         holder.selectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String path = images.get(position).getPath();
-                onItemClickListener.itemClick(holder, position, path);
+                Log.e("TAG", "onClick: " + position + path);
+                onItemClickListener.itemClick(holder, position, path, isYes);
             }
         });
     }
@@ -79,7 +94,8 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
             super(itemView);
             selectImg = itemView.findViewById(R.id.img_selected);
             choose = itemView.findViewById(R.id.cb_choose);
-            itemView.setLayoutParams(new LinearLayout.LayoutParams(display.getWidth()/3, display.getWidth()/3));
+            itemView.setLayoutParams(
+                    new LinearLayout.LayoutParams(display.getWidth()/3, display.getWidth()/3));
         }
     }
 
@@ -88,6 +104,10 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
     }
 
     public interface OnItemClickListener{
-        void itemClick(ViewHolder holder, int position, String path);
+        void itemClick(ViewHolder holder, int position, String path, boolean isYes);
+    }
+
+    private void toast(String msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 }

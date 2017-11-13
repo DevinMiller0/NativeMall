@@ -57,7 +57,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         holder.itemParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                itemClickListener.itemClick(position);
+                itemClickListener.itemClick(position, folderList.get(position).getName());
             }
         });
 
@@ -69,7 +69,6 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-
         private LinearLayout itemParent;
         private ImageView avatar;
         private TextView name;
@@ -85,7 +84,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
     }
 
     public interface OnItemClickListener{
-        void itemClick(int position);
+        void itemClick(int position, String name);
     }
 
     public void setOnItemClickListener(OnItemClickListener itemClickListener){
