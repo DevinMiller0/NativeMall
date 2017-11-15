@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.awake.dreaming.R;
+import com.awake.dreaming.utils.StatusBarUtils;
 import com.bumptech.glide.Glide;
 
 /**
@@ -24,9 +25,12 @@ public class PreviewActivity extends BaseActivity {
         String path = intent.getStringExtra("path");
 
         ImageView preview = (ImageView) findViewById(R.id.img_preview);
+        preview.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         Glide.with(this).load(path).into(preview);
         preview.setOnClickListener(this);
+
+        StatusBarUtils.transparentStatusBar(this);
     }
 
     @Override

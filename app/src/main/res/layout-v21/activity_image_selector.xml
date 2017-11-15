@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/public_65dp"
             android:background="@color/colorImageSelector"
-            android:elevation="@dimen/public_10dp"
+            android:elevation="@dimen/public_5dp"
             android:gravity="center_vertical">
 
             <ImageView
@@ -54,7 +54,6 @@
                 android:layout_height="@dimen/public_45dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorDarkGray"
-                android:elevation="@dimen/public_15dp"
                 android:gravity="center_vertical">
 
                 <TextView

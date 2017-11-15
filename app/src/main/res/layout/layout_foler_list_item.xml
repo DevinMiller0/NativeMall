@@ -12,7 +12,9 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_margin="@dimen/public_10dp"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorTheme"
+        android:elevation="1dip"
+        android:translationZ="@dimen/public_2dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textSize="@dimen/public_size_20"
-            android:text="news_article"/>
+            android:text="news_article" />
         <TextView
             android:id="@+id/tv_folder_count"
             android:layout_width="match_parent"

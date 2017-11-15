@@ -18,7 +18,6 @@ import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +30,8 @@ import com.awake.dreaming.utils.ImageUtils;
 import com.awake.dreaming.utils.StatusBarUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by wangdesheng on 2017/10/27 0027.
@@ -41,7 +42,6 @@ public class ImageSelectorActivity extends BaseActivity {
     private RecyclerView recyclerImg;
     private ImageSelectorAdapter adapter;
     private BottomSheetBehavior behavior;
-    private FrameLayout content;
     private ArrayList<Folder> folder;
     private Display display;
     private static final int READ_PIC_CODE = 0;
@@ -51,6 +51,7 @@ public class ImageSelectorActivity extends BaseActivity {
 
     private TextView folderName;
     private TextView preview;
+    private Map<Integer, Object> previewList = new HashMap<>();
 
     @Override
     protected int getLayout() {
@@ -110,7 +111,12 @@ public class ImageSelectorActivity extends BaseActivity {
                 break;
             }
             case R.id.tv_preview:{
-                toast("Preview");
+                //toast("Preview");
+                if (previewList.isEmpty()) {
+                    toast("sb，没有选择照片");
+                }else {
+
+                }
             }
         }
     }
@@ -185,8 +191,6 @@ public class ImageSelectorActivity extends BaseActivity {
 
     /**
      * setting adapter
-     * @param images
-     * @param name
      */
     public void setImages(ArrayList<Image> images, String name) {
         adapter = new ImageSelectorAdapter(ImageSelectorActivity.this, images, display);
@@ -198,6 +202,14 @@ public class ImageSelectorActivity extends BaseActivity {
                 behavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
             behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         }
+
+        if (!previewList.isEmpty()) {
+            previewList.clear();
+            preview.setText("预览");
+        }
+
+        Log.e(TAG, "setImages: " + previewList.size());
+
         itemClick();
         checkedBox();
     }
@@ -225,13 +237,27 @@ public class ImageSelectorActivity extends BaseActivity {
     /**
      * CheckBox widget is checked.
      */
-    int count = 0;
     private void checkedBox() {
         adapter.setOnCheckBoxListener(new ImageSelectorAdapter.OnCheckBoxListener() {
             @Override
-            public void checked(boolean b, int position, String path) {
-                count = count + 1;
-                preview.setText("预览(" + count +")");
+            public void checked(boolean checked, int position, String path) {
+                if (checked) {
+                    previewList.put(position, path);
+                    int size = previewList.size();
+                    preview.setText("预览(" + size +")");
+//                    Log.e(TAG, "选中时的大小: " + size );
+//                    Log.e(TAG, "选中时的内容: " + previewList.get(position) );
+                }else {
+                    //Log.e(TAG, "取消时的内容: " + previewList.get(position) );
+                    previewList.remove(position);
+                    int size = previewList.size();
+                    if (size == 0) {
+                        preview.setText("预览");
+                    }else {
+                        preview.setText("预览(" + size +")");
+                    }
+                    //Log.e(TAG, "取消时的大小: " + size );
+                }
             }
         });
     }
