@@ -33,4 +33,14 @@
         <attr name="title_size" format="float"/>
 
     </declare-styleable>
+
+
+    <declare-styleable name="LoadView">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="lightColor" format="color"/>
+        <attr name="darkColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
+
+
 </resources>
