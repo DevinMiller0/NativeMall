@@ -59,7 +59,7 @@
         <activity android:name="com.awake.dreaming.activity.HelpCenterActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>
-        <activity android:name="com.awake.dreaming.activity.MemoActivity"
+        <activity android:name="com.awake.dreaming.activity.NoMemoActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>
         <activity android:name="com.awake.dreaming.activity.MyCarteActivity"
@@ -78,6 +78,8 @@
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>
         <activity android:name=".activity.PreviewActivity"/>
+        <activity android:name=".activity.HasMemoActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
     </application>
 

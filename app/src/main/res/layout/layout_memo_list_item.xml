@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/parent_item_memo">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/public_15dp"
+        >
+
+        <View
+            android:layout_width="@dimen/public_2dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#2ab4dc"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_list"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/public_10dp"
+        android:layout_marginBottom="@dimen/public_10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_memo_list_item"
+            android:layout_width="90dp"
+            android:layout_height="@dimen/public_80dp"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="@dimen/public_8dp"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/no_business_card" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/public_80dp"
+            android:layout_marginLeft="@dimen/public_15dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="所谓数组，是无序的元素序列.若将有限个类型相同的变量的集合命名，那么这个名称为数组名。组成数组的各个变量称"
+                android:textSize="@dimen/public_size_16" />
+
+            <TextView
+                android:id="@+id/tv_created_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="2017.11.18    14:10"
+                android:textColor="#2ab4dc" />
+
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/public_10dp"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            style="@style/CheckBoxTheme"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,6 +4,6 @@
     android:color="@color/colorAccent"
     tools:targetApi="lollipop">
 
-    <item android:drawable="@color/colorWhite"/>
+    <item android:drawable="@color/colorWhite" />
 
 </ripple>

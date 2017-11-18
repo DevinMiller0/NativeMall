@@ -28,7 +28,9 @@
 
     <style name="NiceDialog" parent="android:style/Theme.Dialog">
 
+    </style>
 
-
+    <style name="CheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/bg_checkbox</item>
     </style>
 </resources>

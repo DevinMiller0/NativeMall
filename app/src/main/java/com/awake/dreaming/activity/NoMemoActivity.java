@@ -16,7 +16,7 @@ import com.awake.dreaming.widget.TopBar1;
  * Created by wangdesheng on 2017/10/10 0010.
  */
 
-public class MemoActivity extends AppCompatActivity implements View.OnClickListener {
+public class NoMemoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView clickAdd;
     private final String TAG = "MemoActivity";
@@ -40,7 +40,7 @@ public class MemoActivity extends AppCompatActivity implements View.OnClickListe
                 switch (motionEvent.getAction()){
                     case MotionEvent.ACTION_UP:{
                         clickAdd.setBackgroundResource(R.drawable.bg_btn_memo);
-                        startActivity(new Intent(MemoActivity.this, AddMemoActivity.class));
+                        startActivity(new Intent(NoMemoActivity.this, AddMemoActivity.class));
                         break;
                     }
                     case MotionEvent.ACTION_DOWN:{

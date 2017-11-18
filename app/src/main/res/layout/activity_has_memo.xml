@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.awake.dreaming.widget.TopBar
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_45dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorLightGray"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/picture_memo_banner"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_memo_search"
+            android:layout_margin="@dimen/public_8dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_search_memo"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/public_45dp"
+                android:layout_weight="1"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:layout_marginLeft="@dimen/public_15dp"
+                android:hint="搜索备忘"
+                android:background="@null"/>
+
+            <ImageView
+                android:id="@+id/img_search_memo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/public_15dp"
+                android:src="@mipmap/btn_search_memo"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_memo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/img_add_memo"
+            android:layout_width="@dimen/public_70dp"
+            android:layout_height="@dimen/public_70dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/public_20dp"
+            android:layout_marginBottom="@dimen/public_25dp"
+            android:src="@mipmap/btn_add_memo"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

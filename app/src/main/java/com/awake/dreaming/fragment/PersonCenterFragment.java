@@ -9,10 +9,10 @@ import com.awake.dreaming.activity.AboutUsActivity;
 import com.awake.dreaming.activity.CollectionActivity;
 import com.awake.dreaming.activity.FeedBackActivity;
 import com.awake.dreaming.activity.FootPrintsActivity;
+import com.awake.dreaming.activity.HasMemoActivity;
 import com.awake.dreaming.activity.HelpCenterActivity;
-import com.awake.dreaming.activity.MemoActivity;
+import com.awake.dreaming.activity.NoMemoActivity;
 import com.awake.dreaming.activity.MyCarteActivity;
-import com.awake.dreaming.widget.TopBar;
 
 /**
  * Created by 德胜 on 2017/10/13.
@@ -21,6 +21,7 @@ import com.awake.dreaming.widget.TopBar;
 public class PersonCenterFragment extends BaseFragment {
 
     private final String TAG = "PersonCenterFragment";
+    private boolean isHave = true;
 
     @Override
     protected int getLayout() {
@@ -47,8 +48,13 @@ public class PersonCenterFragment extends BaseFragment {
                 break;
             }
             case R.id.ll_memo:{
-                Intent intent = new Intent(getActivity(), MemoActivity.class);
-                startActivity(intent);
+                if (isHave) {
+                    Intent intent = new Intent(getActivity(), HasMemoActivity.class);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getActivity(), NoMemoActivity.class);
+                    startActivity(intent);
+                }
                 break;
             }
             case R.id.ll_foot_print:{
@@ -75,7 +81,6 @@ public class PersonCenterFragment extends BaseFragment {
     }
 
     private void initView() {
-        initTopBar();
         LinearLayout collection = getActivity().findViewById(R.id.ll_collection);
         LinearLayout cardHolder = getActivity().findViewById(R.id.ll_card_holder);
         LinearLayout memo = getActivity().findViewById(R.id.ll_memo);
@@ -91,23 +96,5 @@ public class PersonCenterFragment extends BaseFragment {
         helpCenter.setOnClickListener(this);
         feedback.setOnClickListener(this);
         aboutUs.setOnClickListener(this);
-    }
-
-    private void initTopBar() {
-        TopBar topBar = getActivity().findViewById(R.id.top_bar);
-        topBar.setTitle(getString(R.string.personal_center));
-        topBar.imgBack.setVisibility(View.INVISIBLE);
-        topBar.setOnBackClickListener(new TopBar.OnBackClickListener() {
-            @Override
-            public void backClick(View view) {
-
-            }
-        });
-        topBar.setOnMoreClickListener(new TopBar.OnMoreClickListener() {
-            @Override
-            public void moreClick(View view) {
-
-            }
-        });
     }
 }
