@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.activity.HasMemoActivity;
@@ -24,6 +26,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
     private Context context;
     private LongClickListener longClickListener;
+    private OnItemClickListener itemClickListener;
     public HashMap<Integer, Integer> visibleCheck;
 
     @SuppressLint("UseSparseArrays")
@@ -50,8 +53,15 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
         holder.parent.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                longClickListener.longClick(3, view, holder.checkBox);
+                longClickListener.longClick(position, view, holder.checkBox);
                 return false;
+            }
+        });
+
+        holder.parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemClickListener.itemClick(position, view, holder.checkBox);
             }
         });
     }
@@ -82,7 +92,15 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
         this.longClickListener = longClickListener;
     }
 
+    public void setOnItemClickListener(OnItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
     public interface LongClickListener {
         void longClick(int position, View view, CheckBox checkBox);
+    }
+
+    public interface OnItemClickListener {
+        void itemClick(int position, View view, CheckBox checkBox);
     }
 }

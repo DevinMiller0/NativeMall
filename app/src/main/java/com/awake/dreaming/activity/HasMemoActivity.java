@@ -78,6 +78,17 @@ public class HasMemoActivity extends BaseActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
+        adapter.setOnItemClickListener(new MemoAdapter.OnItemClickListener() {
+            @Override
+            public void itemClick(int position, View view, CheckBox checkBox) {
+                if (isEditorial && !checkBox.isChecked()) {
+                    checkBox.setChecked(true);
+                }else if (isEditorial && checkBox.isChecked()){
+                    checkBox.setChecked(false);
+                }
+            }
+        });
     }
 
     @Override
@@ -89,7 +100,6 @@ public class HasMemoActivity extends BaseActivity {
             adapter.notifyDataSetChanged();
             isEditorial = false;
         }else {
-            isEditorial = false;
             finish();
         }
         return true;
