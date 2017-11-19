@@ -1,5 +1,6 @@
 package com.awake.dreaming.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import com.awake.dreaming.R;
 import com.awake.dreaming.activity.HasMemoActivity;
 
+import java.util.HashMap;
+
 /**
  * Created by wangdesheng on 2017/11/18 0018.
  */
@@ -21,9 +24,15 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
     private Context context;
     private LongClickListener longClickListener;
+    public HashMap<Integer, Integer> visibleCheck;
 
+    @SuppressLint("UseSparseArrays")
     public MemoAdapter(HasMemoActivity context) {
         this.context = context;
+        visibleCheck = new HashMap<>();
+        for (int i = 0; i < 8; i++) {
+            visibleCheck.put(i, CheckBox.GONE);
+        }
     }
 
     @Override
@@ -36,6 +45,8 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final MemoAdapter.ViewHolder holder, final int position) {
+
+        holder.checkBox.setVisibility(visibleCheck.get(position));
         holder.parent.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -43,7 +54,6 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
                 return false;
             }
         });
-        holder.checkBox.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -51,8 +61,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
         return 8;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
+    class ViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout parent;
         private ImageView imgMemo;
         private TextView desc;

@@ -3,6 +3,7 @@ package com.awake.dreaming.activity;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -23,6 +24,8 @@ public class HasMemoActivity extends BaseActivity {
     private ImageView btnSearch;
     private RecyclerView memoList;
     private ImageView btnAdd;
+    private MemoAdapter adapter;
+    private boolean isEditorial;
 
     @Override
     protected int getLayout() {
@@ -62,23 +65,34 @@ public class HasMemoActivity extends BaseActivity {
         btnAdd.setOnClickListener(this);
 
         memoList.setLayoutManager(new LinearLayoutManager(this));
-        MemoAdapter adapter = new MemoAdapter(HasMemoActivity.this);
+        adapter = new MemoAdapter(HasMemoActivity.this);
         memoList.setAdapter(adapter);
+
         adapter.setOnLongClickListener(new MemoAdapter.LongClickListener() {
             @Override
             public void longClick(int position, View view, CheckBox checkBox) {
-                Toast.makeText(HasMemoActivity.this, "long", Toast.LENGTH_SHORT).show();
-                checkBox.setVisibility(View.VISIBLE);
+                for (int i = 0; i < 8; i++) {
+                    adapter.visibleCheck.put(i, CheckBox.VISIBLE);
+                }
+                isEditorial = true;
+                adapter.notifyDataSetChanged();
             }
         });
+    }
 
-        memoList.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Toast.makeText(HasMemoActivity.this, "hahaha", Toast.LENGTH_SHORT).show();
-                return false;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && isEditorial) {
+            for (int i = 0; i < 8; i++) {
+                adapter.visibleCheck.put(i, CheckBox.GONE);
             }
-        });
+            adapter.notifyDataSetChanged();
+            isEditorial = false;
+        }else {
+            isEditorial = false;
+            finish();
+        }
+        return true;
     }
 
     @Override
@@ -87,7 +101,6 @@ public class HasMemoActivity extends BaseActivity {
             case R.id.img_search_memo: {
                 break;
             }
-
             case R.id.img_add_memo: {
                 Intent intent = new Intent(HasMemoActivity.this, AddMemoActivity.class);
                 startActivity(intent);
