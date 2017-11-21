@@ -20,7 +20,6 @@ import com.awake.dreaming.datas.MemoDatas;
 import com.awake.dreaming.widget.TopBar;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Created by wangdesheng on 2017/11/18 0018.
@@ -37,7 +36,6 @@ public class HasMemoActivity extends BaseActivity {
     //是否全选标记
     private boolean isSelectedAll = false;
     private ArrayList<MemoDatas> list;
-    private ArrayList<Integer> delList = new ArrayList<>();
 
     private final String TAG = "HasMemoActivity";
 
@@ -52,9 +50,9 @@ public class HasMemoActivity extends BaseActivity {
         for (int i = 0; i < 6; i++) {
             MemoDatas memoDatas = new MemoDatas();
             memoDatas.setDesc("" + i);
+            memoDatas.setChosen(false);
             list.add(memoDatas);
         }
-        Collections.reverse(list);
         initTopBar();
         initView();
     }
@@ -94,6 +92,9 @@ public class HasMemoActivity extends BaseActivity {
         adapter = new MemoAdapter(HasMemoActivity.this, list);
         memoList.setAdapter(adapter);
 
+        /*
+        item long click
+         */
         adapter.setOnLongClickListener(new MemoAdapter.LongClickListener() {
             @Override
             public void longClick(int position, View view, CheckBox checkBox) {
@@ -116,57 +117,50 @@ public class HasMemoActivity extends BaseActivity {
             }
         });
 
+        /*
+        item click
+         */
         adapter.setOnItemClickListener(new MemoAdapter.OnItemClickListener() {
             @Override
             public void itemClick(int position, View view, CheckBox checkBox) {
+                Log.e(TAG, "itemClick: " + position );
                 if (isEditorial && !checkBox.isChecked()) {
                     checkBox.setChecked(true);
-                    adapter.isCheck.put(position, true);
-                    Log.e(TAG, ".....: " + getChecked() );
-                    delList.add(position);
-                    Log.e(TAG, "itemClick: " + delList.size() );
-
-                    if (getChecked()) {
-                        isSelectedAll = true;
-                        batchSelectAll.setImageResource(R.mipmap.memo_select_all);
-                    }
+                    list.get(position).setChosen(true);
                 }else if (isEditorial && checkBox.isChecked()){
                     checkBox.setChecked(false);
-                    adapter.isCheck.put(position, false);
+                    list.get(position).setChosen(false);
                     batchSelectAll.setImageResource(R.mipmap.memo_select_all_selected);
-                    delList.remove(position);
-                    Log.e(TAG, "itemClick: " + delList.size() );
-                    Log.e(TAG, ".........: " + getChecked() );
-                    if (!getChecked()) {
-                        batchSelectAll.setImageResource(R.mipmap.memo_select_all_selected);
-                    }
                 }
             }
         });
 
+        /*
+        CheckBox click event
+         */
         adapter.setOnCheckChangeListener(new MemoAdapter.OnCheckChangeListener() {
             @Override
             public void checkChange(int position, CompoundButton compoundButton, boolean checked) {
-
+                //list.get(position).setChosen(checked);
+                Log.e(TAG, "checkChange: " + position );
+                Log.e(TAG, "checkChange: " + checked );
+                for (int i = 0; i < list.size(); i++) {
+                    Log.e(TAG, "checkChange: " +list.get(i).getChosen());
+                }
             }
         });
-    }
-
-    private boolean getChecked() {
-        for (int i = 0; i < list.size(); i++) {
-            if (!adapter.isCheck.get(i)) {
-                return false;
-            }
-        }
-        return true;
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && isEditorial) {
             for (int i = 0; i < list.size(); i++) {
+                //返回时checkBox设置为不可见
                 adapter.visibleCheck.put(i, CheckBox.GONE);
+                list.get(i).setChosen(false);
             }
+
+            batchSelectAll.setImageResource(R.mipmap.memo_select_all_selected);
 
             //批量选择影藏动画
             TranslateAnimation hiddenAnimation = getAnimation(0.0f, 0.0f, 0.0f, 1.0f);
@@ -201,17 +195,13 @@ public class HasMemoActivity extends BaseActivity {
             }
 
             case R.id.img_memo_batch_delete: {
-//                if (delList.size() != 0){
-//                    for (int i = 0; i < delList.size(); i++) {
-//                        list.remove(1);
-//                        Log.e(TAG, "onViewClick: " + delList.get(i) );
-//                    }
-//                    Log.e(TAG, "onViewClick: " + list.size() );
-//
-//                    adapter.notifyDataSetChanged();
-//                }else {
-//                    Toast.makeText(HasMemoActivity.this, "么有选择", Toast.LENGTH_SHORT).show();
-//                }
+                for (int i = 0; i < list.size(); i++) {
+                    Log.e(TAG, "onViewClick: " + list.get(i).getChosen());
+                    if (list.get(i).getChosen()) {
+                        list.remove(i);
+                    }
+                }
+                adapter.notifyDataSetChanged();
                 break;
             }
 
@@ -219,11 +209,9 @@ public class HasMemoActivity extends BaseActivity {
                 if (isSelectedAll) {
                     batchSelectAll.setImageResource(R.mipmap.memo_select_all_selected);
                     isSelectedAll = false;
-                    selectedAll(false);
                 }else {
                     batchSelectAll.setImageResource(R.mipmap.memo_select_all);
                     isSelectedAll = true;
-                    selectedAll(true);
                 }
                 break;
             }
@@ -237,18 +225,5 @@ public class HasMemoActivity extends BaseActivity {
                 Animation.RELATIVE_TO_SELF, toYValue);
         animation.setDuration(500);
         return animation;
-    }
-
-    private void selectedAll(boolean isCheck) {
-        if (isCheck) {
-            for (int i = 0; i < list.size(); i++) {
-                adapter.isCheck.put(i, true);
-            }
-        }else {
-            for (int i = 0; i < list.size(); i++) {
-                adapter.isCheck.put(i, false);
-            }
-        }
-        adapter.notifyDataSetChanged();
     }
 }

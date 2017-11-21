@@ -34,17 +34,15 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
     private OnItemClickListener itemClickListener;
     private OnCheckChangeListener checkChangeListener;
     public HashMap<Integer, Integer> visibleCheck;
-    public HashMap<Integer, Boolean> isCheck;
+    //public HashMap<Integer, Boolean> isCheck;
 
     @SuppressLint("UseSparseArrays")
     public MemoAdapter(HasMemoActivity context, ArrayList<MemoDatas> list) {
         this.context = context;
         this.list = list;
         visibleCheck = new HashMap<>();
-        isCheck = new HashMap<>();
         for (int i = 0; i < list.size(); i++) {
             visibleCheck.put(i, CheckBox.GONE);
-            isCheck.put(i, false);
         }
     }
 
@@ -59,7 +57,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final MemoAdapter.ViewHolder holder, final int position) {
 
-        holder.checkBox.setChecked(isCheck.get(position));
+        holder.checkBox.setChecked(list.get(position).getChosen());
 
         TranslateAnimation showAnimation = getAnimation(1.5f, 0.0f, 0.0f, 0.0f);
         TranslateAnimation hiddenAnimation = getAnimation(0.0f, 1.5f, 0.0f, 0.0f);
@@ -71,7 +69,6 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
             //holder.checkBox.startAnimation(hiddenAnimation);
             holder.checkBox.setVisibility(visibleCheck.get(position));
         }
-
 
         holder.desc.setText(list.get(position).getDesc());
 

@@ -9,6 +9,7 @@ public class MemoDatas {
     private String image;
     private String desc;
     private String time;
+    private boolean Chosen;
 
     public String getImage() {
         return image;
@@ -32,5 +33,13 @@ public class MemoDatas {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public boolean getChosen() {
+        return Chosen;
+    }
+
+    public void setChosen(boolean chosen) {
+        Chosen = chosen;
     }
 }
