@@ -75,6 +75,34 @@
             android:layout_marginBottom="@dimen/public_25dp"
             android:src="@mipmap/btn_add_memo"/>
 
+        <LinearLayout
+            android:id="@+id/ll_btn_batch_manager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="false"
+            android:paddingTop="@dimen/public_10dp"
+            android:paddingBottom="@dimen/public_10dp"
+            android:background="@color/colorDarkGray"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_memo_batch_delete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/memo_delete"/>
+
+            <ImageView
+                android:id="@+id/img_memo_batch_select"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@mipmap/memo_select_all_selected"/>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

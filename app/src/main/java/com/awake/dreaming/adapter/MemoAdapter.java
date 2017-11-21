@@ -6,35 +6,45 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.awake.dreaming.R;
 import com.awake.dreaming.activity.HasMemoActivity;
+import com.awake.dreaming.datas.MemoDatas;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by wangdesheng on 2017/11/18 0018.
+ *
  */
 
 public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
     private Context context;
+    private ArrayList<MemoDatas> list;
     private LongClickListener longClickListener;
     private OnItemClickListener itemClickListener;
+    private OnCheckChangeListener checkChangeListener;
     public HashMap<Integer, Integer> visibleCheck;
+    public HashMap<Integer, Boolean> isCheck;
 
     @SuppressLint("UseSparseArrays")
-    public MemoAdapter(HasMemoActivity context) {
+    public MemoAdapter(HasMemoActivity context, ArrayList<MemoDatas> list) {
         this.context = context;
+        this.list = list;
         visibleCheck = new HashMap<>();
-        for (int i = 0; i < 8; i++) {
+        isCheck = new HashMap<>();
+        for (int i = 0; i < list.size(); i++) {
             visibleCheck.put(i, CheckBox.GONE);
+            isCheck.put(i, false);
         }
     }
 
@@ -49,7 +59,22 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final MemoAdapter.ViewHolder holder, final int position) {
 
-        holder.checkBox.setVisibility(visibleCheck.get(position));
+        holder.checkBox.setChecked(isCheck.get(position));
+
+        TranslateAnimation showAnimation = getAnimation(1.5f, 0.0f, 0.0f, 0.0f);
+        TranslateAnimation hiddenAnimation = getAnimation(0.0f, 1.5f, 0.0f, 0.0f);
+
+        if (visibleCheck.get(position) == CheckBox.VISIBLE) {
+            //holder.checkBox.startAnimation(showAnimation);
+            holder.checkBox.setVisibility(visibleCheck.get(position));
+        }else {
+            //holder.checkBox.startAnimation(hiddenAnimation);
+            holder.checkBox.setVisibility(visibleCheck.get(position));
+        }
+
+
+        holder.desc.setText(list.get(position).getDesc());
+
         holder.parent.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -64,11 +89,18 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
                 itemClickListener.itemClick(position, view, holder.checkBox);
             }
         });
+
+        holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                checkChangeListener.checkChange(position, compoundButton, b);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return 8;
+        return list.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -96,11 +128,28 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
         this.itemClickListener = itemClickListener;
     }
 
+    public void setOnCheckChangeListener(OnCheckChangeListener checkChangeListener) {
+        this.checkChangeListener = checkChangeListener;
+    }
+
     public interface LongClickListener {
         void longClick(int position, View view, CheckBox checkBox);
     }
 
     public interface OnItemClickListener {
         void itemClick(int position, View view, CheckBox checkBox);
+    }
+
+    public interface OnCheckChangeListener {
+        void checkChange(int position, CompoundButton compoundButton, boolean checked);
+    }
+
+    private TranslateAnimation getAnimation(float fromXValue, float toXValue,
+                                           float fromYValue, float toYValue ) {
+        TranslateAnimation animation = new TranslateAnimation(Animation.RELATIVE_TO_SELF, fromXValue,
+                Animation.RELATIVE_TO_SELF, toXValue, Animation.RELATIVE_TO_SELF, fromYValue,
+                Animation.RELATIVE_TO_SELF, toYValue);
+        animation.setDuration(500);
+        return animation;
     }
 }
