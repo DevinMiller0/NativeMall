@@ -10,6 +10,7 @@ import com.awake.dreaming.utils.StatusBarUtils;
 import com.awake.dreaming.widget.TopBar1;
 
 /**
+ *
  * Created by wangdesheng on 2017/10/10 0010.
  */
 
@@ -23,7 +24,7 @@ public class BusinessCardActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_card);
-        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
+        //overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }

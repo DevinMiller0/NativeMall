@@ -35,7 +35,7 @@
             <EditText
                 android:id="@+id/et_search_memo"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/public_45dp"
+                android:layout_height="@dimen/public_35dp"
                 android:layout_weight="1"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"

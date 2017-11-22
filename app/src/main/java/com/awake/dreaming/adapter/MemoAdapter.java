@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by wangdesheng on 2017/11/18 0018.
  *
+ * Created by wangdesheng on 2017/11/18 0018.
  */
 
 public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
@@ -89,8 +89,8 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                checkChangeListener.checkChange(position, compoundButton, b);
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                checkChangeListener.checkChange(position, compoundButton, checked);
             }
         });
     }

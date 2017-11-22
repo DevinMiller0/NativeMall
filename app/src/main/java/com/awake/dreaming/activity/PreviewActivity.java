@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 
 /**
  * Created by wangdesheng on 2017/11/13 0013.
+ *
  */
 
 public class PreviewActivity extends BaseActivity {

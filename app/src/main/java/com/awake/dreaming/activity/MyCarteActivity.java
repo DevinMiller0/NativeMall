@@ -42,7 +42,7 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_carte);
-        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
+        //overridePendingTransition(R.anim.animation_y_on, R.anim.animation_y_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }

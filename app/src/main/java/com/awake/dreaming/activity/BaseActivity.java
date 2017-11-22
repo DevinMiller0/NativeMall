@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.awake.dreaming.R;
+
 /**
  * Created by wangdesheng on 2017/10/23 0023.
  */
@@ -16,6 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
         setLayout();
+        overridePendingTransition(R.anim.animation_y_on, R.anim.animation_x_off);
     }
 
     @Override
@@ -28,11 +31,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         //onViewTouch(view, motionEvent);
         return onViewTouch(view, motionEvent);
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, R.anim.animation_y_off);
+    }
+
     protected abstract int getLayout();
     protected abstract void setLayout();
     protected abstract void onViewClick(View view);
     protected boolean onViewTouch(View view, MotionEvent motionEvent){
         return false;
     }
-
 }

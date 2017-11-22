@@ -25,7 +25,7 @@ public class NoMemoActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memo);
-        overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
+        //overridePendingTransition(R.anim.animation_x_on, R.anim.animation_x_off);
         StatusBarUtils.transparentStatusBar(this);
         initView();
     }
@@ -51,12 +51,6 @@ public class NoMemoActivity extends AppCompatActivity implements View.OnClickLis
                 return true;
             }
         });
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        //overridePendingTransition(0, R.anim.animation_x_off);
     }
 
     @Override

@@ -20,46 +20,76 @@
         android:textColor="@color/colorFeedback"/>
 
     <CheckBox
+        android:id="@+id/checkBox"
+        style="@style/CheckBoxTheme"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginLeft="@dimen/public_20dp"
-        android:text="不能获取定位"/>
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textColor="#797979"
+        android:textSize="@dimen/public_size_18"
+        android:text="不能获取定位" />
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginLeft="@dimen/public_20dp"
+        style="@style/CheckBoxTheme"
         android:layout_weight="1"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textSize="@dimen/public_size_18"
+        android:textColor="#797979"
         android:text="定位超过3米"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginLeft="@dimen/public_20dp"
+        style="@style/CheckBoxTheme"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textColor="#797979"
+        android:textSize="@dimen/public_size_18"
         android:text="定位延时超过3秒"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
+        style="@style/CheckBoxTheme"
         android:layout_marginLeft="@dimen/public_20dp"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textColor="#797979"
+        android:textSize="@dimen/public_size_18"
         android:text="地图拖拽响应超过3秒"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
+        style="@style/CheckBoxTheme"
         android:layout_marginLeft="@dimen/public_20dp"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textColor="#797979"
+        android:textSize="@dimen/public_size_18"
         android:text="路线规划不合理"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginLeft="@dimen/public_20dp"
+        style="@style/CheckBoxTheme"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textColor="#797979"
+        android:textSize="@dimen/public_size_18"
         android:text="名片拍照识别不正确超过2项"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginLeft="@dimen/public_20dp"
+        style="@style/CheckBoxTheme"
+        android:paddingLeft="@dimen/public_15dp"
+        android:textColor="#797979"
+        android:textSize="@dimen/public_size_18"
         android:text="楼层切换响应超过3秒"/>
 
     <LinearLayout
