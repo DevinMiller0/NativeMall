@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="270dp"
+        android:layout_height="130dp"
+        android:background="@drawable/bg_pic_dialog_shadow"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/public_20dp"
+            android:paddingTop="@dimen/public_20dp"
+            android:text="确定删除所选备忘记录？"
+            android:textSize="@dimen/public_size_18"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:padding="@dimen/public_20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/bg_button_memo"
+                android:layout_marginRight="@dimen/public_35dp"
+                android:textColor="@color/colorWhite"
+                android:text="再留会"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/public_35dp"
+                android:background="@drawable/bg_button_memo"
+                android:textColor="@color/colorWhite"
+                android:text="删除"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

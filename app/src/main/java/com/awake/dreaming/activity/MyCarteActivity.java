@@ -1,13 +1,10 @@
 package com.awake.dreaming.activity;
 
 import android.graphics.Color;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,7 +14,6 @@ import com.awake.dreaming.R;
 import com.awake.dreaming.fragment.BusinessCardFragment;
 import com.awake.dreaming.fragment.MyCardFragment;
 import com.awake.dreaming.utils.StatusBarUtils;
-import com.awake.dreaming.widget.TabView;
 import com.awake.dreaming.widget.TopBar1;
 
 import java.util.ArrayList;
@@ -27,25 +23,14 @@ import java.util.List;
  * Created by wangdesheng on 2017/10/10 0010.
  */
 
-public class MyCarteActivity extends AppCompatActivity implements View.OnClickListener {
+public class MyCarteActivity extends BaseActivity {
 
     private List<Fragment> fragments;
-    private ViewPager viewPager;
-    private TabView tab;
 
     private TextView tvMyCard;
     private TextView tvBusinessCard;
     private TextView tvMyIndicator;
     private TextView tvBusinessIndicator;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_carte);
-        //overridePendingTransition(R.anim.animation_y_on, R.anim.animation_y_off);
-        StatusBarUtils.transparentStatusBar(this);
-        initView();
-    }
 
     private void initView() {
         TopBar1 topBar1 = (TopBar1) findViewById(R.id.my_carte_topBar);
@@ -62,7 +47,7 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
         fragments.add(new MyCardFragment());
         fragments.add(new BusinessCardFragment());
 
-        viewPager = (ViewPager) findViewById(R.id.vp_card);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.vp_card);
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager()));
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -107,7 +92,18 @@ public class MyCarteActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View view) {
+    protected int getLayout() {
+        return R.layout.activity_my_carte;
+    }
+
+    @Override
+    protected void setLayout() {
+        StatusBarUtils.transparentStatusBar(this);
+        initView();
+    }
+
+    @Override
+    protected void onViewClick(View view) {
         switch (view.getId()){
             case R.id.topbar_back:{
                 finish();
