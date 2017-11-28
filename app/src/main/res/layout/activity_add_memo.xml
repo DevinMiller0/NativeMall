@@ -35,13 +35,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/public_10dp"
-        android:layout_marginRight="@dimen/public_10dp">
+        android:layout_marginRight="@dimen/public_10dp"
+        android:background="@drawable/bg_add_memo">
 
         <EditText
             android:id="@+id/et_memo_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/public_15dp"
+            android:paddingTop="@dimen/public_5dp"
             android:background="@null"
             android:textSize="@dimen/public_size_25"
             android:textCursorDrawable="@null"
@@ -52,20 +54,28 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorTheme"
-            android:layout_margin="@dimen/public_10dp"
+            android:layout_margin="@dimen/public_5dp"
             android:layout_below="@+id/et_memo_title"/>
 
-        <EditText
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/divider">
+
+        <com.awake.dreaming.widget.MemoEditText
             android:id="@+id/et_memo_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="textMultiLine"
             android:gravity="top"
             android:background="@null"
-            android:layout_below="@+id/divider"
-            android:paddingLeft="@dimen/public_15dp"
+            android:layout_marginLeft="@dimen/public_10dp"
+            android:layout_marginRight="@dimen/public_10dp"
             android:textSize="@dimen/public_size_20"
             android:textCursorDrawable="@null"
             android:hint="内容"/>
+
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="wrap_content"

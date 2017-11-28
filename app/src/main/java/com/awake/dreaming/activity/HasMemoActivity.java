@@ -200,7 +200,6 @@ public class HasMemoActivity extends BaseActivity {
             }
 
             case R.id.img_memo_batch_delete: {
-                int size = list.size();
                 if (getSelectAll()) {
                     list.clear();
                     batchSelectAll.setImageResource(R.mipmap.memo_select_all_selected);

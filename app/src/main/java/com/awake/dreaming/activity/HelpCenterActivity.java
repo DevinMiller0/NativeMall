@@ -2,7 +2,6 @@ package com.awake.dreaming.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.awake.dreaming.R;
@@ -56,40 +55,41 @@ public class HelpCenterActivity extends BaseActivity {
                 "4.3备忘录中怎么插入语音？",
                 "4.4怎么导航去备忘录中记录的商铺？",
                 "4.5怎么分享备忘录给朋友？",
-                "",
-                "",
-                "",
-                ""
+                "名片夹",
+                "5.1怎么保存名片？",
+                "5.2怎么导航去名片中的商铺",
+                "5.3怎么分享名片给好友",
+                "5.4名片分享给好友后，对方能保存名片吗？",
+                "足迹",
+                "6.1足迹是什么？",
+                "中英文切换",
+                "7.1怎么进行中英文切换？",
+                "其它",
+                "8.1如果我换了手机还能看到我的名片夹、备忘录、以及收藏的店铺吗？",
         };
-        HelpCenterData data = new HelpCenterData();
+
         list = new ArrayList<>();
-        int title[] = {0, 5, 7, 9};
+        int title[] = {0, 5, 7, 9, 15, 20, 22, 24};
         for (int i = 0; i < content.length; i++) {
-
-
-            for (int t = 0; t < title.length; t++) {
-                if (i == title[t]) {
+            HelpCenterData data = new HelpCenterData();
+            for (int aTitle : title) {
+                if (i == aTitle) {
                     data.setIsTitle(0);
+                    break;
                 } else {
                     data.setIsTitle(1);
                 }
-                data.setContent(content[i]);
             }
-            //data.setContent(content[i]);
+            data.setContent(content[i]);
             list.add(data);
         }
-
-        for (int k = 0; k < list.size(); k++) {
-            Log.e(TAG, "initView: " + data.getIsTitle() );
-        }
-
         HelpCenterAdapter adapter = new HelpCenterAdapter(list);
         helpView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         helpView.setAdapter(adapter);
     }
 
     @Override
-    protected void onViewClick(View view) {
+    protected void onViewClick(View view)  {
         switch (view.getId()){
             case R.id.topbar_back:{
                 finish();
