@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/voice_dialog_container"
+        android:layout_width="280dp"
+        android:layout_height="300dp"
+        android:background="@mipmap/record_normal_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_record_name_time"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/public_35dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_record_after"
+                style="@style/public_match_wrap"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/public_20dp"
+                android:layout_marginRight="@dimen/public_20dp">
+
+                <TextView
+                    android:id="@+id/tv_voice_format"
+                    style="@style/public_double_wrap"
+                    android:layout_alignParentRight="true"
+                    android:text=".wav"/>
+
+                <EditText
+                    android:id="@+id/et_voice_name"
+                    style="@style/public_match_wrap"
+                    android:background="@null" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_below="@+id/et_voice_name"
+                    android:layout_toLeftOf="@+id/tv_voice_format"
+                    android:background="@color/colorTheme"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_record_time"
+                style="@style/public_double_wrap"
+                android:layout_marginTop="@dimen/public_15dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="@dimen/public_size_30"
+                android:text="00:00"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/public_45dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/ib_rerecord_voice"
+                style="@style/public_double_wrap"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/public_10dp"
+                android:src="@mipmap/icon_reload"/>
+
+            <ImageButton
+                android:id="@+id/ib_record_start"
+                style="@style/public_double_wrap"
+                android:layout_weight="1"
+                android:src="@mipmap/btn_record_normal"/>
+
+            <ImageButton
+                android:id="@+id/ib_cancel_record"
+                style="@style/public_double_wrap"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/public_10dp"
+                android:src="@mipmap/icon_off"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
