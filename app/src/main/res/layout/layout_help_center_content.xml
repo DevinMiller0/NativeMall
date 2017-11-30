@@ -5,8 +5,7 @@
 
     <TextView
         android:id="@+id/item_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/public_wrap_match"
         android:padding="@dimen/public_13dp"/>
 
 </LinearLayout>

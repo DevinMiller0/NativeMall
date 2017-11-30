@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/public_double_match"
     android:orientation="vertical">
 
     <com.awake.dreaming.widget.TopBar1
         android:id="@+id/business_card_topBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/public_double_match"
         app:titleText="名片夹"/>
-
 </LinearLayout>

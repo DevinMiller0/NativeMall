@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.awake.dreaming.R;
 import com.awake.dreaming.widget.MemoEditText;
 import com.awake.dreaming.widget.PicDialog;
+import com.awake.dreaming.widget.RecordDialog;
 import com.awake.dreaming.widget.TopBar;
 
 import java.io.File;
@@ -89,7 +90,7 @@ public class AddMemoActivity extends BaseActivity {
                 break;
             }
             case R.id.img_memo_voice:{
-                Toast.makeText(this, "record voice", Toast.LENGTH_SHORT).show();
+                recordDialog();
                 break;
             }
         }
@@ -113,6 +114,27 @@ public class AddMemoActivity extends BaseActivity {
             }
         });
         picDialog.show();
+    }
+
+    private void recordDialog() {
+        final RecordDialog dialog = new RecordDialog(this);
+        dialog.setOnDialogEvent(new RecordDialog.DialogClickListener() {
+            @Override
+            public void reRecordClick(View view) {
+
+            }
+
+            @Override
+            public void startClick(View view) {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void closeClick(View view) {
+
+            }
+        });
+        dialog.show();
     }
 
     private void openCamera() {

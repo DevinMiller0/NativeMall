@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/public_double_match"
     android:orientation="vertical">
 
     <com.awake.dreaming.widget.TopBar
@@ -20,14 +19,12 @@
         android:layout_weight="2.5">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            style="@style/public_double_match"
             android:scaleType="centerCrop"
             android:src="@mipmap/picture_memo_banner"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/public_match_wrap"
             android:background="@drawable/bg_memo_search"
             android:layout_margin="@dimen/public_8dp"
             android:orientation="horizontal">
@@ -45,8 +42,7 @@
 
             <ImageView
                 android:id="@+id/img_search_memo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/public_double_wrap"
                 android:layout_marginRight="@dimen/public_15dp"
                 android:src="@mipmap/btn_search_memo"
                 android:layout_gravity="center"/>
@@ -62,8 +58,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_memo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            style="@style/public_double_match"/>
 
         <ImageView
             android:id="@+id/img_add_memo"
@@ -77,8 +72,7 @@
 
         <LinearLayout
             android:id="@+id/ll_btn_batch_manager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/public_match_wrap"
             android:animateLayoutChanges="false"
             android:paddingTop="@dimen/public_10dp"
             android:paddingBottom="@dimen/public_10dp"

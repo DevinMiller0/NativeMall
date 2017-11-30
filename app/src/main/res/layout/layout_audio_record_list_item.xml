@@ -12,7 +12,7 @@
         android:layout_margin="@dimen/public_5dp"
         android:src="@mipmap/icon_recordfile"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -22,24 +22,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingTop="@dimen/public_3dp"
             android:text="201711281715"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="@dimen/public_3dp"
             android:text="8kb"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:layout_gravity="center"
+        android:padding="@dimen/public_10dp"
         android:src="@mipmap/btn_play_selected"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@null"
+        android:layout_gravity="center"
+        android:padding="@dimen/public_15dp"
         android:src="@mipmap/btn_close_selected"/>
 </LinearLayout>

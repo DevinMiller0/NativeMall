@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/folder_item_parent"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    style="@style/public_match_wrap"
     android:layout_marginTop="0.3dp"
     android:layout_marginBottom="0.3dp"
     android:background="@color/colorWhite">
@@ -15,27 +14,23 @@
         android:background="@color/colorTheme"
         android:elevation="1dip"
         android:translationZ="@dimen/public_2dp" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/public_double_match"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_folder_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/public_match_wrap"
             android:layout_gravity="center_vertical"
             android:textSize="@dimen/public_size_20"
             android:text="news_article" />
         <TextView
             android:id="@+id/tv_folder_count"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/public_match_wrap"
             android:layout_gravity="center_vertical"
             android:textSize="@dimen/public_size_15"
             android:text="xxx张"/>
-
     </LinearLayout>
-
 </LinearLayout>
