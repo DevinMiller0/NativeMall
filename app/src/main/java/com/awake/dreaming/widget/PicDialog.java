@@ -37,7 +37,7 @@ public class PicDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_pic_dialog);
-        setCancelable(false);
+        //setCancelable(false);
         initView();
         initData();
         initEvent();

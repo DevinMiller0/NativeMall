@@ -3,7 +3,9 @@ package com.awake.dreaming.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -12,7 +14,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -36,6 +40,7 @@ public class AddMemoActivity extends BaseActivity {
     private MemoEditText content;
     private final int REQUEST_CAMERA_CODE = 0;
     private final int TAKE_PHOTO_CODE = 1;
+    private final int CHOOSE_PHOTO_CODE = 2;
     private Uri uri;
     private File file;
     private final String TAG = "AddMemoActivity";
@@ -79,7 +84,7 @@ public class AddMemoActivity extends BaseActivity {
 //            }
 //        });
         //content.insertPic(R.mipmap.timg);
-        content.insertPic(this, R.mipmap.timg);
+
     }
 
     @Override
@@ -109,7 +114,8 @@ public class AddMemoActivity extends BaseActivity {
         picDialog.setOnCancelClickListener(new PicDialog.OnCancelClickListener() {
             @Override
             public void onCancelListener(View view) {
-                startActivity(new Intent(AddMemoActivity.this, ImageSelectorActivity.class));
+//                startActivity(new Intent(AddMemoActivity.this, ImageSelectorActivity.class));
+                openAlbum();
                 picDialog.dismiss();
             }
         });
@@ -158,6 +164,13 @@ public class AddMemoActivity extends BaseActivity {
         }
     }
 
+    private void openAlbum() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI, "image/*");
+        intent.setType("image/*");
+        startActivityForResult(intent, CHOOSE_PHOTO_CODE);
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -181,8 +194,76 @@ public class AddMemoActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == TAKE_PHOTO_CODE && resultCode == RESULT_OK) {
-            content.insert(BitmapFactory.decodeFile(file.getAbsolutePath()));
+
+        if (requestCode != RESULT_CANCELED) {
+            switch (requestCode) {
+                case TAKE_PHOTO_CODE: {
+                    content.setText("\n");
+                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+                    content.insert(modifyBitmap(bitmap));
+                    break;
+                }
+                case CHOOSE_PHOTO_CODE: {
+//                    Bitmap bitmap = data.getExtras().getParcelable("data");
+//                    content.setText("\n");
+//                    content.insert(modifyBitmap(bitmap));
+                    break;
+                }
+
+            }
         }
+
+//        if (requestCode == TAKE_PHOTO_CODE && resultCode == RESULT_OK) {
+//
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    content.setText("\n");
+//                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+//                    content.insert(modifyBitmap(bitmap));
+//                    //content.setSelection(content.getText().length());
+//                }
+//            }, 500);
+//        }
+    }
+
+    private Bitmap modifyBitmap(Bitmap bitmap) {
+        WindowManager manager = (WindowManager) this.getSystemService(WINDOW_SERVICE);
+        Display display = manager.getDefaultDisplay();
+        int displayW = display.getWidth();
+        //int displayH = display.getHeight();
+
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+
+//        float scaleWidth;
+//        float scaleHeight;
+//        scaleWidth = ((float) displayW / width);
+//        scaleHeight = ((float) displayH / height);
+
+        Matrix matrix = new Matrix();
+        switch (displayW) {
+            case 1080: {
+                if (width > height) {
+                    matrix.postScale(0.73f, 0.61f);
+                }else {
+                    matrix.postScale(0.9f, 0.9f);
+                }
+                break;
+            }
+            case 720: {
+                if (width > height) {
+                    matrix.postScale(0.73f, 0.61f);
+                }else {
+                    matrix.postScale(0.55f, 0.56f);
+                }
+                break;
+            }
+        }
+
+        Bitmap newBitmap;
+
+        newBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        return newBitmap;
     }
 }
