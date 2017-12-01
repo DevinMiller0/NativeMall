@@ -1,11 +1,14 @@
 package com.awake.dreaming.activity;
 
 import android.Manifest;
+import android.animation.Animator;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -14,10 +17,15 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.awake.dreaming.R;
@@ -27,6 +35,7 @@ import com.awake.dreaming.widget.RecordDialog;
 import com.awake.dreaming.widget.TopBar;
 
 import java.io.File;
+import java.io.IOException;
 
 import static android.os.Build.VERSION_CODES.M;
 
@@ -37,13 +46,21 @@ import static android.os.Build.VERSION_CODES.M;
 
 public class AddMemoActivity extends BaseActivity {
 
+    private ScrollView scrollContainer;
     private MemoEditText content;
+    private EditText etTitle;
     private final int REQUEST_CAMERA_CODE = 0;
     private final int TAKE_PHOTO_CODE = 1;
     private final int CHOOSE_PHOTO_CODE = 2;
     private Uri uri;
     private File file;
     private final String TAG = "AddMemoActivity";
+
+    private String flag = "start";
+    private String START = "start";
+    private String RECORDING = "recording";
+    private String RECORD_COMPLETE = "complete";
+    private MediaRecorder mediaRecorder;
 
     @Override
     protected int getLayout() {
@@ -75,15 +92,28 @@ public class AddMemoActivity extends BaseActivity {
         final LinearLayout search = (LinearLayout) findViewById(R.id.ll_association);
         findViewById(R.id.img_memo_camera).setOnClickListener(this);
         findViewById(R.id.img_memo_voice).setOnClickListener(this);
+        etTitle = (EditText) findViewById(R.id.et_memo_title);
+        etTitle.clearFocus();
+        scrollContainer = (ScrollView) findViewById(R.id.scroll_container);
         content = (MemoEditText) findViewById(R.id.et_memo_content);
         content.setSingleLine(false);
+
+        scrollContainer.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
+                Log.e(TAG, "onScrollChange i: " + i );
+                Log.e(TAG, "onScrollChange i1: " + i1 );
+                Log.e(TAG, "onScrollChange i2: " + i2 );
+                Log.e(TAG, "onScrollChange i3: " + i3 );
+            }
+        });
+
 //        content.setOnScrollChangeListener(new View.OnScrollChangeListener() {
 //            @Override
 //            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
 //                search.setVisibility(View.GONE);
 //            }
 //        });
-        //content.insertPic(R.mipmap.timg);
 
     }
 
@@ -131,8 +161,48 @@ public class AddMemoActivity extends BaseActivity {
             }
 
             @Override
-            public void startClick(View view) {
-                dialog.dismiss();
+            public void startClick(View view, ImageButton imgBtn) {
+                int centerX = (view.getLeft() + view.getRight()) / 2;
+                int centerY = (view.getTop() + view.getBottom()) / 2;
+
+                //float finalRadius = (float) Math.hypot((double) centerX, (double) centerY);
+                int w = imgBtn.getWidth();
+                int h = imgBtn.getHeight();
+                Animator mCircularReveal = ViewAnimationUtils.createCircularReveal(
+                        imgBtn, w / 2, h / 2 - 20, 0, 100);
+                mCircularReveal.setDuration(300).start();
+                switch (flag) {
+                    case "start": {
+                        imgBtn.setImageDrawable(getDrawable(R.mipmap.btn_record_pressed));
+                        if (Build.VERSION.SDK_INT >= M) {
+                            int micPermission = ContextCompat.checkSelfPermission
+                                    (getApplication(), Manifest.permission.RECORD_AUDIO);
+                            if (micPermission == PackageManager.PERMISSION_GRANTED) {
+                                recordVoice();
+                            }else {
+                                ActivityCompat.requestPermissions(AddMemoActivity.this,
+                                        new String[]{Manifest.permission.RECORD_AUDIO},
+                                        REQUEST_CAMERA_CODE);
+                            }
+                        }
+                        flag = "recording";
+                        break;
+                    }
+                    case "recording": {
+                        imgBtn.setImageDrawable(getDrawable(R.mipmap.btn_record_finish));
+
+
+                        mediaRecorder.stop();
+                        flag = "complete";
+                        break;
+                    }
+                    case "complete": {
+                        imgBtn.setImageDrawable(getDrawable(R.mipmap.btn_record_normal));
+                        flag = "start";
+                        dialog.dismiss();
+                        break;
+                    }
+                }
             }
 
             @Override
@@ -171,6 +241,21 @@ public class AddMemoActivity extends BaseActivity {
         startActivityForResult(intent, CHOOSE_PHOTO_CODE);
     }
 
+    private void recordVoice() {
+        mediaRecorder = new MediaRecorder();
+        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mediaRecorder.setOutputFile(String.valueOf(MediaRecorder.OutputFormat.DEFAULT));
+        //mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_WB);
+        try {
+            File file = File.createTempFile("record_", ".amr");
+            mediaRecorder.setOutputFile(file.getAbsolutePath());
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -195,36 +280,33 @@ public class AddMemoActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode != RESULT_CANCELED) {
+        Log.e(TAG, "requestCode: " + requestCode );
+        Log.e(TAG, "resultCode: " + resultCode );
+
+        if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case TAKE_PHOTO_CODE: {
-                    content.setText("\n");
+                    //content.setText("\n");
                     Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     content.insert(modifyBitmap(bitmap));
+                    //content.setSelection(content.getText().length());
                     break;
                 }
                 case CHOOSE_PHOTO_CODE: {
-//                    Bitmap bitmap = data.getExtras().getParcelable("data");
-//                    content.setText("\n");
-//                    content.insert(modifyBitmap(bitmap));
+                    Uri imgUri = data.getData();
+                    String[] filePathColumns = {MediaStore.Images.Media.DATA};
+                    Cursor cursor = getContentResolver().query(imgUri, filePathColumns, null, null, null);
+                    cursor.moveToFirst();
+                    int columnIndex = cursor.getColumnIndex(filePathColumns[0]);
+                    String path = cursor.getString(columnIndex);
+                    cursor.close();
+
+                    Bitmap bitmap = BitmapFactory.decodeFile(path);
+                    content.insert(bitmap);
                     break;
                 }
-
             }
         }
-
-//        if (requestCode == TAKE_PHOTO_CODE && resultCode == RESULT_OK) {
-//
-//            new Handler().postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    content.setText("\n");
-//                    Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-//                    content.insert(modifyBitmap(bitmap));
-//                    //content.setSelection(content.getText().length());
-//                }
-//            }, 500);
-//        }
     }
 
     private Bitmap modifyBitmap(Bitmap bitmap) {

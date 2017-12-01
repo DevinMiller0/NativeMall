@@ -19,6 +19,7 @@ import com.awake.dreaming.datas.MemoDatas;
 import com.awake.dreaming.widget.TopBar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *Created by wangdesheng on 2017/11/18 0018.
@@ -194,6 +195,7 @@ public class HasMemoActivity extends BaseActivity {
             }
 
             case R.id.img_add_memo: {
+
                 Intent intent = new Intent(HasMemoActivity.this, AddMemoActivity.class);
                 startActivity(intent);
                 break;
@@ -204,11 +206,13 @@ public class HasMemoActivity extends BaseActivity {
                     list.clear();
                     batchSelectAll.setImageResource(R.mipmap.memo_select_all_selected);
                 }else {
+                    List<MemoDatas> del = new ArrayList<>();
                     for (int i = 0; i < list.size(); i++) {
                         if (list.get(i).getChosen()) {
-                            list.remove(i);
+                            del.add(list.get(i));
                         }
                     }
+                    list.removeAll(del);
                 }
                 adapter.notifyDataSetChanged();
                 break;

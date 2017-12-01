@@ -6,7 +6,6 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
-import android.util.Log;
 
 /**
  *
@@ -28,17 +27,18 @@ public class MemoEditText extends android.support.v7.widget.AppCompatEditText {
 
     public void insert(Bitmap bitmap) {
         int index = getSelectionStart();
-        SpannableString ss = new SpannableString("     \n");
+        SpannableString ss = new SpannableString("    \n");
         ImageSpan span = new ImageSpan(bitmap);
-        ss.setSpan(span, 2, "     \n".length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-        if (getText().equals("") || getText() == null) {
-            append(ss);
-        }else {
-            Log.e("TAG", "insert: ----------------------------------------------------" );
-            Log.e("TAG", "insert: ----------------------------------------------------" );
-            Log.e("TAG", "insert: ----------------------------------------------------" );
-            Log.e("TAG", "insert: ----------------------------------------------------" );
-            getEditableText().insert(index, ss);
-        }
+        ss.setSpan(span, 2, "    \n".length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+        append(ss);
+//        if (getText().equals("") || getText() == null) {
+//
+//        }else {
+//            Log.e("TAG", "insert: ----------------------------------------------------" );
+//            Log.e("TAG", "insert: ----------------------------------------------------" );
+//            Log.e("TAG", "insert: ----------------------------------------------------" );
+//            Log.e("TAG", "insert: ----------------------------------------------------" );
+//            getEditableText().insert(index, ss);
+//        }
     }
 }

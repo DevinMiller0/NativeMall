@@ -16,21 +16,21 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingTop="@dimen/public_35dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/public_35dp">
 
             <RelativeLayout
                 android:id="@+id/rl_record_after"
                 style="@style/public_match_wrap"
-                android:visibility="gone"
                 android:layout_marginLeft="@dimen/public_20dp"
-                android:layout_marginRight="@dimen/public_20dp">
+                android:layout_marginRight="@dimen/public_20dp"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_voice_format"
                     style="@style/public_double_wrap"
                     android:layout_alignParentRight="true"
-                    android:text=".wav"/>
+                    android:text=".wav" />
 
                 <EditText
                     android:id="@+id/et_voice_name"
@@ -42,17 +42,17 @@
                     android:layout_height="0.5dp"
                     android:layout_below="@+id/et_voice_name"
                     android:layout_toLeftOf="@+id/tv_voice_format"
-                    android:background="@color/colorTheme"/>
+                    android:background="@color/colorTheme" />
 
             </RelativeLayout>
 
             <TextView
                 android:id="@+id/tv_record_time"
                 style="@style/public_double_wrap"
-                android:layout_marginTop="@dimen/public_15dp"
                 android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/public_size_30"
-                android:text="00:00"/>
+                android:layout_marginTop="@dimen/public_15dp"
+                android:text="00:00"
+                android:textSize="@dimen/public_size_30" />
 
         </LinearLayout>
 
@@ -60,28 +60,28 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingTop="@dimen/public_45dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingTop="@dimen/public_45dp">
 
             <ImageButton
                 android:id="@+id/ib_rerecord_voice"
                 style="@style/public_double_wrap"
                 android:layout_weight="1"
                 android:paddingLeft="@dimen/public_10dp"
-                android:src="@mipmap/icon_reload"/>
+                android:src="@mipmap/icon_reload" />
 
             <ImageButton
                 android:id="@+id/ib_record_start"
                 style="@style/public_double_wrap"
                 android:layout_weight="1"
-                android:src="@mipmap/btn_record_normal"/>
+                android:src="@mipmap/btn_record_normal" />
 
             <ImageButton
                 android:id="@+id/ib_cancel_record"
                 style="@style/public_double_wrap"
                 android:layout_weight="1"
                 android:paddingRight="@dimen/public_10dp"
-                android:src="@mipmap/icon_off"/>
+                android:src="@mipmap/icon_off" />
 
         </LinearLayout>
 

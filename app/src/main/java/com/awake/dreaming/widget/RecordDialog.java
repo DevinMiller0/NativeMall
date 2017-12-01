@@ -66,7 +66,6 @@ public class RecordDialog extends Dialog {
         int width = display.getWidth();
         container.setLayoutParams(new LinearLayout.LayoutParams(width * 3 / 4, width * 3 / 4));
 
-        //RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) topContainer.getLayoutParams();
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) topContainer.getLayoutParams();
         params.topMargin = (width * 3 / 64);
     }
@@ -82,7 +81,7 @@ public class RecordDialog extends Dialog {
         startRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.startClick(v);
+                listener.startClick(v, startRecord);
                 TranslateAnimation animation = getAnimation(0.0f, 0.0f, -5.0f, 0.0f);
                 editorName.setAnimation(animation);
                 editorName.setVisibility(View.VISIBLE);
@@ -105,7 +104,7 @@ public class RecordDialog extends Dialog {
 
     public interface DialogClickListener {
         void reRecordClick(View view);
-        void startClick(View view);
+        void startClick(View view, ImageButton imgBtn);
         void closeClick(View view);
     }
 
