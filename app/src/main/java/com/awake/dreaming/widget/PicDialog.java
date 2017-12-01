@@ -67,9 +67,9 @@ public class PicDialog extends Dialog {
     }
 
     private void initView() {
-        container = findViewById(R.id.dialog_container);
-        define = findViewById(R.id.tv_define);
-        cancel = findViewById(R.id.tv_cancel);
+        container = (LinearLayout) findViewById(R.id.dialog_container);
+        define = (TextView) findViewById(R.id.tv_define);
+        cancel = (TextView) findViewById(R.id.tv_cancel);
     }
 
     public void setOnDefineClickListener(OnDefineClickListener defineClickListener) {

@@ -81,7 +81,7 @@ public class HelpCenterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         TextView title;
         TitleHolder(View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.item_title);
+            title = (TextView) itemView.findViewById(R.id.item_title);
         }
     }
 
@@ -89,7 +89,7 @@ public class HelpCenterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         TextView content;
         ContentHolder(View itemView) {
             super(itemView);
-            content = itemView.findViewById(R.id.item_content);
+            content = (TextView) itemView.findViewById(R.id.item_content);
         }
     }
 }

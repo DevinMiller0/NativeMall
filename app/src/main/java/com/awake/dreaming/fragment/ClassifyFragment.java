@@ -37,7 +37,7 @@ public class ClassifyFragment extends BaseFragment {
     }
 
     private void initTopBar() {
-        TopBar topBar = getActivity().findViewById(R.id.top_bar);
+        TopBar topBar = (TopBar) getActivity().findViewById(R.id.top_bar);
         topBar.setTitle(getString(R.string.category_distribution));
         topBar.imgBack.setVisibility(View.INVISIBLE);
         topBar.setOnMoreClickListener(new TopBar.OnMoreClickListener() {
@@ -68,8 +68,8 @@ public class ClassifyFragment extends BaseFragment {
     }
 
     private void loading(){
-        lload = getActivity().findViewById(R.id.ll_loading);
-        imgLoad = getActivity().findViewById(R.id.img_loading);
+        lload = (LinearLayout) getActivity().findViewById(R.id.ll_loading);
+        imgLoad = (ImageView) getActivity().findViewById(R.id.img_loading);
         lload.setVisibility(View.VISIBLE);
         Animation myAlphaAnimation = new RotateAnimation(0f, 360f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         myAlphaAnimation.setRepeatCount(300);//设置旋转重复次数，即转几圈

@@ -52,14 +52,14 @@ public class RecordDialog extends Dialog {
     }
 
     private void initView() {
-        container = findViewById(R.id.voice_dialog_container);
-        topContainer = findViewById(R.id.ll_record_name_time);
-        recordName = findViewById(R.id.et_voice_name);
-        timer = findViewById(R.id.tv_record_time);
-        editorName = findViewById(R.id.rl_record_after);
-        reRecord = findViewById(R.id.ib_rerecord_voice);
-        startRecord = findViewById(R.id.ib_record_start);
-        close = findViewById(R.id.ib_cancel_record);
+        container = (LinearLayout) findViewById(R.id.voice_dialog_container);
+        topContainer = (LinearLayout) findViewById(R.id.ll_record_name_time);
+        recordName = (EditText) findViewById(R.id.et_voice_name);
+        timer = (TextView) findViewById(R.id.tv_record_time);
+        editorName = (RelativeLayout) findViewById(R.id.rl_record_after);
+        reRecord = (ImageButton) findViewById(R.id.ib_rerecord_voice);
+        startRecord = (ImageButton) findViewById(R.id.ib_record_start);
+        close = (ImageButton) findViewById(R.id.ib_cancel_record);
 
         WindowManager manager = (WindowManager) context.getSystemService(WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();

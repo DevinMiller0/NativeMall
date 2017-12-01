@@ -92,8 +92,8 @@ public class ImageSelectorAdapter extends RecyclerView.Adapter<ImageSelectorAdap
 
         private ViewHolder(View itemView) {
             super(itemView);
-            selectImg = itemView.findViewById(R.id.img_selected);
-            choose = itemView.findViewById(R.id.cb_choose);
+            selectImg = (ImageView) itemView.findViewById(R.id.img_selected);
+            choose = (CheckBox) itemView.findViewById(R.id.cb_choose);
             itemView.setLayoutParams(
                     new LinearLayout.LayoutParams(display.getWidth()/3, display.getWidth()/3));
         }

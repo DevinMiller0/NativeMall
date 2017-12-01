@@ -31,7 +31,7 @@ public class MyCardFragment extends BaseFragment {
     }
 
     private void initView() {
-        createBtn = getActivity().findViewById(R.id.tv_created);
+        createBtn = (TextView) getActivity().findViewById(R.id.tv_created);
         createBtn.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -51,18 +51,18 @@ public class MyCardFragment extends BaseFragment {
                 return true;
             }
         });
-        LinearLayout noCard = getActivity().findViewById(R.id.ll_no_card);
-        LinearLayout businessCard = getActivity().findViewById(R.id.ll_business_card);
+        LinearLayout noCard = (LinearLayout) getActivity().findViewById(R.id.ll_no_card);
+        LinearLayout businessCard = (LinearLayout) getActivity().findViewById(R.id.ll_business_card);
 
-        TextView cardName = getActivity().findViewById(R.id.tv_card_name);
-        TextView cardCompany = getActivity().findViewById(R.id.tv_card_company);
-        TextView cardOffice = getActivity().findViewById(R.id.tv_card_manager);
-        TextView cardMobile = getActivity().findViewById(R.id.tv_card_mobile);
-        TextView cardAddress = getActivity().findViewById(R.id.tv_card_location);
-        TextView cardEmail = getActivity().findViewById(R.id.tv_card_email);
+        TextView cardName = (TextView) getActivity().findViewById(R.id.tv_card_name);
+        TextView cardCompany = (TextView) getActivity().findViewById(R.id.tv_card_company);
+        TextView cardOffice = (TextView) getActivity().findViewById(R.id.tv_card_manager);
+        TextView cardMobile = (TextView) getActivity().findViewById(R.id.tv_card_mobile);
+        TextView cardAddress = (TextView) getActivity().findViewById(R.id.tv_card_location);
+        TextView cardEmail = (TextView) getActivity().findViewById(R.id.tv_card_email);
 
-        ImageView btnModifyCard = getActivity().findViewById(R.id.img_modify_card);
-        ImageView btnDeliveryCard = getActivity().findViewById(R.id.img_delivery_card);
+        ImageView btnModifyCard = (ImageView) getActivity().findViewById(R.id.img_modify_card);
+        ImageView btnDeliveryCard = (ImageView) getActivity().findViewById(R.id.img_delivery_card);
         btnModifyCard.setOnClickListener(this);
         btnDeliveryCard.setOnClickListener(this);
 

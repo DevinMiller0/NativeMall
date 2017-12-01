@@ -109,11 +109,11 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
         ViewHolder(View itemView) {
             super(itemView);
-            parent = itemView.findViewById(R.id.parent_item_memo);
-            imgMemo = itemView.findViewById(R.id.img_memo_list_item);
-            desc = itemView.findViewById(R.id.tv_remark);
-            time = itemView.findViewById(R.id.tv_created_time);
-            checkBox = itemView.findViewById(R.id.check_box);
+            parent = (LinearLayout) itemView.findViewById(R.id.parent_item_memo);
+            imgMemo = (ImageView) itemView.findViewById(R.id.img_memo_list_item);
+            desc = (TextView) itemView.findViewById(R.id.tv_remark);
+            time = (TextView) itemView.findViewById(R.id.tv_created_time);
+            checkBox = (CheckBox) itemView.findViewById(R.id.check_box);
         }
     }
 

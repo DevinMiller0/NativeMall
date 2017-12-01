@@ -81,13 +81,13 @@ public class PersonCenterFragment extends BaseFragment {
     }
 
     private void initView() {
-        LinearLayout collection = getActivity().findViewById(R.id.ll_collection);
-        LinearLayout cardHolder = getActivity().findViewById(R.id.ll_card_holder);
-        LinearLayout memo = getActivity().findViewById(R.id.ll_memo);
-        LinearLayout footPrint = getActivity().findViewById(R.id.ll_foot_print);
-        LinearLayout helpCenter = getActivity().findViewById(R.id.ll_help_center);
-        LinearLayout feedback = getActivity().findViewById(R.id.ll_feed_back);
-        LinearLayout aboutUs = getActivity().findViewById(R.id.ll_about_us);
+        LinearLayout collection = (LinearLayout) getActivity().findViewById(R.id.ll_collection);
+        LinearLayout cardHolder = (LinearLayout) getActivity().findViewById(R.id.ll_card_holder);
+        LinearLayout memo = (LinearLayout) getActivity().findViewById(R.id.ll_memo);
+        LinearLayout footPrint = (LinearLayout) getActivity().findViewById(R.id.ll_foot_print);
+        LinearLayout helpCenter = (LinearLayout) getActivity().findViewById(R.id.ll_help_center);
+        LinearLayout feedback = (LinearLayout) getActivity().findViewById(R.id.ll_feed_back);
+        LinearLayout aboutUs = (LinearLayout) getActivity().findViewById(R.id.ll_about_us);
 
         collection.setOnClickListener(this);
         cardHolder.setOnClickListener(this);

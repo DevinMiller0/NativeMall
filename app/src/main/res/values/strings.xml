@@ -11,4 +11,7 @@
     <string name="all_images">全部图片</string>
     <string name="preview">预览</string>
     <string name="complete">完成</string>
+    <string name="six_verify_code">6位</string>
+    <string name="category_distribution">品类分布</string>
+    <string name="navigation">导航</string>
 </resources>

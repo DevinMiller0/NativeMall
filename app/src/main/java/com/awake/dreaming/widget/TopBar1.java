@@ -37,9 +37,9 @@ public class TopBar1 extends RelativeLayout{
         ta.recycle();
 
         View.inflate(context, R.layout.layout_topbar, this);
-        titleText = findViewById(R.id.topbar_title);
-        titleBack = findViewById(R.id.topbar_back);
-        parent = findViewById(R.id.parent_layout);
+        titleText = (TextView) findViewById(R.id.topbar_title);
+        titleBack = (ImageView) findViewById(R.id.topbar_back);
+        parent = (RelativeLayout) findViewById(R.id.parent_layout);
 
         titleText.setText(title);
         titleText.setTextSize(titleSize);

@@ -30,7 +30,7 @@ public class BottomSheetFragment extends BaseFragment{
 
     @Override
     protected void setLayout() {
-        RecyclerView bottomSheet = getActivity().findViewById(R.id.recycler_bottom_sheet);
+        RecyclerView bottomSheet = (RecyclerView) getActivity().findViewById(R.id.recycler_bottom_sheet);
         bottomSheet.setLayoutManager(new LinearLayoutManager(getActivity()));
         //接收从ImageSelectorActivity传过来的list。
         Bundle bundle = getArguments();

@@ -24,7 +24,7 @@ public class NavigationFragment extends BaseFragment {
     }
 
     private void initTopBar() {
-        TopBar topBar = getActivity().findViewById(R.id.top_bar);
+        TopBar topBar = (TopBar) getActivity().findViewById(R.id.top_bar);
         topBar.setTitle(getString(R.string.navigation));
         topBar.imgBack.setVisibility(View.INVISIBLE);
         topBar.setOnBackClickListener(new TopBar.OnBackClickListener() {

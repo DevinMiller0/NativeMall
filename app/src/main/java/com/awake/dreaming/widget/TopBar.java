@@ -38,10 +38,10 @@ public class TopBar extends LinearLayout {
         ta.recycle();
 
         View.inflate(context, R.layout.layout_top_bar, this);
-        LinearLayout parent = findViewById(R.id.ll_parent);
-        imgBack = findViewById(R.id.img_back);
-        tvTitle = findViewById(R.id.tv_title);
-        imgMore = findViewById(R.id.img_more);
+        LinearLayout parent = (LinearLayout) findViewById(R.id.ll_parent);
+        imgBack = (ImageView) findViewById(R.id.img_back);
+        tvTitle = (TextView) findViewById(R.id.tv_title);
+        imgMore = (ImageView) findViewById(R.id.img_more);
 
         tvTitle.setText(title);
         tvTitle.setTextSize(size);
