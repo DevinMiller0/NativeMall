@@ -21,7 +21,6 @@ public class HelpCenterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public HelpCenterAdapter(ArrayList<HelpCenterData> list) {
         this.list = list;
-        //Log.e("TAG", "HelpCenterAdapter: " + list.size() );
     }
 
     @Override
@@ -48,8 +47,6 @@ public class HelpCenterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 //        Log.e("TAG", "onBindViewHolder: " + list.get(position).getIsTitle());
-//
-
         switch (getItemViewType(position)) {
             case 0: {
                 //Log.e("TAG", "onBindViewHolder: " + list.get(position).getContent());

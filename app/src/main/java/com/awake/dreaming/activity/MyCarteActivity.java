@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -83,6 +84,25 @@ public class MyCarteActivity extends BaseActivity {
 
             }
         });
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.e("TAG", "position: " + position );
+                Log.e("TAG", "positionOffset: " + positionOffset );
+                Log.e("TAG", "positionOffsetPixels: " + positionOffsetPixels );
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
@@ -114,7 +134,7 @@ public class MyCarteActivity extends BaseActivity {
 
     private class PageAdapter extends FragmentPagerAdapter{
 
-        public PageAdapter(FragmentManager fm) {
+        PageAdapter(FragmentManager fm) {
             super(fm);
         }
 

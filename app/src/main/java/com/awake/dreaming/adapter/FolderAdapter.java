@@ -60,7 +60,6 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                 itemClickListener.itemClick(position, folderList.get(position).getName());
             }
         });
-
     }
 
     @Override

@@ -24,7 +24,6 @@ import android.view.ViewAnimationUtils;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -89,7 +88,6 @@ public class AddMemoActivity extends BaseActivity {
             }
         });
 
-        final LinearLayout search = (LinearLayout) findViewById(R.id.ll_association);
         findViewById(R.id.img_memo_camera).setOnClickListener(this);
         findViewById(R.id.img_memo_voice).setOnClickListener(this);
         etTitle = (EditText) findViewById(R.id.et_memo_title);

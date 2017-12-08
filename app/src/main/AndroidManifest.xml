@@ -73,10 +73,7 @@
         <activity android:name="com.awake.dreaming.activity.ImageSelectorActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>
-        <activity android:name=".activity.AddMemoActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="keyboardHidden|orientation"
-            android:windowSoftInputMode="adjustNothing|stateHidden"/>
+        <activity android:name=".activity.AddMemoActivity"/>
         <activity android:name=".activity.LoginActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation"/>

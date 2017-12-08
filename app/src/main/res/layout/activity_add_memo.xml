@@ -13,29 +13,12 @@
         android:layout_height="1px"
         android:background="@color/colorLightGray"/>
 
-    <LinearLayout
-        android:id="@+id/ll_association"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/public_40dp"
-        android:layout_margin="@dimen/public_8dp"
-        android:background="@drawable/bg_memo_store">
-
-        <EditText
-            style="@style/public_double_match"
-            android:background="@null"
-            android:hint="关联店铺"
-            android:textCursorDrawable="@null"
-            android:paddingLeft="@dimen/public_15dp" />
-
-    </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/public_10dp"
-        android:layout_marginRight="@dimen/public_10dp"
-        android:background="@drawable/bg_add_memo"
-        android:layout_marginBottom="@dimen/public_10dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/public_8dp"
+        android:background="@drawable/bg_add_memo">
 
         <EditText
             android:id="@+id/et_memo_title"
@@ -97,8 +80,26 @@
 
         </LinearLayout>
 
-
-
     </RelativeLayout>
+
+    <RadioGroup
+        style="@style/public_match_wrap"
+        android:layout_marginBottom="@dimen/public_8dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <RadioButton
+            style="@style/RadioButtonAttrs"
+            android:text="商铺"/>
+        <RadioButton
+            style="@style/RadioButtonAttrs"
+            android:text="图片"/>
+        <RadioButton
+            style="@style/RadioButtonAttrs"
+            android:text="语音"/>
+        <RadioButton
+            style="@style/RadioButtonAttrs"
+            android:text="保存"/>
+    </RadioGroup>
 
 </LinearLayout>
